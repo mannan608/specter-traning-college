@@ -13,10 +13,10 @@
             <p class="text-slate-600 text-sm line-clamp-2">{{ $course['description'] }}</p>
             <div class="pt-4 border-t border-slate-100 flex items-center justify-between gap-6">
                 <a href="{{ route('qualifications.details', $course['slug']) }}"
-                    class="flex justify-center items-center w-1/2 bg-white border border-teal-600 text-teal-600 hover:bg-teal-600 hover:text-white rounded py-1.5 font-medium text-sm transition-transform">View
+                    class="flex justify-center items-center w-1/2 bg-white border border-brand-600 text-brand-600 hover:bg-brand-600 hover:text-white rounded py-1.5 font-medium text-sm transition-transform">View
                     Details</a>
                 <button
-                    class="w-1/2 bg-teal-600 text-white rounded py-2 font-medium text-sm transition-transform"
+                    class="w-1/2 bg-brand-600 text-white rounded py-2 font-medium text-sm transition-transform"
                     type="button">
                     Enroll Now
                 </button>

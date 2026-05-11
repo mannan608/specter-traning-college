@@ -321,7 +321,7 @@
 
                                 <button
                                     type="submit"
-                                    class="w-full bg-teal-600 text-white rounded py-3 font-semibold">
+                                    class="w-full bg-brand-600 text-white rounded py-3 font-semibold">
 
                                     Apply Now
 

@@ -7,7 +7,7 @@
 
                 {{-- Badge --}}
                 <div class="inline-flex items-center gap-2 px-3 py-1.5 bg-white border border-slate-200 rounded-full">
-                    <span class="w-2 h-2 rounded-full bg-teal-600 shrink-0"></span>
+                    <span class="w-2 h-2 rounded-full bg-brand-600 shrink-0"></span>
                     <span class="font-semibold text-caption uppercase tracking-wider text-slate-600 text-[11px] sm:text-xs">
                         Nationally Accredited Training
                     </span>
@@ -34,7 +34,7 @@
 
                     {{-- Button --}}
                     <a href="/qualifications"
-                        class="w-full sm:w-auto text-center bg-teal-600 text-white rounded-full px-6 sm:px-8 py-3 sm:py-4 font-semibold shadow-lg shadow-teal-900/20 active:scale-95 transition-all">
+                        class="w-full sm:w-auto text-center bg-brand-600 text-white rounded-full px-6 sm:px-8 py-3 sm:py-4 font-semibold shadow-lg shadow-teal-900/20 active:scale-95 transition-all">
 
                         Explore All Courses
 
@@ -71,7 +71,7 @@
             </div>
             <!-- Conversion Form -->
             <div class="bg-white p-4 md:p-8 lg:p-10 border border-slate-200 shadow-xl relative rounded-md">
-                <div class="absolute top-0 right-0 w-32 h-32 bg-teal-600/20 -z-10 translate-x-8 -translate-y-8">
+                <div class="absolute top-0 right-0 w-32 h-32 bg-brand-600/20 -z-10 translate-x-8 -translate-y-8">
                 </div>
                 <div class="space-y-6">
                     <h2 class="font-headline-md text-headline-md text-slate-900">Apply for Admission</h2>
@@ -91,7 +91,7 @@
                             'business-administration' => 'Business Administration',
                         ]" />
                         <button
-                            class="w-full bg-teal-600 text-white rounded py-2.5 font-semibold text-base active:scale-95 transition-transform mt-4"
+                            class="w-full bg-brand-600 text-white rounded py-2.5 font-semibold text-base active:scale-95 transition-transform mt-4"
                             type="submit">
                             Submit Application
                         </button>
@@ -208,9 +208,9 @@
                                     <div class="flex items-center gap-1 mb-4">
                                         @for ($i = 1; $i <= 5; $i++)
                                             @if ($i <= $review['rating'])
-                                                <span class="text-teal-600 text-sm sm:text-xl">★</span>
+                                                <span class="text-brand-600 text-sm sm:text-xl">★</span>
                                             @else
-                                                <span class="text-teal-600 text-sm sm:text-xl">☆</span>
+                                                <span class="text-brand-600 text-sm sm:text-xl">☆</span>
                                             @endif
                                         @endfor
                                     </div>
@@ -260,7 +260,7 @@
                 have advanced their careers through our accredited programs.</p>
             <div class="flex flex-col sm:flex-row justify-center gap-4">
                 <button
-                    class="bg-teal-600 text-white px-10 py-4 font-label-bold text-lg hover:bg-teal-700 rounded-full transition-colors">
+                    class="bg-brand-600 text-white px-10 py-4 font-label-bold text-lg hover:bg-brand-600 rounded-full transition-colors">
                     Apply for Enrollment
                 </button>
 

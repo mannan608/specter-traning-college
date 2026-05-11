@@ -45,8 +45,7 @@
                 </div>
 
                 <p class="text-gray-700 text-sm sm:text-base leading-7">
-                    Level 14 333 Collins St <br>
-                    MELBOURNE, VIC, 3000
+                    PO Box 683, MOOREBANK, NSW, 1875 
                 </p>
 
             </div>
@@ -64,7 +63,7 @@
 
                 <a href="tel:0479110567"
                     class="text-gray-700 text-sm sm:text-base hover:text-blue-600 transition">
-                    0479 110 567
+                   0421 661 998
                 </a>
 
             </div>

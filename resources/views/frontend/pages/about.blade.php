@@ -34,7 +34,7 @@
                 <div class="flex flex-col sm:flex-row gap-4">
 
                     <button
-                        class="bg-teal-600 text-white px-6 sm:px-8 py-3 sm:py-4 rounded font-semibold">
+                        class="bg-brand-600 text-white px-6 sm:px-8 py-3 sm:py-4 rounded font-semibold">
                         Our Programs
                     </button>
 
@@ -63,7 +63,7 @@
                 {{-- Left --}}
                 <div class="lg:col-span-7">
 
-                    <span class="text-teal-600 font-semibold uppercase tracking-widest mb-3 block text-sm">
+                    <span class="text-brand-600 font-semibold uppercase tracking-widest mb-3 block text-sm">
                         Established Excellence
                     </span>
 
@@ -101,7 +101,7 @@
                     </div>
 
 
-                    <div class="hidden md:block absolute -bottom-5 -left-5 bg-teal-600 text-white p-6 rounded-xl shadow-lg">
+                    <div class="hidden md:block absolute -bottom-5 -left-5 bg-brand-600 text-white p-6 rounded-xl shadow-lg">
 
                         <div class="text-3xl font-bold">
                             20+
@@ -148,7 +148,7 @@
                 {{-- Card 1 --}}
                 <div class="bg-white p-6 sm:p-8 rounded-xl border">
 
-                    <span class="material-symbols-outlined text-teal-600 text-4xl mb-5">
+                    <span class="material-symbols-outlined text-brand-600 text-4xl mb-5">
                         school
                     </span>
 
@@ -167,7 +167,7 @@
                 {{-- Card 2 --}}
                 <div class="bg-white p-6 sm:p-8 rounded-xl border">
 
-                    <span class="material-symbols-outlined text-teal-600 text-4xl mb-5">
+                    <span class="material-symbols-outlined text-brand-600 text-4xl mb-5">
                         settings_input_component
                     </span>
 
@@ -186,7 +186,7 @@
                 {{-- Card 3 --}}
                 <div class="bg-white p-6 sm:p-8 rounded-xl border">
 
-                    <span class="material-symbols-outlined text-teal-600 text-4xl mb-5">
+                    <span class="material-symbols-outlined text-brand-600 text-4xl mb-5">
                         emoji_events
                     </span>
 
@@ -229,7 +229,7 @@
                     </p>
 
 
-                    <div class="bg-teal-600 p-6 rounded-xl text-white">
+                    <div class="bg-brand-600 p-6 rounded-xl text-white">
 
                         <h4 class="font-semibold mb-2">
                             Want to know more?
@@ -268,7 +268,7 @@
                     @foreach ($features as $feature)
                         <div class="border rounded-lg p-6 flex gap-4">
 
-                            <span class="material-symbols-outlined text-teal-600">
+                            <span class="material-symbols-outlined text-brand-600">
                                 {{ $feature[0] }}
                             </span>
 

@@ -70,7 +70,7 @@
                     </div>
                     <div class="flex items-center justify-end gap-4 mt-4">
                         <a id="clear-qualification-filter" href="{{ route('qualifications') }}"
-                            class="{{ request()->filled('search') || request()->filled('industry') || request()->filled('level') ? '' : 'hidden' }} bg-teal-600 text-white rounded px-2 lg:px-4 py-2 font-medium text-sm active:scale-95 transition-transform mt-4">
+                            class="{{ request()->filled('search') || request()->filled('industry') || request()->filled('level') ? '' : 'hidden' }} bg-brand-600 text-white rounded px-2 lg:px-4 py-2 font-medium text-sm active:scale-95 transition-transform mt-4">
                             Clear Filter
                         </a>
                     </div>

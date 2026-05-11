@@ -2,9 +2,9 @@
   "courses": [
     {
       "id": 1,
-      "code": "SIT20322",
-      "title": "Certificate II in Hospitality",
-      "slug": "certificate-ii-in-hospitality",
+      "code": "SPTC001",
+      "title": "Certificate III in Business",
+      "slug": "",
       "industry": "Hospitality",
       "level": "Certificate II",
       "duration": "6 Months",
