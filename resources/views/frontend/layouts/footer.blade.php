@@ -7,7 +7,9 @@
         <div class="space-y-5 text-center sm:text-left">
 
             <div class="text-lg font-bold text-slate-900">
-                Specter Training
+               <a href="/">
+                    <img src="{{asset('logo.png')}}" alt="" class="w-20 h-auto">
+                </a>
             </div>
 
             <ul class="text-slate-500 text-sm space-y-2">

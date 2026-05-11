@@ -108,21 +108,13 @@
             <p class="text-center text-caption font-semibold text-slate-400 uppercase tracking-[0.2em] mb-8">Authorized
                 Training Provider</p>
             <div
-                class="flex flex-wrap justify-center items-center gap-12 opacity-60 grayscale hover:grayscale-0 transition-all duration-500">
-                <img class="h-8 object-contain"
+                class="flex flex-wrap justify-center items-center gap-12  transition-all duration-500">
+                <img class="h-16 object-contain"
                     data-alt="clean geometric logo of a professional education authority in black and white"
-                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuDaaDDmB5K3ELXnrgsQ4k2IBc8_x3-BJTCCTXhbQ3mc9IRvjcZlOpdxrlpjkX5MaamAYeqwiySROL4C7HoGcnr0rBoPSFZq9VzAZz07YoyoAghQ8Peom8OLf0snI6eFEXGHaK2RVfjj0DLEC_zTTA7WSFXKougbJQssag8KGsCHv16rMV1baNWyp5wnMMjTwfMXgs6kR28-hj94iZhcydOS_FmuXoNj3TTuRa2oAfpVS-66X55BZaryZgjdkND0zar0AoW3WVv_cA">
-                <img class="h-8 object-contain"
-                    data-alt="minimalist corporate logo for a training accreditation body with abstract symbol"
-                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuBLvLBmCy6gaXEy23Qx8e_h3iO_pzWvbBE8-XgZ0yre9iZKQupx3Cs2owBybOa1jSPuJV1SPDmo8y6f_2dan3O4vxzeS6AnVN6qW6npAuFo2yRqfsTF0DXqal1_7ii-4y53H5zBvAfMp5__ovCb41cDxDYoifEv38Ex3cjh5dgx8oyUMV2okC_0PNrG7SMXqKcBYV_h2-1IzcczQp13HiodvPFWAI5naLuT4aFI07K5GMJ50u5OIzyOA0xDgKdc2XujZ-yzi-vDCQ">
-                <img class="h-10 object-contain"
-                    data-alt="modern typographical logo for a certification board with bold lines"
-                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuAzwPcL0WQCuJnWJ93r4biVNzgbkgNtAaZOSVzuvo3wnFuI6EL2d71UXZ1xX6UtYO94f2h7pbfOSWwekkckUTXSH4AU8jUpES2P4-CFvVT-pnAqVZfRunV-ktUaj__WuODhJDW_Oi3N65jwl7RiTLoQdWtV9qniq_QtLICxYGFLqUDWgdnmawW5Uqaq4W3wxOHKJqYR3gMYZPM3ItN2NRW4G1MQgowWcAGNjRCEn48eFJUlm-aM38N9SYLVwyrUmMrEkJnx2oVDJg">
-                <img class="h-8 object-contain"
-                    data-alt="minimalist badge-style logo for an international education standards organization"
-                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuBRhqkSSlF6Dma735fkTGzVvUf4jSzcHmkDsTpx6bfNFh3eB9znFpN2VihZcgg-k9JcDyHNsoejrPyOX62dRoqvO35JTNnoCip12w6_KMyWwbvBmbPzkg1SWqH4FoPVWxzuuVDEKZq4WmHUucEFEnzIpiwrEu7GGJWcv9vqyQuyQ-FjsqfvUx_1wnM3JzHAXNd5CFLQC1LW3aSEdeDLuzP2xOx0EYaR2YxTEfHdmxAnAXxFGxYwhR8MWhQyLUdh7FpYUcztheFwWQ">
-                <img class="h-8 object-contain" data-alt="sleek corporate mark for a global vocational training federation"
-                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuAUkoe46U7rth1ykPwClT02Hm_NQ77El09JBl897ygh-Lve3PLtbTDhZHeLrsgUX0z6ceHjvnTZ94zBJ8sHKvM8plzB_NsISYvAjBTvnjUm8tz_zIEYn97uNqhQjlmZ3VimvcwIAEWvJO-Pn1LUrDrjAU9gSGrW5-q-53Wmx9Eirfuu4Ur_4bWY6-MFZKZ-iTuHsZXqsxvSTbuVX7xHB7Qz3fcF7i9Tzixlq37BVAt1do5vJ0MB7JJodTqgMsaD6FhZzmSMcypxIQ">
+                    src="{{asset('patner_1.png')}}">
+                
+                <img class="h-16 object-contain" data-alt="sleek corporate mark for a global vocational training federation"
+                    src="{{asset('patner_2.png')}}">
             </div>
         </div>
     </section>
