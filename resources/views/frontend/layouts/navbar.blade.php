@@ -23,7 +23,7 @@
             </button>
             <!-- Logo -->
             <div class="text-lg md:text-xl lg:text-xl font-bold tracking-tight text-slate-900 uppercase">
-                Specter Training
+                <img src="{{asset()}}" alt="">
             </div>
 
             <!-- Desktop Menu -->
