@@ -15,7 +15,7 @@
                 {{-- Heading --}}
                 <h1 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 leading-tight max-w-2xl">
                     Elevate Your Career with
-                    <span class="text-[]">
+                    <span class="text-brand-600">
                         Industry-Leading
                     </span>
                     Qualifications.
