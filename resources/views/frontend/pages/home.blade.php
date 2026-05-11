@@ -9,7 +9,7 @@
                 <div class="inline-flex items-center gap-2 px-3 py-1.5 bg-white border border-slate-200 rounded-full">
                     <span class="w-2 h-2 rounded-full bg-teal-600 shrink-0"></span>
                     <span class="font-semibold text-caption uppercase tracking-wider text-slate-600 text-[11px] sm:text-xs">
-                        Nationally Accredited Training
+                        Nationally Accredited Training mannan
                     </span>
                 </div>
                 {{-- Heading --}}
