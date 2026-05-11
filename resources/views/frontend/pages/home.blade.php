@@ -25,7 +25,7 @@
                 {{-- Description --}}
                 <p class="text-sm sm:text-base md:text-lg lg:text-xl text-slate-600 max-w-xl leading-relaxed">
                     Gain the skills and recognition you need to excel in today's competitive
-                    job market through our specialized professional development programs. mannan
+                    job market through our specialized professional development programs.
                 </p>
 
 
