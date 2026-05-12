@@ -100,7 +100,7 @@
 
 
         {{-- Column 2 --}}
-        <div class="space-y-5 text-center sm:text-left">
+        <div class="space-y-5 text-center flex flex-col items-center">
 
             <h4 class="font-bold uppercase tracking-widest text-xs text-slate-900">
                 Qualifications
@@ -109,25 +109,25 @@
             <ul class="space-y-2 text-sm">
 
                 <li>
-                    <a href="#" class="text-slate-500 hover:text-slate-900">
+                    <a href="{{ route('qualifications') }}" class="text-slate-500 hover:text-slate-900">
                         Hospitality
                     </a>
                 </li>
 
                 <li>
-                    <a href="#" class="text-slate-500 hover:text-slate-900">
+                    <a href="{{ route('qualifications') }}" class="text-slate-500 hover:text-slate-900">
                         Retail
                     </a>
                 </li>
 
                 <li>
-                    <a href="#" class="text-slate-500 hover:text-slate-900">
+                    <a href="{{ route('qualifications') }}" class="text-slate-500 hover:text-slate-900">
                         Manufacturing
                     </a>
                 </li>
 
                 <li>
-                    <a href="#" class="text-slate-500 hover:text-slate-900">
+                    <a href="{{ route('qualifications') }}" class="text-slate-500 hover:text-slate-900">
                         Business
                     </a>
                 </li>
@@ -157,7 +157,7 @@
 
 
         {{-- Column 4 --}}
-        <div class="space-y-5 text-center sm:text-left">
+        <div class="space-y-5 text-center sm:flex sm:flex-col sm:items-end sm:text-end">
 
             <h4 class="font-bold uppercase tracking-widest text-xs text-slate-900">
                 Accreditation

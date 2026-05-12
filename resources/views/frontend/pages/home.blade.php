@@ -1,8 +1,6 @@
 @extends('frontend.layouts.app')
 
 @section('content')
-
-<div x-data="{showModal:false}">
     <section class="hero-gradient overflow-hidden -mt-10">
         <div class="max-w-7xl mx-auto px-5 lg:px-8 py-12 md:py-20 lg:py-32 grid lg:grid-cols-2 gap-16 items-center">
             <div class="space-y-5 sm:space-y-6 lg:space-y-8 flex flex-col justify-center items-center sm:inline ">
@@ -77,7 +75,6 @@
                     <h2 class="font-headline-md text-headline-md text-slate-900">Apply for Admission</h2>
                     <p class="text-slate-500 font-body-md">Fill out the form below and an education consultant will contact
                         you within 24 hours.</p>
-
                     @include('frontend.pages.partials.admission-form')
 
                 </div>
@@ -232,7 +229,7 @@
                 who
                 have advanced their careers through our accredited programs.</p>
             <div class="flex flex-col sm:flex-row justify-center gap-4">
-                <button @click="showModal = true"
+                <button type="button" data-open-apply-modal
                     class="bg-brand-600 text-white px-10 py-4 font-label-bold text-lg hover:bg-brand-600 rounded-full transition-colors">
                     Apply for Enrollment
                 </button>
@@ -244,9 +241,4 @@
             </div>
         </div>
     </section>
-    
-      <x-ui.modal x-model="showModal" class="max-w-2xl p-6">
-            @include('frontend.pages.partials.apply-form-modal')
-        </x-ui.modal>
-        </div>
 @endsection

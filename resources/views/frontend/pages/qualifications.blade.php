@@ -1,5 +1,17 @@
 @extends('frontend.layouts.app')
 
+
+@php
+    $industryLevels = collect($courses)
+        ->groupBy('industry')
+        ->map(function ($items) {
+            return collect($items)
+                ->pluck('level')
+                ->unique()
+                ->values();
+        });
+@endphp
+
 @section('content')
     <section class="py-0 md:py-8 lg:py-12">
         <div class="max-w-7xl mx-auto px-5 md:px-8">
@@ -18,55 +30,97 @@
                         <input type="text" name="search" value="{{ request('search') }}" placeholder="Search courses..."
                             class="dark:bg-dark-900 focus:border-brand-300 focus:ring-brand-500/10 dark:focus:border-brand-800 h-11 w-full rounded-lg border border-gray-300 bg-transparent px-4 py-2.5 text-sm text-gray-800 placeholder:text-gray-400 focus:ring-3 focus:outline-hidden dark:border-gray-700 dark:bg-gray-900 dark:text-white/90 dark:placeholder:text-white/30">
 
-                        <div x-data="{ isOptionSelected: false }" class="relative z-20 bg-transparent">
-                            <select name="industry"
-                                class="dark:bg-dark-900 focus:border-brand-300 focus:ring-brand-500/10 dark:focus:border-brand-800 h-11 w-full appearance-none rounded-lg border border-gray-300 bg-transparent bg-none px-4 py-2.5 pr-11 text-sm text-gray-800 placeholder:text-gray-400 focus:ring-3 focus:outline-hidden dark:border-gray-700 dark:bg-gray-900 dark:text-white/90 dark:placeholder:text-white/30"
-                                :class="isOptionSelected && 'text-gray-800 dark:text-white/90'"
-                                @change="isOptionSelected = true">
-                                <option value="" class="text-gray-700 dark:bg-gray-900 dark:text-gray-400">
-                                    All Industries
-                                </option>
-                                @foreach ($industries as $industry)
-                                    <option value="{{ $industry }}"
-                                        {{ strtolower(request('industry', '')) === strtolower($industry) ? 'selected' : '' }}>
-                                        {{ $industry }}
-                                    </option>
-                                @endforeach
-                            </select>
-                            <span
-                                class="pointer-events-none absolute top-1/2 right-4 z-30 -translate-y-1/2 text-gray-700 dark:text-gray-400">
-                                <svg class="stroke-current" width="20" height="20" viewBox="0 0 20 20" fill="none"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M4.79175 7.396L10.0001 12.6043L15.2084 7.396" stroke="" stroke-width="1.5"
-                                        stroke-linecap="round" stroke-linejoin="round" />
-                                </svg>
-                            </span>
-                        </div>
+                       
+                        <div
+    x-data="{
+        selectedIndustry: '{{ request('industry', '') }}',
+        selectedLevel: '{{ request('level', '') }}',
 
-                        <div x-data="{ isOptionSelected: false }" class="relative z-20 bg-transparent">
-                            <select name="level"
-                                class="dark:bg-dark-900 focus:border-brand-300 focus:ring-brand-500/10 dark:focus:border-brand-800 h-11 w-full appearance-none rounded-lg border border-gray-300 bg-transparent bg-none px-4 py-2.5 pr-11 text-sm text-gray-800 placeholder:text-gray-400 focus:ring-3 focus:outline-hidden dark:border-gray-700 dark:bg-gray-900 dark:text-white/90 dark:placeholder:text-white/30"
-                                :class="isOptionSelected && 'text-gray-800 dark:text-white/90'"
-                                @change="isOptionSelected = true">
-                                <option value="" class="text-gray-700 dark:bg-gray-900 dark:text-gray-400">
-                                    All Levels
-                                </option>
-                                @foreach ($levels as $level)
-                                    <option value="{{ $level }}"
-                                        {{ strtolower(request('level', '')) === strtolower($level) ? 'selected' : '' }}>
-                                        {{ $level }}
-                                    </option>
-                                @endforeach
-                            </select>
-                            <span
-                                class="pointer-events-none absolute top-1/2 right-4 z-30 -translate-y-1/2 text-gray-700 dark:text-gray-400">
-                                <svg class="stroke-current" width="20" height="20" viewBox="0 0 20 20" fill="none"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M4.79175 7.396L10.0001 12.6043L15.2084 7.396" stroke="" stroke-width="1.5"
-                                        stroke-linecap="round" stroke-linejoin="round" />
-                                </svg>
-                            </span>
-                        </div>
+        industryLevels: @js($industryLevels),
+
+        get levels() {
+            return this.selectedIndustry
+                ? (this.industryLevels[this.selectedIndustry] || [])
+                : [];
+        }
+    }"
+    class="col-span-2 grid grid-cols-1 md:grid-cols-2 gap-4">
+
+    {{-- Industry --}}
+    <div class="relative z-20 bg-transparent">
+
+        <select
+            name="industry"
+            x-model="selectedIndustry"
+            @change="selectedLevel = ''"
+            class="dark:bg-dark-900 focus:border-brand-300 focus:ring-brand-500/10 dark:focus:border-brand-800 h-11 w-full appearance-none rounded-lg border border-gray-300 bg-transparent px-4 py-2.5 pr-11 text-sm text-gray-800 focus:ring-3 focus:outline-hidden dark:border-gray-700 dark:bg-gray-900 dark:text-white/90">
+
+            <option value="">
+                All Industries
+            </option>
+
+            @foreach ($industries as $industry)
+                <option value="{{ $industry }}">
+                    {{ $industry }}
+                </option>
+            @endforeach
+
+        </select>
+
+        <span
+            class="pointer-events-none absolute top-1/2 right-4 z-30 -translate-y-1/2 text-gray-700 dark:text-gray-400">
+
+            <svg class="stroke-current" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                <path
+                    d="M4.79175 7.396L10.0001 12.6043L15.2084 7.396"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round" />
+            </svg>
+
+        </span>
+
+    </div>
+
+    {{-- Level --}}
+    <div class="relative z-20 bg-transparent">
+
+        <select
+            name="level"
+            x-model="selectedLevel"
+            class="dark:bg-dark-900 focus:border-brand-300 focus:ring-brand-500/10 dark:focus:border-brand-800 h-11 w-full appearance-none rounded-lg border border-gray-300 bg-transparent px-4 py-2.5 pr-11 text-sm text-gray-800 focus:ring-3 focus:outline-hidden dark:border-gray-700 dark:bg-gray-900 dark:text-white/90">
+
+            <option value="">
+                All Levels
+            </option>
+
+            <template x-for="level in levels" :key="level">
+
+                <option
+                    :value="level"
+                    x-text="level">
+                </option>
+
+            </template>
+
+        </select>
+
+        <span
+            class="pointer-events-none absolute top-1/2 right-4 z-30 -translate-y-1/2 text-gray-700 dark:text-gray-400">
+
+            <svg class="stroke-current" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                <path
+                    d="M4.79175 7.396L10.0001 12.6043L15.2084 7.396"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round" />
+            </svg>
+
+        </span>
+
+    </div>
+
+</div>
                     </div>
                     <div class="flex items-center justify-end gap-4 mt-4">
                         <a id="clear-qualification-filter" href="{{ route('qualifications') }}"

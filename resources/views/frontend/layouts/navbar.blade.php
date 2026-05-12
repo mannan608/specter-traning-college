@@ -1,5 +1,5 @@
 
-<div x-data="{showModal:false}">
+<div x-data="{ showModal: false }" @open-apply-modal.window="showModal = true">
 
 <header class="fixed top-0 left-0 w-full z-50 border-b bg-white/95 backdrop-blur-md border-slate-200 shadow-sm">
 
@@ -80,7 +80,7 @@
             </div>
 
             <!-- Right Side -->
-            <button
+            <button type="button" data-open-apply-modal
                 class=" text-sm lg:text-base  bg-brand-600 text-white px-4 py-2 lg:px-6 lg:py-2.5 rounded-lg font-normal hover:bg-brand-600 transition">
                 Apply Now
             </button>
@@ -101,7 +101,7 @@
                 class="{{ request()->routeIs('about') ? 'text-brand-600 font-medium' : 'text-slate-700' }}">About</a>
             <a href="{{ route('contact') }}"
                 class="{{ request()->routeIs('contact') ? 'text-brand-600 font-medium' : 'text-slate-700' }}">Contact</a>
-            <button @click="showModal = true" class="bg-brand-600 text-white py-3 rounded-lg font-normal">
+            <button type="button" data-open-apply-modal class="bg-brand-600 text-white py-3 rounded-lg font-normal">
                 Apply Now
             </button>
         </div>
@@ -133,5 +133,16 @@
             closeIcon.classList.remove('hidden');
         }
 
+    });
+
+    document.addEventListener('click', (event) => {
+        const trigger = event.target.closest('[data-open-apply-modal]');
+
+        if (!trigger) {
+            return;
+        }
+
+        event.preventDefault();
+        window.dispatchEvent(new CustomEvent('open-apply-modal'));
     });
 </script>

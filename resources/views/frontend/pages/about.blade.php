@@ -229,7 +229,7 @@
                     </p>
 
 
-                    <div class="bg-brand-600 p-6 rounded-xl text-white">
+                    <div class=" p-6 rounded-xl border bg-gray-100">
 
                         <h4 class="font-semibold mb-2">
                             Want to know more?
@@ -241,7 +241,7 @@
 
                         <a
                             href="{{ route('download.brochure') }}"
-                            class="border border-white/40 rounded py-3 flex justify-center">
+                            class="border border-white/40 bg-brand-600 text-white rounded py-3 flex justify-center">
 
                             Download Brochure
 
