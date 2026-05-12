@@ -22,8 +22,12 @@
 <meta property="og:title" content="{{ $seo->og_title ?? ($seo->meta_title ?? config('app.name')) }}">
 <meta property="og:description"
     content="{{ $seo->og_description ?? ($seo->meta_description ?? 'Specter - Your Ultimate Solution') }}">
+{{-- <meta property="og:image"
+    content="{{ $seo?->og_image ? asset('storage/' . $seo->og_image) : asset('images/logo.jpg') }}"> --}}
 <meta property="og:image"
-    content="{{ $seo?->og_image ? asset('storage/' . $seo->og_image) : asset('images/logo.jpg') }}">
+      content="{{ $seo?->og_image
+            ? asset($seo->og_image)
+            : asset('logo.webp') }}">
 
 <meta property="og:url" content="{{ url()->current() }}">
 <meta property="og:type" content="{{ $seo->og_type ?? 'website' }}">
@@ -33,10 +37,10 @@
 <meta name="twitter:title" content="{{ $seo->twitter_title ?? ($seo->meta_title ?? config('app.name')) }}">
 <meta name="twitter:description"
     content="{{ $seo->twitter_description ?? ($seo->meta_description ?? 'Specter - Your Ultimate Solution') }}">
-<meta property="og:image"
+<meta name="twitter:image"
       content="{{ $seo?->twitter_image
-            ? asset('storage/'.$seo->twitter_image)
-            : asset('images/logo.jpg') }}">
+            ? asset($seo->twitter_image)
+            : asset('logo.webp') }}">
 
 
 <!-- scripts header and footer -->

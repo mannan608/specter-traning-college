@@ -27,39 +27,80 @@ class SeoController extends Controller
         return view('backend.pages.seo.create', compact('routes'));
     }
 
-    public function store(StoreSeoRequest $request)
-    {
-        $data = $request->validated();
-        $data['path'] = $data['type'];
-        unset($data['type']);
+  public function store(StoreSeoRequest $request)
+{
+    $data = $request->validated();
 
-        if ($request->hasFile('og_image')) {
+    $data['path'] = $data['type'];
 
-            $data['og_image'] = $request
-                ->file('og_image')
-                ->store('seo/og-images', 'public');
-        }
-        if ($request->hasFile('twitter_image')) {
+    unset($data['type']);
 
-            $data['twitter_image'] = $request
-                ->file('twitter_image')
-                ->store('seo/twitter-images', 'public');
-        }
+    /*
+    |--------------------------------------------------------------------------
+    | OG IMAGE
+    |--------------------------------------------------------------------------
+    */
 
-        $data['header_scripts'] = array_values(
-            array_filter($data['header_scripts'] ?? [])
+    if ($request->hasFile('og_image')) {
+
+        $ogImage = $request->file('og_image');
+
+        $ogImageName = time() . '_og_' . $ogImage->getClientOriginalName();
+
+        $ogImage->move(
+            public_path('uploads/seo/og-images'),
+            $ogImageName
         );
 
-        $data['footer_scripts'] = array_values(
-            array_filter($data['footer_scripts'] ?? [])
-        );
-
-        SeoMeta::create($data);
-
-        return redirect()
-            ->route('admin.seo.index')
-            ->with('success', 'SEO data created successfully.');
+        $data['og_image'] = 'uploads/seo/og-images/' . $ogImageName;
     }
+
+    /*
+    |--------------------------------------------------------------------------
+    | TWITTER IMAGE
+    |--------------------------------------------------------------------------
+    */
+
+    if ($request->hasFile('twitter_image')) {
+
+        $twitterImage = $request->file('twitter_image');
+
+        $twitterImageName = time() . '_twitter_' . $twitterImage->getClientOriginalName();
+
+        $twitterImage->move(
+            public_path('uploads/seo/twitter-images'),
+            $twitterImageName
+        );
+
+        $data['twitter_image'] = 'uploads/seo/twitter-images/' . $twitterImageName;
+    }
+
+    /*
+    |--------------------------------------------------------------------------
+    | SCRIPTS
+    |--------------------------------------------------------------------------
+    */
+
+    $data['header_scripts'] = array_values(
+        array_filter($data['header_scripts'] ?? [])
+    );
+
+    $data['footer_scripts'] = array_values(
+        array_filter($data['footer_scripts'] ?? [])
+    );
+
+    /*
+    |--------------------------------------------------------------------------
+    | CREATE
+    |--------------------------------------------------------------------------
+    */
+
+    SeoMeta::create($data);
+
+    return redirect()
+        ->route('admin.seo.index')
+        ->with('success', 'SEO data created successfully.');
+}
 
     public function edit(SeoMeta $seo)
     {
