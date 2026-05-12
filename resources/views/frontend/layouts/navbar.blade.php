@@ -1,3 +1,6 @@
+
+<div x-data="{showModal:false}">
+
 <header class="fixed top-0 left-0 w-full z-50 border-b bg-white/95 backdrop-blur-md border-slate-200 shadow-sm">
 
     <nav class="max-w-7xl mx-auto px-5 lg:px-8">
@@ -98,12 +101,18 @@
                 class="{{ request()->routeIs('about') ? 'text-brand-600 font-medium' : 'text-slate-700' }}">About</a>
             <a href="{{ route('contact') }}"
                 class="{{ request()->routeIs('contact') ? 'text-brand-600 font-medium' : 'text-slate-700' }}">Contact</a>
-            <button class="bg-brand-600 text-white py-3 rounded-lg font-normal">
+            <button @click="showModal = true" class="bg-brand-600 text-white py-3 rounded-lg font-normal">
                 Apply Now
             </button>
         </div>
     </div>
 </header>
+
+ <x-ui.modal x-model="showModal" class="max-w-2xl p-6">
+            @include('frontend.pages.partials.apply-form-modal')
+        </x-ui.modal>
+</div>
+
 
 <script>
     const menuBtn = document.getElementById('menuBtn');

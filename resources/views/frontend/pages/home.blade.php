@@ -1,6 +1,8 @@
 @extends('frontend.layouts.app')
 
 @section('content')
+
+<div x-data="{showModal:false}">
     <section class="hero-gradient overflow-hidden -mt-10">
         <div class="max-w-7xl mx-auto px-5 lg:px-8 py-12 md:py-20 lg:py-32 grid lg:grid-cols-2 gap-16 items-center">
             <div class="space-y-5 sm:space-y-6 lg:space-y-8 flex flex-col justify-center items-center sm:inline ">
@@ -13,21 +15,19 @@
                     </span>
                 </div>
                 {{-- Heading --}}
-                <h1 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 leading-tight max-w-2xl text-center sm:text-start">
+                <h1
+                    class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 leading-tight max-w-2xl text-center sm:text-start">
                     Elevate Your Career with
                     <span class="text-brand-600">
                         Industry-Leading
                     </span>
                     Qualifications.
                 </h1>
-
-
                 {{-- Description --}}
                 <p class="text-sm md:text-base lg:text-lg text-slate-600 max-w-xl leading-relaxed text-center sm:text-start">
                     Gain the skills and recognition you need to excel in today's competitive
                     job market through our specialized professional development programs.
                 </p>
-
 
                 {{-- CTA + Social Proof --}}
                 <div class="flex flex-col sm:flex-row sm:flex-wrap sm:items-center gap-4 sm:gap-5">
@@ -77,10 +77,8 @@
                     <h2 class="font-headline-md text-headline-md text-slate-900">Apply for Admission</h2>
                     <p class="text-slate-500 font-body-md">Fill out the form below and an education consultant will contact
                         you within 24 hours.</p>
-                    
-                       <form action="">
-                         @include('frontend.pages.partials.admission-form')
-                       </form>
+
+                    @include('frontend.pages.partials.admission-form')
 
                 </div>
             </div>
@@ -90,14 +88,13 @@
         <div class="max-w-7xl mx-auto px-5 md:px-8">
             <p class="text-center text-caption font-semibold text-slate-400 uppercase tracking-[0.2em] mb-8">Authorized
                 Training Provider</p>
-            <div
-                class="flex flex-wrap justify-center items-center gap-12  transition-all duration-500">
+            <div class="flex flex-wrap justify-center items-center gap-12  transition-all duration-500">
                 <img class="h-16 object-contain"
                     data-alt="clean geometric logo of a professional education authority in black and white"
-                    src="{{asset('patner_1.png')}}">
-                
+                    src="{{ asset('patner_1.png') }}">
+
                 <img class="h-16 object-contain" data-alt="sleek corporate mark for a global vocational training federation"
-                    src="{{asset('patner_2.png')}}">
+                    src="{{ asset('patner_2.png') }}">
             </div>
         </div>
     </section>
@@ -105,7 +102,8 @@
         <div class="max-w-7xl mx-auto px-5 md:px-8">
             <div class="flex flex-col md:flex-row md:items-end justify-between mb-8 md:mb-12 lg:mb-16 gap-2 lg:gap-6">
                 <div class="max-w-2xl">
-                    <h2 class="text-lg md:text-xl lg:text-2xl font-semibold text-slate-900 mb-4">World-Class Qualifications</h2>
+                    <h2 class="text-lg md:text-xl lg:text-2xl font-semibold text-slate-900 mb-4">World-Class Qualifications
+                    </h2>
                     <p class="text-sm sm:text-base  text-slate-600">Our programs are designed by industry experts to
                         provide practical, immediate value to your professional career.</p>
                 </div>
@@ -230,10 +228,11 @@
         <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10"></div>
         <div class="max-w-7xl mx-auto px-5 md:px-8 relative z-10 text-center">
             <h2 class="lg:text-4xl md:text-3xl sm:text-2xl text-xl text-white mb-6">Ready to Take the Next Step?</h2>
-            <p class="md:text-lg sm:text-base text-sm text-slate-400 max-w-2xl mx-auto mb-10">Join hundreds of professionals who
+            <p class="md:text-lg sm:text-base text-sm text-slate-400 max-w-2xl mx-auto mb-10">Join hundreds of professionals
+                who
                 have advanced their careers through our accredited programs.</p>
             <div class="flex flex-col sm:flex-row justify-center gap-4">
-                <button
+                <button @click="showModal = true"
                     class="bg-brand-600 text-white px-10 py-4 font-label-bold text-lg hover:bg-brand-600 rounded-full transition-colors">
                     Apply for Enrollment
                 </button>
@@ -245,4 +244,9 @@
             </div>
         </div>
     </section>
+    
+      <x-ui.modal x-model="showModal" class="max-w-2xl p-6">
+            @include('frontend.pages.partials.apply-form-modal')
+        </x-ui.modal>
+        </div>
 @endsection
