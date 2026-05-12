@@ -73,7 +73,7 @@
                 class="hidden dark:block" src="{{ asset('logo.webp') }}" alt="Logo" width="80"
                 height="auto" /> 
             <img x-show="!$store.sidebar.isExpanded && !$store.sidebar.isHovered && !$store.sidebar.isMobileOpen"
-                src="{{asset('/favicon.ico')}}" alt="Logo" width="32" height="auto" />
+                src="{{asset('/logo.webp')}}" alt="Logo" width="32" height="auto" />
 
         </a>
     </div>
