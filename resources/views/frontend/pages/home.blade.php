@@ -77,28 +77,11 @@
                     <h2 class="font-headline-md text-headline-md text-slate-900">Apply for Admission</h2>
                     <p class="text-slate-500 font-body-md">Fill out the form below and an education consultant will contact
                         you within 24 hours.</p>
-                    <form class="space-y-3">
-                        <x-form.input-text label="Full Name" name="full_name" placeholder="John Doe" type="text" />
-                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                            <x-form.input-text label="Email Address" name="email" placeholder="john@example.com"
-                                type="email" />
-                            <x-form.input-text label="Phone Number" name="phone" placeholder="+1 (555) 000-0000"
-                                type="tel" />
-                        </div>
-                        <x-form.select-input name="type" label="Type" value="Hospitality Management" :options="[
-                            'retail-operations' => 'Retail Operations',
-                            'advanced-manufacturing' => 'Advanced Manufacturing',
-                            'business-administration' => 'Business Administration',
-                        ]" />
-                        <button
-                            class="w-full bg-brand-600 text-white rounded py-2.5 font-semibold text-base active:scale-95 transition-transform mt-4"
-                            type="submit">
-                            Submit Application
-                        </button>
-                        <p class="text-center text-xs md:text-sm text-slate-400 ">By submitting, you agree to our Privacy
-                            Policy.
-                        </p>
-                    </form>
+                    
+                       <form action="">
+                         @include('frontend.pages.partials.admission-form')
+                       </form>
+
                 </div>
             </div>
         </div>
@@ -118,7 +101,6 @@
             </div>
         </div>
     </section>
-
     <section class="py-12 bg-slate-50/50">
         <div class="max-w-7xl mx-auto px-5 md:px-8">
             <div class="flex flex-col md:flex-row md:items-end justify-between mb-8 md:mb-12 lg:mb-16 gap-2 lg:gap-6">
