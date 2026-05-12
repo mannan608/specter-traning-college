@@ -6,9 +6,9 @@
         {{-- Column 1 --}}
         <div class="space-y-5 text-center sm:text-left">
 
-            <div class="text-lg font-bold text-slate-900">
+            <div class="flex sm:justify-start items-center justify-center">
                <a href="/">
-                    <img src="{{asset('logo.png')}}" alt="" class="w-20 h-auto">
+                    <img src="{{asset('logo.webp')}}" alt="" class="w-24 h-auto">
                 </a>
             </div>
 

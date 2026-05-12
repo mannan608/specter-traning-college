@@ -3,17 +3,17 @@
 @section('content')
     <section class="hero-gradient overflow-hidden -mt-10">
         <div class="max-w-7xl mx-auto px-5 lg:px-8 py-12 md:py-20 lg:py-32 grid lg:grid-cols-2 gap-16 items-center">
-            <div class="space-y-5 sm:space-y-6 lg:space-y-8">
+            <div class="space-y-5 sm:space-y-6 lg:space-y-8 flex flex-col justify-center items-center sm:inline ">
 
                 {{-- Badge --}}
                 <div class="inline-flex items-center gap-2 px-3 py-1.5 bg-white border border-slate-200 rounded-full">
                     <span class="w-2 h-2 rounded-full bg-brand-600 shrink-0"></span>
                     <span class="font-semibold text-caption uppercase tracking-wider text-slate-600 text-[11px] sm:text-xs">
-                        Nationally Accredited Training
+                        Nationally Accredited Training | RTO 45116
                     </span>
                 </div>
                 {{-- Heading --}}
-                <h1 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 leading-tight max-w-2xl">
+                <h1 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 leading-tight max-w-2xl text-center sm:text-start">
                     Elevate Your Career with
                     <span class="text-brand-600">
                         Industry-Leading
@@ -23,7 +23,7 @@
 
 
                 {{-- Description --}}
-                <p class="text-sm sm:text-base md:text-lg lg:text-xl text-slate-600 max-w-xl leading-relaxed">
+                <p class="text-sm md:text-base lg:text-lg text-slate-600 max-w-xl leading-relaxed text-center sm:text-start">
                     Gain the skills and recognition you need to excel in today's competitive
                     job market through our specialized professional development programs.
                 </p>

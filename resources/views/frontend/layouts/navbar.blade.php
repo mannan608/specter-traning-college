@@ -22,9 +22,9 @@
 
             </button>
             <!-- Logo -->
-            <div class="text-lg md:text-xl lg:text-xl font-bold tracking-tight text-slate-900 uppercase">
+            <div class="w-20">
                 <a href="/">
-                    <img src="{{asset('logo.png')}}" alt="" class="w-16 h-auto">
+                    <img src="{{asset('logo.webp')}}" alt="" class="w-auto h-auto">
                 </a>
             </div>
 
