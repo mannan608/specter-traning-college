@@ -10,6 +10,7 @@
 
 
 <title>{{ $seo->meta_title ?? config('app.name') }}</title>
+<link rel="icon" href="{{ asset('favicon.ico') }}">
 
 <meta name="description" content="{{ $seo->meta_description ?? 'Specter - Your Ultimate Solution' }}">
 <meta name="keywords" content="{{ $seo->meta_keywords ?? ' specter, ultimate, solution,student,study,education ' }}">
