@@ -229,10 +229,10 @@
                 who
                 have advanced their careers through our accredited programs.</p>
             <div class="flex flex-col sm:flex-row justify-center gap-4">
-                <button type="button" data-open-apply-modal
+                {{-- <button type="button" data-open-apply-modal
                     class="bg-brand-600 text-white px-10 py-4 font-label-bold text-lg hover:bg-brand-600 rounded-full transition-colors">
                     Apply for Enrollment
-                </button>
+                </button> --}}
 
                 <a href="{{ route('download.brochure') }}"
                     class="bg-transparent text-white border border-slate-600 px-10 py-4 font-label-bold text-lg hover:bg-white/5 rounded-full transition-colors flex items-center justify-center gap-2">
