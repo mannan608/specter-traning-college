@@ -11,7 +11,7 @@
         </div>
 
         <div class="mb-4">
-            <form action="{{ route('admin.blogs.store') }}" method="POST" enctype="multipart/form-data" class="space-y-6">
+            <form action="{{ route('admin.events.store') }}" method="POST" enctype="multipart/form-data" class="space-y-6">
                 @csrf
                 <div class="space-y-3">
                     <x-form.input-text name="meta_title" label="Meta Title" value=""

@@ -4,25 +4,10 @@
 
     $collection = $items instanceof \Illuminate\Pagination\AbstractPaginator ? $items->getCollection() : collect($items);
     $tableRowData = $collection->map(function ($entry) {
-        $ogImageUrl = null;
-        if ($entry->og_image && Storage::disk('public')->exists($entry->og_image)) {
-            $ogImageUrl = Storage::disk('public')->url($entry->og_image);
-        }
-
-        return [
-            'id' => $entry->id,
-            'path' => (string) $entry->path,
-            'metaTitle' => Str::limit((string) ($entry->meta_title ?? ''), 40),
-            'metaKeywords' => Str::limit((string) ($entry->meta_keywords ?? ''), 30),
-            'ogImage' => $ogImageUrl,
-            'metaScore' => $entry->meta_description ? 80 : 40,
-            'googleScore' => $entry->schema_markup ? 95 : 60,
-        ];
-    })->values();
+    }
 @endphp
 
 <div x-data="{
-    seoBaseUrl: {{ \Illuminate\Support\Js::from(url('/admin/seo')) }},
     tableRowData: {{ \Illuminate\Support\Js::from($tableRowData) }},
     showDeleteModal: false,
     rowToDelete: null,
@@ -83,11 +68,11 @@
                 <table class="w-full text-left border-collapse">
                     <thead class="bg-gray-50 dark:bg-white/[0.02] border-b border-gray-100 dark:border-white/[0.05]">
                         <tr>
-                            <th class="px-5 py-4 text-xs font-medium text-gray-500 uppercase tracking-wider">Path/Route</th>
+                            <th class="px-5 py-4 text-xs font-medium text-gray-500 uppercase tracking-wider">Title</th>
                             <th class="px-5 py-4 text-xs font-medium text-gray-500 uppercase tracking-wider">Meta Title</th>
                             <th class="px-5 py-4 text-xs font-medium text-gray-500 uppercase tracking-wider">Keywords</th>
-                            <th class="px-5 py-4 text-xs font-medium text-gray-500 uppercase tracking-wider">Meta Score</th>
-                            <th class="px-5 py-4 text-xs font-medium text-gray-500 uppercase tracking-wider">OG Image</th>
+                            <th class="px-5 py-4 text-xs font-medium text-gray-500 uppercase tracking-wider">Feature Image</th>
+                            <th class="px-5 py-4 text-xs font-medium text-gray-500 uppercase tracking-wider">Author</th>
                             <th class="px-5 py-4 text-xs font-medium text-gray-500 uppercase tracking-wider text-right">Action</th>
                         </tr>
                     </thead>
@@ -95,7 +80,7 @@
                         <template x-if="tableRowData.length === 0">
                             <tr>
                                 <td colspan="6" class="px-5 py-10 text-center text-sm text-gray-500 dark:text-gray-400">
-                                    No SEO records found.
+                                    No BLOG records found.
                                 </td>
                             </tr>
                         </template>

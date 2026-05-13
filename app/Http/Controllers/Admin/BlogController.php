@@ -5,7 +5,9 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\BlogStoreRequest;
 use App\Http\Requests\BlogUpdateRequest;
+use App\Models\Blog;
 use App\Repositories\Interfaces\BlogRepositoryInterface;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 
@@ -20,7 +22,7 @@ class BlogController extends Controller
     }
 
     /**
-     * Display blogs list
+     * Blog List
      */
     public function index()
     {
@@ -34,85 +36,78 @@ class BlogController extends Controller
     }
 
     /**
-     * Show create form
+     * Create Page
      */
     public function create()
     {
-        return view('backend.pages.blogs.create');
-    }
-
-    /**
-     * Store new blog
-     */
-    public function store(BlogStoreRequest $request)
-    {
-        $data = $request->validated();
-
-        /*
-        |--------------------------------------------------------------------------
-        | Image Upload
-        |--------------------------------------------------------------------------
-        */
-
-        if ($request->hasFile('featured_image')) {
-
-            $data['featured_image'] = $request
-                ->file('featured_image')
-                ->store('blogs', 'public');
-        }
-
-        /*
-        |--------------------------------------------------------------------------
-        | Slug
-        |--------------------------------------------------------------------------
-        */
-
-        $data['slug'] = Str::slug($request->title);
-
-        /*
-        |--------------------------------------------------------------------------
-        | Published Time
-        |--------------------------------------------------------------------------
-        */
-
-        if ($request->status == 'published') {
-            $data['published_at'] = now();
-        }
-
-        /*
-        |--------------------------------------------------------------------------
-        | Author
-        |--------------------------------------------------------------------------
-        */
-
-        $data['author_id'] = auth()->id();
-
-        $this->blogRepository->create($data);
-
-        return redirect()
-            ->route('backend.pages.blogs.index')
-            ->with(
-                'success',
-                'Blog created successfully.'
-            );
-    }
-
-    /**
-     * Show blog details
-     */
-    public function show($id)
-    {
-        $blog = $this->blogRepository
-            ->findById($id);
-
         return view(
-            'backend.pages.blogs.show',
-            compact('blog')
+            'backend.pages.blogs.create'
         );
     }
 
     /**
-     * Show edit form
+     * Store Blog
+     */
+    public function store(
+        BlogStoreRequest $request
+    ) {
+        DB::beginTransaction();
+
+        try {
+
+            $data = $request->validated();
+            $data['slug'] = $this->generateUniqueSlug(
+                $request->title
+            );
+
+            $data['author_id'] = auth()->id();
+
+            $data['is_featured'] = $request->boolean(
+                'is_featured'
+            );
+
+            if (
+                $request->status === 'published'
+            ) {
+                $data['published_at'] = now();
+            }
+
+            if (
+                $request->hasFile('featured_image')
+            ) {
+
+                $data['featured_image'] = $request
+                    ->file('featured_image')
+                    ->store('blogs', 'public');
+            }
+
+            $this->blogRepository
+                ->create($data);
+
+            DB::commit();
+
+            return redirect()
+                ->route('admin.blogs.index')
+                ->with(
+                    'success',
+                    'Blog created successfully.'
+                );
+
+        } catch (\Exception $e) {
+
+            DB::rollBack();
+
+            return back()
+                ->withInput()
+                ->with(
+                    'error',
+                    $e->getMessage()
+                );
+        }
+    }
+
+    /**
+     * Edit Page
      */
     public function edit($id)
     {
@@ -126,24 +121,97 @@ class BlogController extends Controller
     }
 
     /**
-     * Update blog
+     * Update Blog
      */
     public function update(
         BlogUpdateRequest $request,
         $id
     ) {
-        $blog = $this->blogRepository
-            ->findById($id);
+        DB::beginTransaction();
 
-        $data = $request->validated();
+        try {
 
-        /*
-        |--------------------------------------------------------------------------
-        | Update Image
-        |--------------------------------------------------------------------------
-        */
+            $blog = $this->blogRepository
+                ->findById($id);
 
-        if ($request->hasFile('featured_image')) {
+            $data = $request->validated();
+
+            if (
+                $blog->title !== $request->title
+            ) {
+                $data['slug'] = $this->generateUniqueSlug(
+                    $request->title
+                );
+            }
+
+            $data['is_featured'] = $request
+                ->boolean('is_featured');
+
+                      if (
+                $request->status === 'published' &&
+                !$blog->published_at
+            ) {
+                $data['published_at'] = now();
+            }
+
+            if (
+                $request->hasFile('featured_image')
+            ) {
+
+                if (
+                    $blog->featured_image &&
+                    Storage::disk('public')->exists(
+                        $blog->featured_image
+                    )
+                ) {
+
+                    Storage::disk('public')
+                        ->delete(
+                            $blog->featured_image
+                        );
+                }
+
+                $data['featured_image'] = $request
+                    ->file('featured_image')
+                    ->store('blogs', 'public');
+            }
+
+            $this->blogRepository
+                ->update($id, $data);
+
+            DB::commit();
+
+            return redirect()
+                ->route('admin.blogs.index')
+                ->with(
+                    'success',
+                    'Blog updated successfully.'
+                );
+
+        } catch (\Exception $e) {
+
+            DB::rollBack();
+
+            return back()
+                ->withInput()
+                ->with(
+                    'error',
+                    $e->getMessage()
+                );
+        }
+    }
+
+    /**
+     * Delete Blog
+     */
+    public function destroy($id)
+    {
+        DB::beginTransaction();
+
+        try {
+
+            $blog = $this->blogRepository
+                ->findById($id);
 
             if (
                 $blog->featured_image &&
@@ -151,82 +219,54 @@ class BlogController extends Controller
                     $blog->featured_image
                 )
             ) {
-                Storage::disk('public')->delete(
-                    $blog->featured_image
-                );
+
+                Storage::disk('public')
+                    ->delete(
+                        $blog->featured_image
+                    );
             }
 
-            $data['featured_image'] = $request
-                ->file('featured_image')
-                ->store('blogs', 'public');
+            $this->blogRepository
+                ->delete($id);
+
+            DB::commit();
+
+            return redirect()
+                ->route('admin.blogs.index')
+                ->with(
+                    'success',
+                    'Blog deleted successfully.'
+                );
+
+        } catch (\Exception $e) {
+
+            DB::rollBack();
+
+            return back()
+                ->with(
+                    'error',
+                    $e->getMessage()
+                );
         }
-
-        /*
-        |--------------------------------------------------------------------------
-        | Update Slug
-        |--------------------------------------------------------------------------
-        */
-
-        $data['slug'] = Str::slug($request->title);
-
-        /*
-        |--------------------------------------------------------------------------
-        | Published Time
-        |--------------------------------------------------------------------------
-        */
-
-        if (
-            $request->status == 'published' &&
-            !$blog->published_at
-        ) {
-            $data['published_at'] = now();
-        }
-
-        $this->blogRepository->update(
-            $id,
-            $data
-        );
-
-        return redirect()
-            ->route('blogs.index')
-            ->with(
-                'success',
-                'Blog updated successfully.'
-            );
     }
 
     /**
-     * Delete blog
+     * Generate Unique Slug
      */
-    public function destroy($id)
-    {
-        $blog = $this->blogRepository
-            ->findById($id);
+    private function generateUniqueSlug(
+        $title
+    ) {
 
-        /*
-        |--------------------------------------------------------------------------
-        | Delete Image
-        |--------------------------------------------------------------------------
-        */
+        $slug = Str::slug($title);
 
-        if (
-            $blog->featured_image &&
-            Storage::disk('public')->exists(
-                $blog->featured_image
-            )
-        ) {
-            Storage::disk('public')->delete(
-                $blog->featured_image
-            );
-        }
+        $count = Blog::where(
+            'slug',
+            'LIKE',
+            "{$slug}%"
+        )->count();
 
-        $this->blogRepository->delete($id);
-
-        return redirect()
-            ->route('backend.pages.blogs.index')
-            ->with(
-                'success',
-                'Blog deleted successfully.'
-            );
+        return $count
+            ? "{$slug}-" . ($count + 1)
+            : $slug;
     }
 }

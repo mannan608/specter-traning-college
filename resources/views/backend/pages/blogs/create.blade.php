@@ -1,174 +1,202 @@
 @extends('backend.layouts.app')
 
 @section('content')
-    <div class="">
-        <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-6 gap-4">
-            <div>
-                <h3 class="text-lg font-semibold text-gray-800 dark:text-white/90">Create New Blog</h3>
-                <p class="text-sm text-gray-500 dark:text-gray-400">Manage Meta tags, open graph, and seo frindly content.
-                </p>
-            </div>
-        </div>
+    <form action="{{ route('admin.blogs.store') }}">
+        @csrf
+        <div class="grid grid-cols-1 gap-6 lg:grid-cols-12">
 
-        <div class="mb-4">
-            <form action="{{ route('admin.blogs.store') }}" method="POST" enctype="multipart/form-data" class="space-y-6">
-                @csrf
-                {{-- <div class="space-y-3">
-                    <x-form.input-text name="meta_title" label="Meta Title" value=""
-                            placeholder="Enter meta title..." />
+            <div class="lg:col-span-8 space-y-6">
 
-                            <x-form.textarea-input name="meta_description" label="Meta Description"
-                            placeholder="Enter a description..." rows="2" />
+                {{-- Blog Content --}}
+                <div class="rounded-2xl border border-gray-200 bg-white dark:border-gray-800 dark:bg-gray-900">
 
-                        <x-form.textarea-input name="meta_keywords" label="Meta Keywords"
-                            placeholder="Enter keywords separated by commas..." rows="2" />
-                            <x-form.input-text name="canonical_url" label="Canonical URL" value=""
-                            placeholder="Enter canonical URL..." />
+                    <div class="border-b border-gray-100 p-5 dark:border-gray-800">
 
-                    
+                        <h2 class="text-lg font-semibold text-gray-800 dark:text-white">
+                            Blog Content
+                        </h2>
 
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <div class="og-section space-y-3">
-                            <x-form.input-text name="og_title" label="Open Graph Title" value=""
-                                placeholder="Enter Open Graph title..." />
-
-                            <x-form.input-text name="og_description" label="Open Graph Description" value=""
-                                placeholder="Enter Open Graph description..." />
-
-                            <div class="">
-                                <label for="og_image"
-                                    class="mb-2 block text-sm font-medium text-gray-700 dark:text-gray-400">Open Graph
-                                    Image</label>
-                                <x-form.dropzone name="og_image" label="Open Graph Image" value=""
-                                    placeholder="Upload Open Graph image..." />
-                            </div>
-                        </div>
-                        <div class="twitter-section space-y-3">
-                            <x-form.input-text name="twitter_title" label="Twitter Title" value=""
-                                placeholder="Enter Twitter title..." />
-
-                            <x-form.input-text name="twitter_description" label="Twitter Description" value=""
-                                placeholder="Enter Twitter description..." />
-                            <div class="">
-                                <label for="twitter_image"
-                                    class="mb-2 block text-sm font-medium text-gray-700 dark:text-gray-400">Twitter
-                                    Image</label>
-                                <x-form.dropzone name="twitter_image" label="Twitter Image" value=""
-                                    placeholder="Upload Twitter image..." />
-                            </div>
-                        </div>
                     </div>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+                    <div class="p-5 space-y-5">
+
+                        {{-- Title --}}
+                        <x-form.input-text name="title" label="Blog Title" value="{{ old('title', $blog->title ?? '') }}"
+                            placeholder="Enter blog title..." />
+
+                        {{-- Short Description --}}
+                        <x-form.textarea-input name="short_description" label="Short Description" rows="3"
+                            placeholder="Enter short description...">
+                            {{ old('short_description', $blog->short_description ?? '') }}
+                        </x-form.textarea-input>
+
+                        {{-- Editor --}}
                         <div>
-                            <div id="header-scripts-wrapper">
-                                <label for=""
-                                    class="mb-2 block text-sm font-medium text-gray-700 dark:text-gray-400">Header
-                                    Scripts</label>
-                                <div class="script-row space-y-3 mb-4">
 
-                                    <x-form.textarea-input name="header_scripts[]" label=""
-                                        placeholder="Enter header scripts..." rows="4" />
+                            <label class="mb-2 block text-sm font-medium text-gray-700 dark:text-gray-300">
 
-                                    <div class="flex justify-end gap-3">
+                                Blog Content
 
-                                        <button type="button"
-                                            class="remove-btn hidden text-sm bg-red-500 py-1.5 px-4 rounded text-white">
-                                            Remove
-                                        </button>
+                            </label>
 
-                                        <button type="button"
-                                            class="add-btn text-sm bg-brand-600 py-1.5 px-4 rounded text-white">
-                                            Add New
-                                        </button>
+                            @include('backend.pages.blogs.text-editor')
 
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
-                        <div>
-                            <div id="footer-scripts-wrapper">
-                                <label for=""
-                                    class="mb-2 block text-sm font-medium text-gray-700 dark:text-gray-400">Footer
-                                    Scripts</label>
-
-                                <div class="script-row space-y-3 mb-4">
-
-                                    <x-form.textarea-input name="footer_scripts[]" label=""
-                                        placeholder="Enter footer scripts..." rows="4" />
-
-                                    <div class="flex justify-end gap-3">
-
-                                        <button type="button"
-                                            class="remove-btn hidden text-sm bg-red-500 py-1.5 px-4 rounded text-white">
-                                            Remove
-                                        </button>
-
-                                        <button type="button"
-                                            class="add-btn text-sm bg-brand-600 py-1.5 px-4 rounded text-white">
-                                            Add New
-                                        </button>
-
-                                    </div>
-                                </div>
-
-                            </div>
                         </div>
 
                     </div>
-                    <x-form.textarea-input name="schema_markup" label="Schema Markup" placeholder="Enter schema markup..."
-                        rows="4" />
 
-
-                </div> --}}
-
-                @include('backend.pages.blogs.text-editor', [
-                    'name' => 'contents',
-                    'value' => old('contents'),
-                    'placeholder' => 'Write the blog content...',
-                ])
-                <div class="flex justify-end">
-                    <button type="submit"
-                        class="mt-6 inline-flex items-center justify-center rounded-lg bg-brand-600 px-4 py-2.5 text-sm font-medium text-white hover:bg-brand-600 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:ring-offset-2">
-                        Save Blog
-                    </button>
                 </div>
 
-            </form>
+            </div>
+
+
+            <div class="lg:col-span-4">
+
+                <div class="sticky top-6 space-y-6">
+
+                    {{-- Publish --}}
+                    <div class="rounded-2xl border border-gray-200 bg-white dark:border-gray-800 dark:bg-gray-900">
+
+                        <div class="border-b border-gray-100 p-5 dark:border-gray-800">
+
+                            <h2 class="text-lg font-semibold text-gray-800 dark:text-white">
+                                Publish
+                            </h2>
+
+                        </div>
+
+                        <div class="space-y-5 p-5">
+
+                            {{-- Status --}}
+                            <x-form.select-input name="status" label="Status" :options="[
+                                'draft' => 'Draft',
+                                'published' => 'Published',
+                            ]"
+                                value="{{ old('status', $blog->status ?? 'draft') }}" />
+
+                            {{-- Featured --}}
+                            <div>
+
+                                <label class="mb-2 block text-sm font-medium text-gray-700 dark:text-gray-300">
+
+                                    Featured Blog
+
+                                </label>
+
+                                <label class="inline-flex items-center gap-3">
+
+                                    <input type="checkbox" name="is_featured" value="1"
+                                        {{ old('is_featured', $blog->is_featured ?? false) ? 'checked' : '' }}
+                                        class="h-5 w-5 rounded border-gray-300 text-brand-600 focus:ring-brand-500">
+
+                                    <span class="text-sm text-gray-600 dark:text-gray-400">
+                                        Mark as featured
+                                    </span>
+
+                                </label>
+
+                            </div>
+
+                            {{-- Submit --}}
+                            <button type="submit"
+                                class="w-full rounded-xl bg-brand-600 px-5 py-3 text-sm font-medium text-white transition hover:bg-brand-700">
+
+                                Save Blog
+
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                    {{-- Featured Image --}}
+                    <div class="rounded-2xl border border-gray-200 bg-white dark:border-gray-800 dark:bg-gray-900">
+
+                        <div class="border-b border-gray-100 p-5 dark:border-gray-800">
+
+                            <h2 class="text-lg font-semibold text-gray-800 dark:text-white">
+                                Featured Image
+                            </h2>
+
+                        </div>
+
+                        <div class="p-5">
+
+                            <x-form.dropzone name="featured_image" label="Featured Image" value=""
+                                placeholder="Upload featured image..." />
+
+                        </div>
+
+                    </div>
+
+                    {{-- SEO --}}
+                    <div class="rounded-2xl border border-gray-200 bg-white dark:border-gray-800 dark:bg-gray-900">
+
+                        <div class="border-b border-gray-100 p-5 dark:border-gray-800">
+
+                            <h2 class="text-lg font-semibold text-gray-800 dark:text-white">
+                                SEO Settings
+                            </h2>
+
+                        </div>
+
+                        <div class="space-y-4 p-5">
+
+                            <x-form.input-text name="meta_title" label="Meta Title"
+                                value="{{ old('meta_title', $blog->meta_title ?? '') }}" placeholder="Meta title..." />
+
+                            <x-form.textarea-input name="meta_description" label="Meta Description" rows="3"
+                                placeholder="Meta description...">
+                                {{ old('meta_description', $blog->meta_description ?? '') }}
+                            </x-form.textarea-input>
+
+                            <x-form.textarea-input name="meta_keywords" label="Meta Keywords" rows="2"
+                                placeholder="keyword1, keyword2">
+                                {{ old('meta_keywords', $blog->meta_keywords ?? '') }}
+                            </x-form.textarea-input>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
         </div>
-    </div>
+    </form>
 @endsection
 
 @push('scripts')
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
 
-        initializeDynamicFields('header-scripts-wrapper', 'header_scripts[]', 'Header Scripts');
-        initializeDynamicFields('footer-scripts-wrapper', 'footer_scripts[]', 'Footer Scripts');
+            initializeDynamicFields('header-scripts-wrapper', 'header_scripts[]', 'Header Scripts');
+            initializeDynamicFields('footer-scripts-wrapper', 'footer_scripts[]', 'Footer Scripts');
 
-        function initializeDynamicFields(wrapperId, inputName, labelText) {
-            const wrapper = document.getElementById(wrapperId);
+            function initializeDynamicFields(wrapperId, inputName, labelText) {
+                const wrapper = document.getElementById(wrapperId);
 
-            if (!wrapper) {
-                return;
-            }
+                if (!wrapper) {
+                    return;
+                }
 
-            updateButtons(wrapper);
+                updateButtons(wrapper);
 
-            wrapper.addEventListener('click', function(e) {
+                wrapper.addEventListener('click', function(e) {
 
-                /*
-                |--------------------------------------------------------------------------
-                | Add New
-                |--------------------------------------------------------------------------
-                */
-                if (e.target.classList.contains('add-btn')) {
+                    /*
+                    |--------------------------------------------------------------------------
+                    | Add New
+                    |--------------------------------------------------------------------------
+                    */
+                    if (e.target.classList.contains('add-btn')) {
 
-                    const div = document.createElement('div');
+                        const div = document.createElement('div');
 
-                    div.classList.add('script-row', 'space-y-3', 'mb-4');
+                        div.classList.add('script-row', 'space-y-3', 'mb-4');
 
-                    div.innerHTML = `
+                        div.innerHTML = `
                     <textarea
                         name="${inputName}"
                         rows="4"
@@ -215,62 +243,59 @@
                     </div>
                 `;
 
-                    wrapper.appendChild(div);
+                        wrapper.appendChild(div);
 
-                    updateButtons(wrapper);
-                }
-
-                /*
-                |--------------------------------------------------------------------------
-                | Remove
-                |--------------------------------------------------------------------------
-                */
-                if (e.target.classList.contains('remove-btn')) {
-
-                    const rows = wrapper.querySelectorAll('.script-row');
-
-                    if (rows.length <= 1) {
-                        return;
+                        updateButtons(wrapper);
                     }
 
-                    e.target.closest('.script-row').remove();
+                    /*
+                    |--------------------------------------------------------------------------
+                    | Remove
+                    |--------------------------------------------------------------------------
+                    */
+                    if (e.target.classList.contains('remove-btn')) {
 
-                    updateButtons(wrapper);
-                }
-            });
-        }
+                        const rows = wrapper.querySelectorAll('.script-row');
 
-        /*
-        |--------------------------------------------------------------------------
-        | Update Buttons
-        |--------------------------------------------------------------------------
-        */
-        function updateButtons(wrapper) {
-            const rows = wrapper.querySelectorAll('.script-row');
+                        if (rows.length <= 1) {
+                            return;
+                        }
 
-            rows.forEach((row, index) => {
+                        e.target.closest('.script-row').remove();
 
-                const addBtn = row.querySelector('.add-btn');
-                const removeBtn = row.querySelector('.remove-btn');
+                        updateButtons(wrapper);
+                    }
+                });
+            }
 
-                // Only last row shows Add button
-                if (index === rows.length - 1) {
-                    addBtn.classList.remove('hidden');
-                } else {
-                    addBtn.classList.add('hidden');
-                }
+            /*
+            |--------------------------------------------------------------------------
+            | Update Buttons
+            |--------------------------------------------------------------------------
+            */
+            function updateButtons(wrapper) {
+                const rows = wrapper.querySelectorAll('.script-row');
 
-                // Hide remove if only one row
-                if (rows.length === 1) {
-                    removeBtn.classList.add('hidden');
-                } else {
-                    removeBtn.classList.remove('hidden');
-                }
-            });
-        }
-    });
-</script>
+                rows.forEach((row, index) => {
+
+                    const addBtn = row.querySelector('.add-btn');
+                    const removeBtn = row.querySelector('.remove-btn');
+
+                    // Only last row shows Add button
+                    if (index === rows.length - 1) {
+                        addBtn.classList.remove('hidden');
+                    } else {
+                        addBtn.classList.add('hidden');
+                    }
+
+                    // Hide remove if only one row
+                    if (rows.length === 1) {
+                        removeBtn.classList.add('hidden');
+                    } else {
+                        removeBtn.classList.remove('hidden');
+                    }
+                });
+            }
+        });
+    </script>
 @endpush
-
-
-
