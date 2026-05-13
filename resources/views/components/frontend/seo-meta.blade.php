@@ -25,26 +25,16 @@
 
     $defaultImage = $baseUrl . '/images/og-default.jpg';
 
-    /*
-    |--------------------------------------------------------------------------
-    | OG IMAGE
-    |--------------------------------------------------------------------------
-    */
+ 
+   $ogImage = $seo?->og_image
+    ? asset($seo->og_image)
+    : asset('images/og-default.jpg');
 
-    $ogImage = $seo?->og_image
-        ? $baseUrl . '/' . ltrim($seo->og_image, '/')
-        : $defaultImage;
+$twitterImage = $seo?->twitter_image
+    ? asset($seo->twitter_image)
+    : $ogImage;
 
-    /*
-    |--------------------------------------------------------------------------
-    | TWITTER IMAGE
-    |--------------------------------------------------------------------------
-    */
-
-    $twitterImage = $seo?->twitter_image
-        ? $baseUrl . '/' . ltrim($seo->twitter_image, '/')
-        : $ogImage;
-
+ 
 @endphp
 
 
