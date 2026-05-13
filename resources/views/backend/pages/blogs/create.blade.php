@@ -122,7 +122,11 @@
 
                 </div> --}}
 
-                <x.form.text-editor/>
+                @include('backend.pages.blogs.text-editor', [
+                    'name' => 'contents',
+                    'value' => old('contents'),
+                    'placeholder' => 'Write the blog content...',
+                ])
                 <div class="flex justify-end">
                     <button type="submit"
                         class="mt-6 inline-flex items-center justify-center rounded-lg bg-brand-600 px-4 py-2.5 text-sm font-medium text-white hover:bg-brand-600 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:ring-offset-2">
@@ -135,7 +139,7 @@
     </div>
 @endsection
 
-
+@push('scripts')
 <script>
     document.addEventListener('DOMContentLoaded', function() {
 
@@ -144,6 +148,10 @@
 
         function initializeDynamicFields(wrapperId, inputName, labelText) {
             const wrapper = document.getElementById(wrapperId);
+
+            if (!wrapper) {
+                return;
+            }
 
             updateButtons(wrapper);
 
@@ -262,7 +270,7 @@
         }
     });
 </script>
-
+@endpush
 
 
 
