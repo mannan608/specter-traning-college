@@ -122,7 +122,9 @@
 
                 </div> --}}
 
-                 <textarea name="content" id="editor"></textarea>
+                 <form method="post">
+    <textarea>Hello, World!</textarea>
+  </form>
 
                 <div class="flex justify-end">
                     <button type="submit"
@@ -264,19 +266,6 @@
     });
 </script>
 
-<script src="{{asset('vendor/tinymce/js/tinymce/tinymce.min.js')}}"></script>
 
-<script>
-    tinymce.init({
-        selector: '#editor',
-        height: 500,
-        menubar: true,
 
-        plugins: [
-            'lists link image table code'
-        ],
 
-        toolbar:
-            'undo redo | bold italic | alignleft aligncenter alignright | bullist numlist | link image | code'
-    });
-</script>

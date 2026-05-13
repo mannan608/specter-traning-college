@@ -90,6 +90,15 @@
             }
         })();
     </script>
+
+<script src="https://cdn.tiny.cloud/1/mzvdlxrh4rxo730gv73244p10t9x4guhtfld98bb6ao5al27/tinymce/8/tinymce.min.js" referrerpolicy="origin" crossorigin="anonymous"></script>
+<script>
+  tinymce.init({
+    selector: 'textarea#myeditorinstance', // Replace this CSS selector to match the placeholder element for TinyMCE
+    plugins: 'code table lists',
+    toolbar: 'undo redo | blocks | bold italic | alignleft aligncenter alignright | indent outdent | bullist numlist | code | table'
+  });
+</script>
     
 </head>
 
