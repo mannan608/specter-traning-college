@@ -13,7 +13,7 @@
         <div class="mb-4">
             <form action="{{ route('admin.blogs.store') }}" method="POST" enctype="multipart/form-data" class="space-y-6">
                 @csrf
-                <div class="space-y-3">
+                {{-- <div class="space-y-3">
                     <x-form.input-text name="meta_title" label="Meta Title" value=""
                             placeholder="Enter meta title..." />
 
@@ -59,8 +59,6 @@
                         </div>
                     </div>
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-
-                        {{-- Header Scripts --}}
                         <div>
                             <div id="header-scripts-wrapper">
                                 <label for=""
@@ -88,8 +86,6 @@
 
                             </div>
                         </div>
-
-                        {{-- Footer Scripts --}}
                         <div>
                             <div id="footer-scripts-wrapper">
                                 <label for=""
@@ -124,7 +120,10 @@
                         rows="4" />
 
 
-                </div>
+                </div> --}}
+
+                 <textarea name="content" id="editor"></textarea>
+
                 <div class="flex justify-end">
                     <button type="submit"
                         class="mt-6 inline-flex items-center justify-center rounded-lg bg-brand-600 px-4 py-2.5 text-sm font-medium text-white hover:bg-brand-600 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:ring-offset-2">
@@ -262,5 +261,22 @@
                 }
             });
         }
+    });
+</script>
+
+<script src="{{asset('vendor/tinymce/js/tinymce/tinymce.min.js')}}"></script>
+
+<script>
+    tinymce.init({
+        selector: '#editor',
+        height: 500,
+        menubar: true,
+
+        plugins: [
+            'lists link image table code'
+        ],
+
+        toolbar:
+            'undo redo | bold italic | alignleft aligncenter alignright | bullist numlist | link image | code'
     });
 </script>
