@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\Frontend\BlogController;
 use App\Http\Controllers\Frontend\CourseController;
+use App\Http\Controllers\Frontend\EventController;
 use App\Http\Controllers\Frontend\FrontendController;
 use App\SEO\Controllers\SitemapController;
 use Illuminate\Support\Facades\Route;
@@ -32,3 +34,16 @@ Route::get('/download-brochure', function () {
 
 
 Route::get('/generate-sitemap', [SitemapController::class, 'generate']);
+
+
+Route::get('/blogs', [BlogController::class, 'index'])
+    ->name('blogs.index');
+
+Route::get('/blogs/{slug}', [BlogController::class, 'show'])
+    ->name('blogs.show');
+
+Route::get('/events', [EventController::class, 'index'])
+    ->name('events.index');
+
+Route::get('/events/{slug}', [EventController::class, 'show'])
+    ->name('events.show');

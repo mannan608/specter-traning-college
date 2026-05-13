@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\Admin\AuthController;
+use App\Http\Controllers\Admin\BlogController;
+use App\Http\Controllers\Admin\EventController;
 use App\SEO\Controllers\SeoController;
 use Illuminate\Support\Facades\Route;
 
@@ -21,5 +23,9 @@ Route::prefix('admin')->name('admin.')->middleware(['auth', 'role:super admin'])
         ]);
     })->name('dashboard');
     Route::resource('seo', SeoController::class);
+
+            Route::resource('blogs', BlogController::class);
+
+        Route::resource('events', EventController::class);
 
 });

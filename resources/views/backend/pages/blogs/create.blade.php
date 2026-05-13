@@ -4,37 +4,28 @@
     <div class="">
         <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-6 gap-4">
             <div>
-                <h3 class="text-lg font-semibold text-gray-800 dark:text-white/90">SEO Management</h3>
-                <p class="text-sm text-gray-500 dark:text-gray-400">Manage Meta tags, Open Graph, and Schema for all routes.
+                <h3 class="text-lg font-semibold text-gray-800 dark:text-white/90">Create New Blog</h3>
+                <p class="text-sm text-gray-500 dark:text-gray-400">Manage Meta tags, open graph, and seo frindly content.
                 </p>
             </div>
         </div>
 
         <div class="mb-4">
-            <form action="{{ route('admin.seo.store') }}" method="POST" enctype="multipart/form-data" class="space-y-6">
+            <form action="{{ route('admin.blogs.store') }}" method="POST" enctype="multipart/form-data" class="space-y-6">
                 @csrf
                 <div class="space-y-3">
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <x-form.select-input name="type" label="Page Name" value="" :options="$routes" />
-                        <x-form.input-text name="meta_title" label="Meta Title" value=""
+                    <x-form.input-text name="meta_title" label="Meta Title" value=""
                             placeholder="Enter meta title..." />
-                    </div>
 
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <x-form.textarea-input name="meta_description" label="Meta Description"
+                            <x-form.textarea-input name="meta_description" label="Meta Description"
                             placeholder="Enter a description..." rows="2" />
 
                         <x-form.textarea-input name="meta_keywords" label="Meta Keywords"
                             placeholder="Enter keywords separated by commas..." rows="2" />
-                    </div>
-
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <x-form.input-text name="robots" label="Robots" value=""
-                            placeholder="Enter robots directive..." />
-
-                        <x-form.input-text name="canonical_url" label="Canonical URL" value=""
+                            <x-form.input-text name="canonical_url" label="Canonical URL" value=""
                             placeholder="Enter canonical URL..." />
-                    </div>
+
+                    
 
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <div class="og-section space-y-3">
@@ -137,7 +128,7 @@
                 <div class="flex justify-end">
                     <button type="submit"
                         class="mt-6 inline-flex items-center justify-center rounded-lg bg-brand-600 px-4 py-2.5 text-sm font-medium text-white hover:bg-brand-600 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:ring-offset-2">
-                        Save SEO Meta
+                        Save Blog
                     </button>
                 </div>
 

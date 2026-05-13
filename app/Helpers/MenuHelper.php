@@ -10,15 +10,24 @@ class MenuHelper
             [
                 'icon' => 'dashboard',
                 'name' => 'Dashboard',
-               'path' => '/admin/dashboard',
+                'path' => '/admin/dashboard',
             ],
             [
                 'name' => 'Manage SEO',
                 'icon' => 'pages',
                 'path' => '/admin/seo',
             ],
+            [
+                'name' => 'Blogs',
+                'icon' => 'pages',
+                'path' => '/admin/blogs',
+            ],
+             [
+                'name' => 'Events',
+                'icon' => 'pages',
+                'path' => '/admin/events',
+            ],
 
-            
         ];
     }
 
@@ -31,7 +40,7 @@ class MenuHelper
                 'title' => 'Menu',
                 'items' => self::getMainNavItems()
             ],
-           
+
         ];
     }
 
