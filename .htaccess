@@ -1,8 +1,12 @@
-Options +SymLinksIfOwnerMatch
-RewriteEngine On
+<IfModule mod_rewrite.c>
+    RewriteEngine On
 
-# Allow Installatron requests
-RewriteCond %{REQUEST_FILENAME} deleteme\.\w+\.php
-RewriteRule (.*) - [L] 
+    # Redirect requests to /public folder internally
+    RewriteCond %{REQUEST_URI} !^/public/
+    RewriteRule ^(.*)$ public/$1 [L]
+</IfModule>
 
-RewriteRule ^ index.php [L]
+# PHP handler (keep this)
+<IfModule mime_module>
+  AddHandler application/x-httpd-ea-php82 .php .php8 .phtml
+</IfModule>
