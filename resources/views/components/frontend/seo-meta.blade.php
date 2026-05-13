@@ -1,81 +1,93 @@
 @php
     use App\SEO\Models\SeoMeta;
 
-    $path = request()->route()?->getName();
-    $uri = request()->getRequestUri();
+    /*
+    |--------------------------------------------------------------------------
+    | Request Info
+    |--------------------------------------------------------------------------
+    */
+    $routeName = request()->route()?->getName();
+    $currentUri = request()->getRequestUri();
+    $lastSegment = request()->segment(count(request()->segments()));
 
+    /*
+    |--------------------------------------------------------------------------
+    | SEO Data
+    |--------------------------------------------------------------------------
+    */
     $seo = SeoMeta::query()
-        ->whereIn('path', [$path, $uri])
+        ->whereIn('path', array_filter([$routeName, $currentUri]))
         ->where('is_active', true)
         ->first();
 
     /*
     |--------------------------------------------------------------------------
-    | BASE URL
+    | Site Info
     |--------------------------------------------------------------------------
     */
-
-    $baseUrl = 'https://spectertrainingcollege.com';
+    $siteName = config('app.name');
+    $siteUrl = rtrim(config('app.url') ?: url('/'), '/');
 
     /*
     |--------------------------------------------------------------------------
-    | DEFAULT IMAGE
+    | Dynamic Title
     |--------------------------------------------------------------------------
     */
+    $pageTitle = $seo?->meta_title;
 
-    $defaultImage = $baseUrl . '/images/og-default.jpg';
+    if (!$pageTitle) {
+        $pageTitle = $routeName
+            ? str($routeName)->replace('.', ' ')->title()
+            : ($lastSegment
+                ? str($lastSegment)->replace('-', ' ')->title()
+                : $siteName);
+    }
 
- 
-   $ogImage = $seo?->og_image
-    ? asset($seo->og_image)
-    : asset('images/og-default.jpg');
+    $fullTitle = "{$pageTitle} | {$siteName}";
 
-$twitterImage = $seo?->twitter_image
-    ? asset($seo->twitter_image)
-    : $ogImage;
+    /*
+    |--------------------------------------------------------------------------
+    | Images
+    |--------------------------------------------------------------------------
+    */
+    $defaultImage = asset('images/og-default.jpg');
 
- 
+    $ogImage = !empty($seo?->og_image)
+        ? asset($seo->og_image)
+        : $defaultImage;
+
+    $twitterImage = !empty($seo?->twitter_image)
+        ? asset($seo->twitter_image)
+        : $ogImage;
 @endphp
 
+<title>{{ $fullTitle }}</title>
 
-<title>
-    {{ $seo->meta_title ?? config('app.name') }}
-</title>
+<link rel="icon" href="{{ asset('favicon.ico') }}">
 
-
-{{-- FAVICON --}}
-<link rel="icon"
-    href="{{ $baseUrl }}/favicon.ico">
-
-
-{{-- BASIC SEO --}}
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-<meta name="viewport"
-    content="width=device-width, initial-scale=1.0">
-
-<meta http-equiv="X-UA-Compatible"
-    content="IE=edge">
-
+{{-- Basic SEO --}}
 <meta name="description"
-    content="{{ $seo->meta_description ?? 'Specter Training College' }}">
+    content="{{ $seo?->meta_description ?: $siteName }}">
 
 <meta name="keywords"
-    content="{{ $seo->meta_keywords ?? 'education,college,training,courses' }}">
+    content="{{ $seo?->meta_keywords ?: 'education,college,training,courses' }}">
 
 <meta name="robots"
-    content="{{ $seo->robots ?? 'index,follow' }}">
+    content="{{ $seo?->robots ?: 'index,follow' }}">
 
 <link rel="canonical"
-    href="{{ $seo->canonical_url ?? url()->current() }}">
+    href="{{ $seo?->canonical_url ?: url()->current() }}">
 
-
-{{-- OPEN GRAPH --}}
+{{-- Open Graph --}}
 <meta property="og:title"
-    content="{{ $seo->og_title ?? ($seo->meta_title ?? config('app.name')) }}">
+    content="{{ $seo?->og_title ?: $fullTitle }}">
 
 <meta property="og:description"
-    content="{{ $seo->og_description ?? ($seo->meta_description ?? 'Specter Training College') }}">
+    content="{{ $seo?->og_description ?: ($seo?->meta_description ?: $siteName) }}">
 
 <meta property="og:image"
     content="{{ $ogImage }}">
@@ -96,41 +108,37 @@ $twitterImage = $seo?->twitter_image
     content="{{ url()->current() }}">
 
 <meta property="og:type"
-    content="{{ $seo->og_type ?? 'website' }}">
+    content="{{ $seo?->og_type ?: 'website' }}">
 
 <meta property="og:site_name"
-    content="Specter Training College">
+    content="{{ $siteName }}">
 
-
-{{-- TWITTER --}}
+{{-- Twitter --}}
 <meta name="twitter:card"
     content="summary_large_image">
 
 <meta name="twitter:title"
-    content="{{ $seo->twitter_title ?? ($seo->meta_title ?? config('app.name')) }}">
+    content="{{ $seo?->twitter_title ?: $fullTitle }}">
 
 <meta name="twitter:description"
-    content="{{ $seo->twitter_description ?? ($seo->meta_description ?? 'Specter Training College') }}">
+    content="{{ $seo?->twitter_description ?: ($seo?->meta_description ?: $siteName) }}">
 
 <meta name="twitter:image"
     content="{{ $twitterImage }}">
 
-
-{{-- HEADER SCRIPTS --}}
+{{-- Header Scripts --}}
 @if (!empty($seo?->header_scripts))
     @foreach ($seo->header_scripts as $script)
         {!! $script !!}
     @endforeach
 @endif
 
-
-{{-- SCHEMA --}}
-@if ($seo?->schema_markup)
+{{-- Schema Markup --}}
+@if (!empty($seo?->schema_markup))
     {!! $seo->schema_markup !!}
 @endif
 
-
-{{-- FOOTER SCRIPTS --}}
+{{-- Footer Scripts --}}
 @if (!empty($seo?->footer_scripts))
     @foreach ($seo->footer_scripts as $script)
         {!! $script !!}
