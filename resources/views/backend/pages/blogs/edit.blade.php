@@ -1,8 +1,9 @@
 @extends('backend.layouts.app')
 
 @section('content')
-    <form action="{{ route('admin.blogs.store') }}" method="UPDATE" enctype="multipart/form-data">
+    <form action="{{ route('admin.blogs.update', $blog) }}" method="POST" enctype="multipart/form-data">
         @csrf
+        @method('PUT')
         <div class="grid grid-cols-1 gap-6 lg:grid-cols-12">
 
             <div class="lg:col-span-8 space-y-6">
@@ -26,9 +27,7 @@
 
                         {{-- Short Description --}}
                         <x-form.textarea-input name="short_description" label="Short Description" rows="3"
-                            placeholder="Enter short description...">
-                            {{ old('short_description', $blog->short_description ?? '') }}
-                        </x-form.textarea-input>
+                            placeholder="Enter short description..." :value="$blog->short_description ?? ''" />
 
                         {{-- Editor --}}
                         <div>
@@ -101,7 +100,7 @@
                             <button type="submit"
                                 class="w-full rounded-xl bg-brand-600 px-5 py-3 text-sm font-medium text-white transition hover:bg-brand-700">
 
-                                Save Blog
+                                Update Blog
 
                             </button>
 
@@ -121,6 +120,10 @@
                         </div>
 
                         <div class="p-5">
+                            @if (!empty($blog?->featured_image))
+                                <img src="{{ \Illuminate\Support\Facades\Storage::disk('public')->url($blog->featured_image) }}"
+                                    class="mb-4 w-full rounded-xl border border-gray-200 object-cover">
+                            @endif
 
                             <x-form.dropzone name="featured_image" label="Featured Image" value=""
                                 placeholder="Upload featured image..." />
@@ -146,14 +149,10 @@
                                 value="{{ old('meta_title', $blog->meta_title ?? '') }}" placeholder="Meta title..." />
 
                             <x-form.textarea-input name="meta_description" label="Meta Description" rows="3"
-                                placeholder="Meta description...">
-                                {{ old('meta_description', $blog->meta_description ?? '') }}
-                            </x-form.textarea-input>
+                                placeholder="Meta description..." :value="$blog->meta_description ?? ''" />
 
                             <x-form.textarea-input name="meta_keywords" label="Meta Keywords" rows="2"
-                                placeholder="keyword1, keyword2">
-                                {{ old('meta_keywords', $blog->meta_keywords ?? '') }}
-                            </x-form.textarea-input>
+                                placeholder="keyword1, keyword2" :value="$blog->meta_keywords ?? ''" />
 
                         </div>
 

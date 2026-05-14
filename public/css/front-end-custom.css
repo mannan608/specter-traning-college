@@ -354,3 +354,9 @@ body {
 .field-container .label-alignment{
     font-size: 14px !important;
 }
+
+.blog-content{
+    img{
+        margin-right: 24px;
+    }
+}

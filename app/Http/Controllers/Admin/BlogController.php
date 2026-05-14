@@ -108,11 +108,8 @@ class BlogController extends Controller
     /**
      * Edit Page
      */
-    public function edit($slug)
+    public function edit(Blog $blog)
     {
-        $blog = $this->blogRepository
-            ->findById($slug);
-
         return view(
             'backend.pages.blogs.edit',
             compact('blog')
@@ -124,14 +121,11 @@ class BlogController extends Controller
      */
     public function update(
         BlogUpdateRequest $request,
-        $slug
+        Blog $blog
     ) {
-        DB::beginTransaction();
+        $data = [];
 
         try {
-
-            $blog = $this->blogRepository
-                ->findById($slug);
 
             $data = $request->validated();
 
@@ -153,42 +147,56 @@ class BlogController extends Controller
                 $data['published_at'] = now();
             }
 
+            $oldFeaturedImage = $blog->featured_image;
+
             if (
                 $request->hasFile('featured_image')
             ) {
-
-                if (
-                    $blog->featured_image &&
-                    Storage::disk('public')->exists(
-                        $blog->featured_image
-                    )
-                ) {
-
-                    Storage::disk('public')
-                        ->delete(
-                            $blog->featured_image
-                        );
-                }
-
                 $data['featured_image'] = $request
                     ->file('featured_image')
                     ->store('blogs', 'public');
             }
 
-            $this->blogRepository
-                ->update($slug, $data);
+            $blog->fill($data);
+
+            if (!$blog->isDirty()) {
+                return redirect()
+                    ->route('admin.blogs.edit', $blog)
+                    ->with('success', 'No changes to update.');
+            }
+
+            DB::beginTransaction();
+
+            if (
+                $request->hasFile('featured_image') &&
+                $oldFeaturedImage &&
+                Storage::disk('public')->exists($oldFeaturedImage)
+            ) {
+                Storage::disk('public')->delete($oldFeaturedImage);
+            }
+
+            $blog->save();
 
             DB::commit();
 
             return redirect()
-                ->route('admin.blogs.index')
+                ->route('admin.blogs.index', $blog)
                 ->with(
                     'success',
                     'Blog updated successfully.'
                 );
         } catch (\Exception $e) {
 
-            DB::rollBack();
+            if (DB::transactionLevel() > 0) {
+                DB::rollBack();
+            }
+
+            if (
+                !empty($data['featured_image']) &&
+                Storage::disk('public')->exists($data['featured_image'])
+            ) {
+                Storage::disk('public')->delete($data['featured_image']);
+            }
 
             return back()
                 ->withInput()
@@ -202,14 +210,11 @@ class BlogController extends Controller
     /**
      * Delete Blog
      */
-    public function destroy($slug)
+    public function destroy(Blog $blog)
     {
         DB::beginTransaction();
 
         try {
-
-            $blog = $this->blogRepository
-                ->findBySlug($slug);
 
             if (
                 $blog->featured_image &&
@@ -224,8 +229,7 @@ class BlogController extends Controller
                     );
             }
 
-            $this->blogRepository
-                ->delete($slug);
+            $blog->delete();
 
             DB::commit();
 

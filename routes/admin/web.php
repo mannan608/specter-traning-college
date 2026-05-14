@@ -24,8 +24,8 @@ Route::prefix('admin')->name('admin.')->middleware(['auth', 'role:super admin'])
     })->name('dashboard');
     Route::resource('seo', SeoController::class);
 
-            Route::resource('blogs', BlogController::class);
+    Route::resource('blogs', BlogController::class);
 
-        Route::resource('events', EventController::class);
+    Route::resource('events', EventController::class);
 
 });

@@ -108,4 +108,5 @@ class FrontendController extends Controller
     {
         return view('frontend.pages.legal.cookie-policy', ['title' => 'Cookie Policy']);
     }
+ 
 }

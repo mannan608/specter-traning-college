@@ -14,7 +14,9 @@ class BlogController extends Controller
         ->latest()
         ->paginate(12);
 
-    return view('frontend.blog.index', compact('blogs'));
+        // return $blogs;
+
+    return view('frontend.pages.blogs.index', compact('blogs'));
 }
 public function show($slug)
 {
@@ -24,6 +26,6 @@ public function show($slug)
 
     $blog->increment('views');
 
-    return view('frontend.blog.show', compact('blog'));
+    return view('frontend.pages.blogs.show', compact('blog'));
 }
 }

@@ -21,14 +21,12 @@
                     <div class="p-5 space-y-5">
 
                         {{-- Title --}}
-                        <x-form.input-text name="title" label="Blog Title" value="{{ old('title', $blog->title ?? '') }}"
+                        <x-form.input-text name="title" label="Blog Title" value="{{ old('title', $blog?->title ?? '') }}"
                             placeholder="Enter blog title..." />
 
                         {{-- Short Description --}}
                         <x-form.textarea-input name="short_description" label="Short Description" rows="3"
-                            placeholder="Enter short description...">
-                            {{ old('short_description', $blog->short_description ?? '') }}
-                        </x-form.textarea-input>
+                            placeholder="Enter short description..." :value="$blog?->short_description ?? ''" />
 
                         {{-- Editor --}}
                         <div>
@@ -72,7 +70,7 @@
                                 'draft' => 'Draft',
                                 'published' => 'Published',
                             ]"
-                                value="{{ old('status', $blog->status ?? 'draft') }}" />
+                                value="{{ old('status', $blog?->status ?? 'draft') }}" />
 
                             {{-- Featured --}}
                             <div>
@@ -86,7 +84,7 @@
                                 <label class="inline-flex items-center gap-3">
 
                                     <input type="checkbox" name="is_featured" value="1"
-                                        {{ old('is_featured', $blog->is_featured ?? false) ? 'checked' : '' }}
+                                        {{ old('is_featured', $blog?->is_featured ?? false) ? 'checked' : '' }}
                                         class="h-5 w-5 rounded border-gray-300 text-brand-600 focus:ring-brand-500">
 
                                     <span class="text-sm text-gray-600 dark:text-gray-400">
@@ -143,17 +141,13 @@
                         <div class="space-y-4 p-5">
 
                             <x-form.input-text name="meta_title" label="Meta Title"
-                                value="{{ old('meta_title', $blog->meta_title ?? '') }}" placeholder="Meta title..." />
+                                value="{{ old('meta_title', $blog?->meta_title ?? '') }}" placeholder="Meta title..." />
 
                             <x-form.textarea-input name="meta_description" label="Meta Description" rows="3"
-                                placeholder="Meta description...">
-                                {{ old('meta_description', $blog->meta_description ?? '') }}
-                            </x-form.textarea-input>
+                                placeholder="Meta description..." :value="$blog?->meta_description ?? ''" />
 
                             <x-form.textarea-input name="meta_keywords" label="Meta Keywords" rows="2"
-                                placeholder="keyword1, keyword2">
-                                {{ old('meta_keywords', $blog->meta_keywords ?? '') }}
-                            </x-form.textarea-input>
+                                placeholder="keyword1, keyword2" :value="$blog?->meta_keywords ?? ''" />
 
                         </div>
 

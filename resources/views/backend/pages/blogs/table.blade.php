@@ -15,7 +15,7 @@
             'keyword' => $blog->meta_keywords,
             'author' => $blog->author?->name ?? 'Admin',
             'image' => $blog->featured_image
-                ? Storage::url($blog->featured_image)
+                ? Storage::disk('public')->url($blog->featured_image)
                 : null,
         ];
     })->values();
@@ -43,7 +43,7 @@
     },
  
 }" @keydown.escape.window="closeDeleteModal()">
-        <form x-ref="deleteForm" :action="rowToDelete ? (blogBaseUrl + '/' + rowToDelete.id) : '#'" method="POST" class="hidden">
+        <form x-ref="deleteForm" :action="rowToDelete ? (blogBaseUrl + '/' + rowToDelete.slug) : '#'" method="POST" class="hidden">
             @csrf
             @method('DELETE')
         </form>

@@ -2,7 +2,7 @@
     <label class="mb-1.5 block text-sm font-medium text-gray-700 dark:text-gray-400">
         Add Your Content
     </label>
-    <textarea id="editor" name="content">{{ old('content', $blog->content ?? '') }}</textarea>
+    <textarea id="editor" name="content">{{ old('content', $blog?->content ?? '') }}</textarea>
 </div>
 
 @push('scripts')
