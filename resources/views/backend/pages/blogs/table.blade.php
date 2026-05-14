@@ -10,6 +10,7 @@
         return [
             'id' => $blog->id,
             'title' => $blog->title,
+            'slug' => $blog->slug,
             'meta_title' => $blog->meta_title,
             'keyword' => $blog->meta_keywords,
             'author' => $blog->author?->name ?? 'Admin',
@@ -40,12 +41,7 @@
         if (!this.rowToDelete) return;
         this.$refs.deleteForm.submit();
     },
-
-    getScoreClass(score) {
-        if (score >= 80) return 'bg-green-50 text-green-700 dark:bg-green-500/15 dark:text-green-500';
-        if (score >= 50) return 'bg-yellow-50 text-yellow-700 dark:bg-yellow-500/15 dark:text-yellow-400';
-        return 'bg-red-50 text-red-700 dark:bg-red-500/15 dark:text-red-500';
-    }
+ 
 }" @keydown.escape.window="closeDeleteModal()">
         <form x-ref="deleteForm" :action="rowToDelete ? (blogBaseUrl + '/' + rowToDelete.id) : '#'" method="POST" class="hidden">
             @csrf
@@ -119,7 +115,7 @@
                                  <td class="px-5 py-4 text-sm text-gray-500 dark:text-gray-400" x-text="row.author"></td>
                                 <td class="px-5 py-4 text-right">
                                     <div class="flex justify-end gap-2">
-                                        <a :href="blogBaseUrl + '/' + row.id + '/edit'" class="p-2 text-gray-500 hover:text-blue-600 hover:bg-blue-50 dark:hover:bg-blue-500/10 rounded-lg transition-all">
+                                        <a :href="blogBaseUrl + '/' + row.slug + '/edit'" class="p-2 text-gray-500 hover:text-blue-600 hover:bg-blue-50 dark:hover:bg-blue-500/10 rounded-lg transition-all">
                                             <svg class="size-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
                                             </svg>

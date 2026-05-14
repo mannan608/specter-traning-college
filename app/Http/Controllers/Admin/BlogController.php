@@ -108,10 +108,10 @@ class BlogController extends Controller
     /**
      * Edit Page
      */
-    public function edit($id)
+    public function edit($slug)
     {
         $blog = $this->blogRepository
-            ->findById($id);
+            ->findById($slug);
 
         return view(
             'backend.pages.blogs.edit',
@@ -124,14 +124,14 @@ class BlogController extends Controller
      */
     public function update(
         BlogUpdateRequest $request,
-        $id
+        $slug
     ) {
         DB::beginTransaction();
 
         try {
 
             $blog = $this->blogRepository
-                ->findById($id);
+                ->findById($slug);
 
             $data = $request->validated();
 
@@ -176,7 +176,7 @@ class BlogController extends Controller
             }
 
             $this->blogRepository
-                ->update($id, $data);
+                ->update($slug, $data);
 
             DB::commit();
 
@@ -202,14 +202,14 @@ class BlogController extends Controller
     /**
      * Delete Blog
      */
-    public function destroy($id)
+    public function destroy($slug)
     {
         DB::beginTransaction();
 
         try {
 
             $blog = $this->blogRepository
-                ->findById($id);
+                ->findBySlug($slug);
 
             if (
                 $blog->featured_image &&
@@ -225,7 +225,7 @@ class BlogController extends Controller
             }
 
             $this->blogRepository
-                ->delete($id);
+                ->delete($slug);
 
             DB::commit();
 

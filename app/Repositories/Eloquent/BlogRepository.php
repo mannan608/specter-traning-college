@@ -40,17 +40,17 @@ class BlogRepository implements BlogRepositoryInterface
         return Blog::create($data);
     }
 
-    public function update($id, array $data)
+    public function update($slug, array $data)
     {
-        $blog = $this->findById($id);
+        $blog = $this->findBySlug($slug);
 
         $blog->update($data);
 
         return $blog;
     }
 
-    public function delete($id)
+    public function delete($slug)
     {
-        return Blog::destroy($id);
+        return Blog::destroy($slug);
     }
 }
