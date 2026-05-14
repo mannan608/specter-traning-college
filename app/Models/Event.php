@@ -32,12 +32,24 @@ class Event extends Model
         'views',
     ];
 
-    protected $casts = [
+protected $casts = [
 
-        'event_start_date' => 'datetime',
-        'event_end_date' => 'datetime',
-        'is_featured' => 'boolean',
-    ];
+    'schedules' => 'array',
+
+    'providers' => 'array',
+
+    'gallery_images' => 'array',
+
+    'tags' => 'array',
+
+    'benefits' => 'array',
+
+    'services_offered' => 'array',
+
+    'faqs' => 'array',
+
+    'is_featured' => 'boolean',
+];
 
     public function seoMeta()
 {

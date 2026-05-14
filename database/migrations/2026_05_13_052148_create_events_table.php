@@ -12,8 +12,8 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('events', function (Blueprint $table) {
-         $table->id();
-         
+
+            $table->id();
 
             $table->string('title');
 
@@ -28,11 +28,7 @@ return new class extends Migration
             $table->string('banner')
                 ->nullable();
 
-            $table->string('location');
-
-            $table->dateTime('event_start_date');
-
-            $table->dateTime('event_end_date')
+            $table->json('schedules')
                 ->nullable();
 
             $table->string('organizer')
@@ -46,28 +42,39 @@ return new class extends Migration
 
             $table->string('contact_phone')
                 ->nullable();
-            $table->json('provider')->nullable(); //add dynamic name and logo
-            $table->string('gallery_img')->nullable(); // multiple images
-            $table->json('tags')->nullable(); // add dynamic multiple
-            $table->json('benefits')->nullable(); // add dynamic multiple
-            $table->json('services_offered')->nullable(); // add dynamic multiple
-            $table->json('faqs')->nullable(); // add dynamic multiple
-            $table->string('google_map_link')->nullable();
 
-            $table->enum(
-                'status',
-                [
-                    'upcoming',
-                    'ongoing',
-                    'completed',
-                    'cancelled'
-                ]
-            )->default('upcoming');
+            $table->json('providers')
+                ->nullable();
+
+            $table->json('gallery_images')
+                ->nullable();
+
+            $table->json('tags')
+                ->nullable();
+
+            $table->json('benefits')
+                ->nullable();
+
+            $table->json('services_offered')
+                ->nullable();
+
+            $table->json('faqs')
+                ->nullable();
+
+            $table->text('google_map_link')
+                ->nullable();
+
+            $table->enum('status', [
+                'upcoming',
+                'ongoing',
+                'completed',
+                'cancelled'
+            ])->default('upcoming');
 
             $table->boolean('is_featured')
                 ->default(false);
 
-            $table->integer('views')
+            $table->unsignedBigInteger('views')
                 ->default(0);
 
             $table->timestamps();
@@ -75,7 +82,7 @@ return new class extends Migration
     }
 
     /**
-     * Reverse migrations
+     * Reverse migrations.
      */
     public function down(): void
     {

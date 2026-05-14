@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class SeoMeta extends Model
 {
     protected $fillable = [
+        'event_id',
         'path',
         'meta_title',
         'meta_description',

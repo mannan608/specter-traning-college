@@ -29,11 +29,11 @@
                                     By {{ $blog->author?->name ?? 'Admin' }}
                                 </p>
 
-                                <h2 class="text-xl font-semibold text-gray-900 mb-3 line-clamp-2">
+                                <h2 class="text-xl font-semibold text-gray-900 mb-3 line-clamp-1">
                                     {{ $blog->title }}
                                 </h2>
 
-                                <p class="text-gray-600 mb-4 text-sm md:text-base">
+                                <p class="text-gray-600 mb-4 text-sm md:text-base line-clamp-3">
                                     {{ Str::limit($blog->short_description, 120) }}
                                 </p>
 
