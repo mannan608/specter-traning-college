@@ -31,6 +31,7 @@ class BlogRepository implements BlogRepositoryInterface
 
     public function create(array $data)
     {
+        
         return Blog::create($data);
     }
 

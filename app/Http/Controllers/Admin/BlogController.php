@@ -48,10 +48,10 @@ class BlogController extends Controller
     /**
      * Store Blog
      */
-    public function store(
-        BlogStoreRequest $request
-    ) {
+    public function store(BlogStoreRequest $request) {
         DB::beginTransaction();
+
+      
 
         try {
 
@@ -87,12 +87,11 @@ class BlogController extends Controller
             DB::commit();
 
             return redirect()
-                ->route('admin.blogs.index')
+                ->route('backend.blogs.index')
                 ->with(
                     'success',
                     'Blog created successfully.'
                 );
-
         } catch (\Exception $e) {
 
             DB::rollBack();
@@ -147,7 +146,7 @@ class BlogController extends Controller
             $data['is_featured'] = $request
                 ->boolean('is_featured');
 
-                      if (
+            if (
                 $request->status === 'published' &&
                 !$blog->published_at
             ) {
@@ -187,7 +186,6 @@ class BlogController extends Controller
                     'success',
                     'Blog updated successfully.'
                 );
-
         } catch (\Exception $e) {
 
             DB::rollBack();
@@ -237,7 +235,6 @@ class BlogController extends Controller
                     'success',
                     'Blog deleted successfully.'
                 );
-
         } catch (\Exception $e) {
 
             DB::rollBack();

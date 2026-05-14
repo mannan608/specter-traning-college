@@ -21,7 +21,7 @@ class BlogStoreRequest extends FormRequest
      * @return array<string, ValidationRule|array<mixed>|string>
      */
     public function rules(): array
-    {
+    {       
         return [
         'title' => 'required|max:255',
         'short_description' => 'nullable',
