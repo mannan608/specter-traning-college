@@ -15,17 +15,20 @@ class Event extends Model
         'description',
         'banner',
 
-        'location',
-        'event_start_date',
-        'event_end_date',
+        'schedules',
         'organizer',
 
         'registration_link',
         'contact_email',
         'contact_phone',
 
-        'meta_title',
-        'meta_description',
+        'providers',
+        'gallery_images',
+        'tags',
+        'benefits',
+        'services_offered',
+        'faqs',
+        'google_map_link',
 
         'status',
         'is_featured',
@@ -55,4 +58,9 @@ protected $casts = [
 {
     return $this->hasOne(SeoMeta::class);
 }
+
+    public function getRouteKeyName(): string
+    {
+        return 'slug';
+    }
 }

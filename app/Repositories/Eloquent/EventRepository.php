@@ -9,26 +9,28 @@ class EventRepository implements EventRepositoryInterface
 {
     public function all()
     {
-        return Event::latest()->get();
+        return Event::with('seoMeta')
+            ->latest()
+            ->get();
     }
 
     public function paginate($limit = 10)
     {
-        return Event::latest()
+        return Event::with('seoMeta')
+            ->latest()
             ->paginate($limit);
     }
 
     public function findById($id)
     {
-        return Event::findOrFail($id);
+        return Event::with('seoMeta')->findOrFail($id);
     }
 
     public function findBySlug($slug)
     {
-        return Event::where(
-            'slug',
-            $slug
-        )->firstOrFail();
+        return Event::with('seoMeta')
+            ->where('slug', $slug)
+            ->firstOrFail();
     }
 
     public function create(array $data)

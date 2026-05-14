@@ -27,6 +27,6 @@
                 + Add New Events
             </a>
         </div>
-        {{-- @include('backend.pages.blog.table', ['items' => $items]) --}}
+        @include('backend.pages.events.table', ['items' => $events])
     </div>
 @endsection
