@@ -28,7 +28,9 @@ class Blog extends Model
         parent::boot();
 
         static::creating(function ($blog) {
-            $blog->slug = Str::slug($blog->title);
+            if (empty($blog->slug)) {
+                $blog->slug = Str::slug($blog->title);
+            }
         });
     }
 }

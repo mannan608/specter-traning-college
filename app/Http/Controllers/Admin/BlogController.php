@@ -41,7 +41,10 @@ class BlogController extends Controller
     public function create()
     {
         return view(
-            'backend.pages.blogs.create'
+            'backend.pages.blogs.create',
+            [
+                'blog' => null,
+            ]
         );
     }
 
@@ -87,7 +90,7 @@ class BlogController extends Controller
             DB::commit();
 
             return redirect()
-                ->route('backend.blogs.index')
+                ->route('admin.blogs.index')
                 ->with(
                     'success',
                     'Blog created successfully.'
