@@ -26,6 +26,15 @@ public function show($slug)
 
     $blog->increment('views');
 
-    return view('frontend.pages.blogs.show', compact('blog'));
+    $latestBlogs = Blog::where('status', 'published')
+        ->where('id', '!=', $blog->id)
+        ->latest()
+        ->take(5)
+        ->get();
+
+    return view(
+        'frontend.pages.blogs.show',
+        compact('blog', 'latestBlogs')
+    );
 }
 }

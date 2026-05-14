@@ -45,6 +45,13 @@ return new class extends Migration
 
             $table->string('contact_phone')
                 ->nullable();
+            $table->string('provider')->nullable();
+            $table->string('gallery_img')->nullable();
+            $table->string('tags')->nullable();
+            $table->string('benefits')->nullable();
+            $table->string('services_offered')->nullable();
+            $table->string('faqs')->nullable();
+            $table->string('google_map_link')->nullable();
 
             $table->string('meta_title')
                 ->nullable();
