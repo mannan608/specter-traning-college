@@ -9,17 +9,22 @@ class BlogRepository implements BlogRepositoryInterface
 {
     public function all()
     {
-        return Blog::latest()->get();
+        return Blog::with('author')
+            ->latest()
+            ->get();
     }
 
     public function paginate($limit = 10)
     {
-        return Blog::latest()->paginate($limit);
+        return Blog::with('author')
+            ->latest()
+            ->paginate($limit);
     }
 
     public function findById($id)
     {
-        return Blog::findOrFail($id);
+        return Blog::with('author')
+            ->findOrFail($id);
     }
 
     public function findBySlug($slug)

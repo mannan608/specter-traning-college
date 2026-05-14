@@ -12,7 +12,7 @@
             'title' => $blog->title,
             'meta_title' => $blog->meta_title,
             'keyword' => $blog->meta_keywords,
-            'author' => $blog->author ?? 'Admin',
+            'author' => $blog->author?->name ?? 'Admin',
             'image' => $blog->featured_image
                 ? Storage::url($blog->featured_image)
                 : null,
@@ -22,6 +22,7 @@
 
 <div x-data="{
     tableRowData: {{ \Illuminate\Support\Js::from($tableRowData) }},
+    blogBaseUrl: {{ \Illuminate\Support\Js::from(url('/admin/blogs')) }},
     showDeleteModal: false,
     rowToDelete: null,
 
@@ -46,7 +47,7 @@
         return 'bg-red-50 text-red-700 dark:bg-red-500/15 dark:text-red-500';
     }
 }" @keydown.escape.window="closeDeleteModal()">
-        <form x-ref="deleteForm" :action="rowToDelete ? (seoBaseUrl + '/' + rowToDelete.id) : '#'" method="POST" class="hidden">
+        <form x-ref="deleteForm" :action="rowToDelete ? (blogBaseUrl + '/' + rowToDelete.id) : '#'" method="POST" class="hidden">
             @csrf
             @method('DELETE')
         </form>
@@ -56,10 +57,10 @@
             <div class="absolute inset-0 flex items-center justify-center p-4">
                 <div class="w-full max-w-md rounded-xl bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 shadow-xl">
                     <div class="p-5">
-                        <div class="text-base font-semibold text-gray-800 dark:text-white/90">Delete SEO?</div>
+                        <div class="text-base font-semibold text-gray-800 dark:text-white/90">Delete Blog?</div>
                         <div class="mt-1 text-sm text-gray-600 dark:text-gray-400">
-                            This will permanently delete SEO for:
-                            <span class="font-mono" x-text="rowToDelete ? rowToDelete.path : ''"></span>
+                            This will permanently delete blog:
+                            <span class="font-mono" x-text="rowToDelete ? rowToDelete.title : ''"></span>
                         </div>
                         <div class="mt-5 flex justify-end gap-3">
                             <button type="button" @click="closeDeleteModal()"
@@ -93,7 +94,7 @@
                     <tbody class="divide-y divide-gray-100 dark:divide-white/[0.05]">
                         <template x-if="tableRowData.length === 0">
                             <tr>
-                                <td colspan="6" class="px-5 py-10 text-center text-sm text-gray-500 dark:text-gray-400">
+                                <td colspan="7" class="px-5 py-10 text-center text-sm text-gray-500 dark:text-gray-400">
                                     No BLOG records found.
                                 </td>
                             </tr>
@@ -109,7 +110,7 @@
                                 
                                 <td class="px-5 py-4">
                                     <template x-if="row.image">
-                                        <img :src="row.ogImage" class="w-10 h-10 rounded border border-gray-200 object-cover" loading="lazy">
+                                        <img :src="row.image" class="w-10 h-10 rounded border border-gray-200 object-cover" loading="lazy">
                                     </template>
                                     <template x-if="!row.image">
                                         <span class="text-xs text-gray-400 italic">None</span>
@@ -118,7 +119,7 @@
                                  <td class="px-5 py-4 text-sm text-gray-500 dark:text-gray-400" x-text="row.author"></td>
                                 <td class="px-5 py-4 text-right">
                                     <div class="flex justify-end gap-2">
-                                        <a :href="seoBaseUrl + '/' + row.id + '/edit'" class="p-2 text-gray-500 hover:text-blue-600 hover:bg-blue-50 dark:hover:bg-blue-500/10 rounded-lg transition-all">
+                                        <a :href="blogBaseUrl + '/' + row.id + '/edit'" class="p-2 text-gray-500 hover:text-blue-600 hover:bg-blue-50 dark:hover:bg-blue-500/10 rounded-lg transition-all">
                                             <svg class="size-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
                                             </svg>

@@ -23,11 +23,16 @@ class BlogStoreRequest extends FormRequest
     public function rules(): array
     {       
         return [
-        'title' => 'required|max:255',
-        'short_description' => 'nullable',
-        'content' => 'required',
-        'featured_image' => 'nullable|image',
-        'status' => 'required',
-    ];
+            'title' => 'required|string|max:255',
+            'short_description' => 'nullable|string',
+            'content' => 'required|string',
+            'featured_image' => 'nullable|image',
+            'status' => 'required|in:draft,published',
+            'is_featured' => 'sometimes|boolean',
+            'category_id' => 'nullable|integer',
+            'meta_title' => 'nullable|string|max:255',
+            'meta_description' => 'nullable|string',
+            'meta_keywords' => 'nullable|string',
+        ];
     }
 }
