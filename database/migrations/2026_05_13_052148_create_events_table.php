@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('events', function (Blueprint $table) {
          $table->id();
+         
 
             $table->string('title');
 
@@ -45,19 +46,13 @@ return new class extends Migration
 
             $table->string('contact_phone')
                 ->nullable();
-            $table->string('provider')->nullable();
-            $table->string('gallery_img')->nullable();
-            $table->string('tags')->nullable();
-            $table->string('benefits')->nullable();
-            $table->string('services_offered')->nullable();
-            $table->string('faqs')->nullable();
+            $table->json('provider')->nullable(); //add dynamic name and logo
+            $table->string('gallery_img')->nullable(); // multiple images
+            $table->json('tags')->nullable(); // add dynamic multiple
+            $table->json('benefits')->nullable(); // add dynamic multiple
+            $table->json('services_offered')->nullable(); // add dynamic multiple
+            $table->json('faqs')->nullable(); // add dynamic multiple
             $table->string('google_map_link')->nullable();
-
-            $table->string('meta_title')
-                ->nullable();
-
-            $table->text('meta_description')
-                ->nullable();
 
             $table->enum(
                 'status',

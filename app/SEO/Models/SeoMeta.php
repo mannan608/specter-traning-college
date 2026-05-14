@@ -2,6 +2,7 @@
 
 namespace App\SEO\Models;
 
+use App\Models\Event;
 use Illuminate\Database\Eloquent\Model;
 
 class SeoMeta extends Model
@@ -29,4 +30,8 @@ class SeoMeta extends Model
     'header_scripts' => 'array',
     'footer_scripts' => 'array',
 ];
+public function event()
+{
+    return $this->belongsTo(Event::class);
+}
 }

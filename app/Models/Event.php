@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\SEO\Models\SeoMeta;
 use Illuminate\Database\Eloquent\Model;
 
 class Event extends Model
@@ -37,4 +38,9 @@ class Event extends Model
         'event_end_date' => 'datetime',
         'is_featured' => 'boolean',
     ];
+
+    public function seoMeta()
+{
+    return $this->hasOne(SeoMeta::class);
+}
 }

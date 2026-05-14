@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('seo_metas', function (Blueprint $table) {
         $table->id();
-
+        $table->foreignId('event_id')->constrained()->onDelete('cascade');
         // route/page identifier
         $table->string('path')->unique(); // home, about, course:web-design
 
@@ -43,8 +43,8 @@ return new class extends Migration
         $table->longText('schema_markup')->nullable();
 
         //dynamic scripts like google analytics, facebook pixel, etc.
-        $table->json('header_scripts')->nullable(); //multiple lines  and multiple scripts for header
-        $table->json('footer_scripts')->nullable(); //multiple lines  and multiple scripts for footer
+        $table->json('header_scripts')->nullable(); 
+        $table->json('footer_scripts')->nullable(); 
 
         // status
         $table->boolean('is_active')->default(true);
