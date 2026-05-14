@@ -2,9 +2,22 @@
     use Illuminate\Support\Str;
     use Illuminate\Support\Facades\Storage;
 
-    $collection = $items instanceof \Illuminate\Pagination\AbstractPaginator ? $items->getCollection() : collect($items);
-    $tableRowData = $collection->map(function ($entry) {
-    }
+    $collection = $items instanceof \Illuminate\Pagination\AbstractPaginator
+        ? $items->getCollection()
+        : collect($items);
+
+    $tableRowData = $collection->map(function ($blog) {
+        return [
+            'id' => $blog->id,
+            'title' => $blog->title,
+            'meta_title' => $blog->meta_title,
+            'keyword' => $blog->meta_keywords,
+            'author' => $blog->author ?? 'Admin',
+            'image' => $blog->featured_image
+                ? Storage::url($blog->featured_image)
+                : null,
+        ];
+    })->values();
 @endphp
 
 <div x-data="{
@@ -68,6 +81,7 @@
                 <table class="w-full text-left border-collapse">
                     <thead class="bg-gray-50 dark:bg-white/[0.02] border-b border-gray-100 dark:border-white/[0.05]">
                         <tr>
+                            <th class="px-5 py-4 text-xs font-medium text-gray-500 uppercase tracking-wider">Id</th>
                             <th class="px-5 py-4 text-xs font-medium text-gray-500 uppercase tracking-wider">Title</th>
                             <th class="px-5 py-4 text-xs font-medium text-gray-500 uppercase tracking-wider">Meta Title</th>
                             <th class="px-5 py-4 text-xs font-medium text-gray-500 uppercase tracking-wider">Keywords</th>
@@ -87,21 +101,21 @@
                         <template x-for="row in tableRowData" :key="row.id">
                             <tr class="hover:bg-gray-50/50 dark:hover:bg-white/[0.01] transition-colors">
                                 <td class="px-5 py-4">
-                                    <span class="px-2 py-1 bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 rounded text-xs font-mono" x-text="row.path"></span>
+                                    <span class="px-2 py-1 bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 rounded text-xs font-mono" x-text="row.id"></span>
                                 </td>
-                                <td class="px-5 py-4 text-sm text-gray-700 dark:text-gray-300" x-text="row.metaTitle"></td>
-                                <td class="px-5 py-4 text-sm text-gray-500 dark:text-gray-400" x-text="row.metaKeywords"></td>
+                                <td class="px-5 py-4 text-sm text-gray-700 dark:text-gray-300" x-text="row.title"></td>
+                                <td class="px-5 py-4 text-sm text-gray-500 dark:text-gray-400" x-text="row.meta_title"></td>
+                                <td class="px-5 py-4 text-sm text-gray-500 dark:text-gray-400" x-text="row.keyword"></td>                             
+                                
                                 <td class="px-5 py-4">
-                                    <span :class="getScoreClass(row.metaScore)" class="px-2.5 py-0.5 rounded-full text-xs font-medium" x-text="row.metaScore + '%'"></span>
-                                </td>
-                                <td class="px-5 py-4">
-                                    <template x-if="row.ogImage">
+                                    <template x-if="row.image">
                                         <img :src="row.ogImage" class="w-10 h-10 rounded border border-gray-200 object-cover" loading="lazy">
                                     </template>
-                                    <template x-if="!row.ogImage">
+                                    <template x-if="!row.image">
                                         <span class="text-xs text-gray-400 italic">None</span>
                                     </template>
                                 </td>
+                                 <td class="px-5 py-4 text-sm text-gray-500 dark:text-gray-400" x-text="row.author"></td>
                                 <td class="px-5 py-4 text-right">
                                     <div class="flex justify-end gap-2">
                                         <a :href="seoBaseUrl + '/' + row.id + '/edit'" class="p-2 text-gray-500 hover:text-blue-600 hover:bg-blue-50 dark:hover:bg-blue-500/10 rounded-lg transition-all">

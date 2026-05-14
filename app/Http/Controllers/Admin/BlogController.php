@@ -28,7 +28,6 @@ class BlogController extends Controller
     {
         $blogs = $this->blogRepository
             ->paginate(15);
-
         return view(
             'backend.pages.blogs.index',
             compact('blogs')
@@ -52,9 +51,7 @@ class BlogController extends Controller
      * Store Blog
      */
     public function store(BlogStoreRequest $request) {
-        DB::beginTransaction();
-
-      
+        DB::beginTransaction();     
 
         try {
 

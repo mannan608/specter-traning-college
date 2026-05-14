@@ -27,6 +27,6 @@
                 + Add New Blog
             </a>
         </div>
-       @include('backend.pages.blogs.table')
+       @include('backend.pages.blogs.table', ['items' => $blogs])
     </div>
 @endsection
