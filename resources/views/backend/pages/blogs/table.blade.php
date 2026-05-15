@@ -11,8 +11,8 @@
             'id' => $blog->id,
             'title' => $blog->title,
             'slug' => $blog->slug,
-            'meta_title' => $blog->meta_title,
-            'keyword' => $blog->meta_keywords,
+            'meta_title' => $blog->seoMeta?->meta_title,
+            'keyword' => $blog->seoMeta?->meta_keywords,
             'author' => $blog->author?->name ?? 'Admin',
             'image' => $blog->featured_image
                 ? Storage::disk('public')->url($blog->featured_image)

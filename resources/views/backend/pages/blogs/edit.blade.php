@@ -1,5 +1,9 @@
 @extends('backend.layouts.app')
 
+@php
+    $seo = $seo ?? null;
+@endphp
+
 @section('content')
     <form action="{{ route('admin.blogs.update', $blog) }}" method="POST" enctype="multipart/form-data">
         @csrf
@@ -146,13 +150,13 @@
                         <div class="space-y-4 p-5">
 
                             <x-form.input-text name="meta_title" label="Meta Title"
-                                value="{{ old('meta_title', $blog->meta_title ?? '') }}" placeholder="Meta title..." />
+                                value="{{ old('meta_title', $seo?->meta_title ?? '') }}" placeholder="Meta title..." />
 
                             <x-form.textarea-input name="meta_description" label="Meta Description" rows="3"
-                                placeholder="Meta description..." :value="$blog->meta_description ?? ''" />
+                                placeholder="Meta description..." :value="old('meta_description', $seo?->meta_description ?? '')" />
 
                             <x-form.textarea-input name="meta_keywords" label="Meta Keywords" rows="2"
-                                placeholder="keyword1, keyword2" :value="$blog->meta_keywords ?? ''" />
+                                placeholder="keyword1, keyword2" :value="old('meta_keywords', $seo?->meta_keywords ?? '')" />
 
                         </div>
 

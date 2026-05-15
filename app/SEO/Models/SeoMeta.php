@@ -2,13 +2,14 @@
 
 namespace App\SEO\Models;
 
-use App\Models\Event;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\MorphTo;
 
 class SeoMeta extends Model
 {
     protected $fillable = [
-        'event_id',
+        'seoable_id',
+        'seoable_type',
         'path',
         'meta_title',
         'meta_description',
@@ -31,8 +32,9 @@ class SeoMeta extends Model
     'header_scripts' => 'array',
     'footer_scripts' => 'array',
 ];
-public function event()
-{
-    return $this->belongsTo(Event::class);
-}
+
+    public function seoable(): MorphTo
+    {
+        return $this->morphTo();
+    }
 }

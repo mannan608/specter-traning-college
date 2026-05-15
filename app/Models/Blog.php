@@ -2,7 +2,9 @@
 
 namespace App\Models;
 
+use App\SEO\Models\SeoMeta;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\MorphOne;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
 
@@ -16,9 +18,6 @@ class Blog extends Model
         'featured_image',
         'author_id',
         'category_id',
-        'meta_title',
-        'meta_description',
-        'meta_keywords',
         'status',
         'is_featured',
         'published_at',
@@ -38,6 +37,11 @@ class Blog extends Model
     public function author(): BelongsTo
     {
         return $this->belongsTo(User::class, 'author_id');
+    }
+
+    public function seoMeta(): MorphOne
+    {
+        return $this->morphOne(SeoMeta::class, 'seoable');
     }
 
     public function getRouteKeyName(): string

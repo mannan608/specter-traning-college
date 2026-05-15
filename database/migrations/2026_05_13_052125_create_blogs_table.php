@@ -25,9 +25,7 @@ return new class extends Migration
             $table->foreignId('author_id')->nullable();
             $table->foreignId('category_id')->nullable();
 
-            $table->string('meta_title')->nullable();
-            $table->text('meta_description')->nullable();
-            $table->text('meta_keywords')->nullable();
+         
 
             $table->enum('status', ['draft', 'published'])
                 ->default('draft');

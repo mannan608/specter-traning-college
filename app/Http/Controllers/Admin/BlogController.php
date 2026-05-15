@@ -7,6 +7,8 @@ use App\Http\Requests\BlogStoreRequest;
 use App\Http\Requests\BlogUpdateRequest;
 use App\Models\Blog;
 use App\Repositories\Interfaces\BlogRepositoryInterface;
+use App\SEO\Models\SeoMeta;
+use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
@@ -50,58 +52,66 @@ class BlogController extends Controller
     /**
      * Store Blog
      */
-    public function store(BlogStoreRequest $request) {
-        DB::beginTransaction();     
+    public function store(BlogStoreRequest $request)
+    {
+        $data = $request->validated();
+        $blogData = [];
+
+        DB::beginTransaction();
 
         try {
+            $blogData = Arr::only($data, [
+                'title',
+                'short_description',
+                'content',
+                'category_id',
+                'status',
+            ]);
 
-            $data = $request->validated();
-            $data['slug'] = $this->generateUniqueSlug(
-                $request->title
-            );
+            $blogData['slug'] = $this->generateUniqueSlug($request->title);
+            $blogData['author_id'] = auth()->id();
+            $blogData['is_featured'] = $request->boolean('is_featured');
 
-            $data['author_id'] = auth()->id();
-
-            $data['is_featured'] = $request->boolean(
-                'is_featured'
-            );
-
-            if (
-                $request->status === 'published'
-            ) {
-                $data['published_at'] = now();
+            if ($request->status === 'published') {
+                $blogData['published_at'] = now();
             }
 
-            if (
-                $request->hasFile('featured_image')
-            ) {
-
-                $data['featured_image'] = $request
+            if ($request->hasFile('featured_image')) {
+                $blogData['featured_image'] = $request
                     ->file('featured_image')
                     ->store('blogs', 'public');
             }
 
-            $this->blogRepository
-                ->create($data);
+            $blog = $this->blogRepository->create($blogData);
+
+            $seoData = Arr::only($data, [
+                'meta_title',
+                'meta_description',
+                'meta_keywords',
+            ]);
+            $seoData['path'] = $this->uniqueSeoPathForSlug($blog->slug, 'blogs');
+
+            $blog->seoMeta()->create($seoData);
 
             DB::commit();
 
             return redirect()
                 ->route('admin.blogs.index')
-                ->with(
-                    'success',
-                    'Blog created successfully.'
-                );
+                ->with('success', 'Blog created successfully.');
         } catch (\Exception $e) {
 
             DB::rollBack();
 
+            if (
+                !empty($blogData['featured_image'] ?? null) &&
+                Storage::disk('public')->exists($blogData['featured_image'])
+            ) {
+                Storage::disk('public')->delete($blogData['featured_image']);
+            }
+
             return back()
                 ->withInput()
-                ->with(
-                    'error',
-                    $e->getMessage()
-                );
+                ->with('error', $e->getMessage());
         }
     }
 
@@ -110,9 +120,14 @@ class BlogController extends Controller
      */
     public function edit(Blog $blog)
     {
+        $blog->load('seoMeta');
+
         return view(
             'backend.pages.blogs.edit',
-            compact('blog')
+            [
+                'blog' => $blog,
+                'seo' => $blog->seoMeta,
+            ]
         );
     }
 
@@ -124,27 +139,32 @@ class BlogController extends Controller
         Blog $blog
     ) {
         $data = [];
+        $blogData = [];
 
         try {
 
             $data = $request->validated();
 
-            if (
-                $blog->title !== $request->title
-            ) {
-                $data['slug'] = $this->generateUniqueSlug(
-                    $request->title
-                );
+            $slug = $blog->slug;
+            if ($blog->title !== $request->title) {
+                $slug = $this->generateUniqueSlug($request->title, $blog->id);
             }
 
-            $data['is_featured'] = $request
-                ->boolean('is_featured');
+            $blogData = Arr::only($data, [
+                'title',
+                'short_description',
+                'content',
+                'category_id',
+                'status',
+            ]);
+            $blogData['slug'] = $slug;
+            $blogData['is_featured'] = $request->boolean('is_featured');
 
             if (
                 $request->status === 'published' &&
                 !$blog->published_at
             ) {
-                $data['published_at'] = now();
+                $blogData['published_at'] = now();
             }
 
             $oldFeaturedImage = $blog->featured_image;
@@ -152,12 +172,12 @@ class BlogController extends Controller
             if (
                 $request->hasFile('featured_image')
             ) {
-                $data['featured_image'] = $request
+                $blogData['featured_image'] = $request
                     ->file('featured_image')
                     ->store('blogs', 'public');
             }
 
-            $blog->fill($data);
+            $blog->fill($blogData);
 
             if (!$blog->isDirty()) {
                 return redirect()
@@ -177,6 +197,22 @@ class BlogController extends Controller
 
             $blog->save();
 
+            $seoData = Arr::only($data, [
+                'meta_title',
+                'meta_description',
+                'meta_keywords',
+            ]);
+
+            $seo = $blog->seoMeta;
+            if (!$seo) {
+                $seo = $blog->seoMeta()->create([
+                    'path' => $this->uniqueSeoPathForSlug($blog->slug, 'blogs'),
+                ]);
+            }
+
+            $seoData['path'] = $this->uniqueSeoPathForSlug($blog->slug, 'blogs', $seo->id);
+            $seo->update($seoData);
+
             DB::commit();
 
             return redirect()
@@ -192,10 +228,10 @@ class BlogController extends Controller
             }
 
             if (
-                !empty($data['featured_image']) &&
-                Storage::disk('public')->exists($data['featured_image'])
+                !empty($blogData['featured_image'] ?? null) &&
+                Storage::disk('public')->exists($blogData['featured_image'])
             ) {
-                Storage::disk('public')->delete($data['featured_image']);
+                Storage::disk('public')->delete($blogData['featured_image']);
             }
 
             return back()
@@ -229,6 +265,16 @@ class BlogController extends Controller
                     );
             }
 
+            if ($blog->seoMeta?->og_image && Storage::disk('public')->exists($blog->seoMeta->og_image)) {
+                Storage::disk('public')->delete($blog->seoMeta->og_image);
+            }
+
+            if ($blog->seoMeta?->twitter_image && Storage::disk('public')->exists($blog->seoMeta->twitter_image)) {
+                Storage::disk('public')->delete($blog->seoMeta->twitter_image);
+            }
+
+            $blog->seoMeta()->delete();
+
             $blog->delete();
 
             DB::commit();
@@ -254,20 +300,33 @@ class BlogController extends Controller
     /**
      * Generate Unique Slug
      */
-    private function generateUniqueSlug(
-        $title
-    ) {
-
+    private function generateUniqueSlug(string $title, ?int $ignoreId = null): string
+    {
         $slug = Str::slug($title);
 
-        $count = Blog::where(
-            'slug',
-            'LIKE',
-            "{$slug}%"
-        )->count();
+        $query = Blog::where('slug', 'LIKE', "{$slug}%");
+        if ($ignoreId) {
+            $query->where('id', '!=', $ignoreId);
+        }
 
-        return $count
-            ? "{$slug}-" . ($count + 1)
-            : $slug;
+        $count = $query->count();
+
+        return $count ? "{$slug}-" . ($count + 1) : $slug;
+    }
+
+    private function uniqueSeoPathForSlug(string $slug, string $prefix, ?int $ignoreSeoId = null): string
+    {
+        $base = $prefix . '/' . $slug;
+
+        $query = SeoMeta::where('path', $base);
+        if ($ignoreSeoId) {
+            $query->where('id', '!=', $ignoreSeoId);
+        }
+
+        if (!$query->exists()) {
+            return $base;
+        }
+
+        return $base . '-' . now()->timestamp;
     }
 }

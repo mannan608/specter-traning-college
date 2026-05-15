@@ -4,6 +4,7 @@ namespace App\Models;
 
 use App\SEO\Models\SeoMeta;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\MorphOne;
 
 class Event extends Model
 {
@@ -54,10 +55,10 @@ protected $casts = [
     'is_featured' => 'boolean',
 ];
 
-    public function seoMeta()
-{
-    return $this->hasOne(SeoMeta::class);
-}
+    public function seoMeta(): MorphOne
+    {
+        return $this->morphOne(SeoMeta::class, 'seoable');
+    }
 
     public function getRouteKeyName(): string
     {
