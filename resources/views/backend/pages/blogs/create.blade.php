@@ -26,17 +26,12 @@
 
                         {{-- Short Description --}}
                         <x-form.textarea-input name="short_description" label="Short Description" rows="3"
-                            placeholder="Enter short description..." :value="old('short_description')" />
+                            placeholder="Enter short description..." />
 
                         {{-- Editor --}}
                         <div>
 
-                            <label class="mb-2 block text-sm font-medium text-gray-700 dark:text-gray-300">
-
-                                Blog Content
-
-                            </label>
-
+                           
                             @include('backend.pages.blogs.text-editor')
 
                         </div>
@@ -144,10 +139,10 @@
                                 value="{{ old('meta_title') }}" placeholder="Meta title..." />
 
                             <x-form.textarea-input name="meta_description" label="Meta Description" rows="3"
-                                placeholder="Meta description..." :value="old('meta_description')" />
+                                placeholder="Meta description..." />
 
                             <x-form.textarea-input name="meta_keywords" label="Meta Keywords" rows="2"
-                                placeholder="keyword1, keyword2" :value="old('meta_keywords')" />
+                                placeholder="keyword1, keyword2" />
 
                         </div>
 
