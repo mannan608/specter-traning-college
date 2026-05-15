@@ -1,8 +1,40 @@
 @extends('backend.layouts.app')
 
+@php
+    $formatDateTimeLocal = function ($value) {
+        if (!$value) {
+            return '';
+        }
+
+        $value = (string) $value;
+
+        if (str_contains($value, 'T')) {
+            return substr($value, 0, 16);
+        }
+
+        if (str_contains($value, ' ')) {
+            return str_replace(' ', 'T', substr($value, 0, 16));
+        }
+
+        return $value;
+    };
+
+    $schedules = old('schedules', $event->schedules ?? []);
+    $schedules = is_array($schedules) && $schedules !== [] ? $schedules : [[]];
+
+    $providers = old('providers', $event->providers ?? []);
+    $providers = is_array($providers) && $providers !== [] ? $providers : [[]];
+
+    $faqs = old('faqs', $event->faqs ?? []);
+    $faqs = is_array($faqs) && $faqs !== [] ? $faqs : [[]];
+
+    $tagsString = old('tags', $event->tags ? implode(', ', $event->tags) : '');
+@endphp
+
 @section('content')
-    <form action="{{ route('admin.events.store') }}" method="POST" enctype="multipart/form-data">
+    <form action="{{ route('admin.events.update', $event) }}" method="POST" enctype="multipart/form-data">
         @csrf
+        @method('PUT')
         <div class="grid grid-cols-1 gap-6 lg:grid-cols-12">
 
             <div class="lg:col-span-8 space-y-6">
@@ -13,19 +45,21 @@
                     </h3>
 
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
-                        <x-form.input-text name="title" label="Event Title" placeholder="Enter event title" />
+                        <x-form.input-text name="title" label="Event Title"
+                            value="{{ old('title', $event->title ?? '') }}" placeholder="Enter event title" />
                         <x-form.input-text name="registration_link" label="Registration Link"
+                            value="{{ old('registration_link', $event->registration_link ?? '') }}"
                             placeholder="https://hbdservices.com/event/" />
                     </div>
 
                     <div class="mt-5">
                         <x-form.textarea-input name="short_description" label="Short Description" rows="3"
-                            placeholder="Enter short description" />
+                            placeholder="Enter short description" :value="old('short_description', $event->short_description ?? '')" />
                     </div>
 
                     <div class="mt-5">
                         <x-form.textarea-input name="description" label="Description" rows="3"
-                            placeholder="Enter full description" />
+                            placeholder="Enter full description" :value="old('description', $event->description ?? '')" />
                     </div>
 
                     <div class="mt-5">
@@ -49,35 +83,41 @@
 
                         <div id="schedule-wrapper">
 
-                            <div class="dynamic-item border border-gray-200 dark:border-gray-700 rounded-xl p-4 mb-4">
+                            @foreach ($schedules as $index => $schedule)
+                                <div class="dynamic-item border border-gray-200 dark:border-gray-700 rounded-xl p-4 mb-4">
 
-                                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
 
-                                    <x-form.input-text name="schedules[0][location]" label="Location" placeholder="Dhaka" />
+                                        <x-form.input-text name="schedules[{{ $index }}][location]" label="Location"
+                                            value="{{ old("schedules.$index.location", $schedule['location'] ?? '') }}"
+                                            placeholder="Dhaka" />
 
-                                    <x-form.input-text name="schedules[0][start_date]" label="Start Date"
-                                        type="datetime-local" />
+                                        <x-form.input-text name="schedules[{{ $index }}][start_date]" label="Start Date"
+                                            type="datetime-local"
+                                            value="{{ $formatDateTimeLocal(old("schedules.$index.start_date", $schedule['start_date'] ?? '')) }}" />
 
-                                    <x-form.input-text name="schedules[0][end_date]" label="End Date"
-                                        type="datetime-local" />
+                                        <x-form.input-text name="schedules[{{ $index }}][end_date]" label="End Date"
+                                            type="datetime-local"
+                                            value="{{ $formatDateTimeLocal(old("schedules.$index.end_date", $schedule['end_date'] ?? '')) }}" />
+
+                                    </div>
+
+                                    <div class="flex justify-end gap-3 mt-4">
+
+                                        <button type="button"
+                                            class="remove-item hidden px-4 py-2 rounded-lg bg-red-500 text-white text-sm">
+                                            Remove
+                                        </button>
+
+                                        <button type="button"
+                                            class="add-item px-4 py-2 rounded-lg bg-brand-600 text-white text-sm">
+                                            Add More
+                                        </button>
+
+                                    </div>
 
                                 </div>
-
-                                <div class="flex justify-end gap-3 mt-4">
-
-                                    <button type="button"
-                                        class="remove-item hidden px-4 py-2 rounded-lg bg-red-500 text-white text-sm">
-                                        Remove
-                                    </button>
-
-                                    <button type="button"
-                                        class="add-item px-4 py-2 rounded-lg bg-brand-600 text-white text-sm">
-                                        Add More
-                                    </button>
-
-                                </div>
-
-                            </div>
+                            @endforeach
 
                         </div>
 
@@ -97,38 +137,45 @@
 
                         <div id="provider-wrapper">
 
-                            <div class="dynamic-item border border-gray-200 dark:border-gray-700 rounded-xl p-4 mb-4">
+                            @foreach ($providers as $index => $provider)
+                                <div class="dynamic-item border border-gray-200 dark:border-gray-700 rounded-xl p-4 mb-4">
 
-                                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
 
-                                    <x-form.input-text name="providers[0][name]" label="Provider Name"
-                                        placeholder="Provider Name" />
+                                        <x-form.input-text name="providers[{{ $index }}][name]" label="Provider Name"
+                                            value="{{ old("providers.$index.name", $provider['name'] ?? '') }}"
+                                            placeholder="Provider Name" />
 
-                                    <div>
-                                        <label class="mb-1.5 block text-sm font-medium text-gray-700 dark:text-gray-400">
-                                            Prodider Logo
-                                        </label>
-                                        <input type="file" name="provider_logo[]"
-                                            class="focus:border-ring-brand-300 shadow-theme-xs focus:file:ring-brand-300 h-11 w-full overflow-hidden rounded-lg border border-gray-300 bg-transparent text-sm text-gray-500 transition-colors file:mr-5 file:border-collapse file:cursor-pointer file:rounded-l-lg file:border-0 file:border-r file:border-solid file:border-gray-200 file:bg-gray-50 file:py-3 file:pr-3 file:pl-3.5 file:text-sm file:text-gray-700 placeholder:text-gray-400 hover:file:bg-gray-100 focus:outline-hidden dark:border-gray-700 dark:bg-gray-900 dark:text-gray-400 dark:text-white/90 dark:file:border-gray-800 dark:file:bg-white/[0.03] dark:file:text-gray-400 dark:placeholder:text-gray-400" />
+                                        <div>
+                                            <label class="mb-1.5 block text-sm font-medium text-gray-700 dark:text-gray-400">
+                                                Prodider Logo
+                                            </label>
+
+                                            <input type="hidden" name="providers[{{ $index }}][existing_logo]"
+                                                value="{{ old("providers.$index.existing_logo", $provider['logo'] ?? '') }}">
+
+                                            <input type="file" name="providers[{{ $index }}][logo]"
+                                                class="focus:border-ring-brand-300 shadow-theme-xs focus:file:ring-brand-300 h-11 w-full overflow-hidden rounded-lg border border-gray-300 bg-transparent text-sm text-gray-500 transition-colors file:mr-5 file:border-collapse file:cursor-pointer file:rounded-l-lg file:border-0 file:border-r file:border-solid file:border-gray-200 file:bg-gray-50 file:py-3 file:pr-3 file:pl-3.5 file:text-sm file:text-gray-700 placeholder:text-gray-400 hover:file:bg-gray-100 focus:outline-hidden dark:border-gray-700 dark:bg-gray-900 dark:text-gray-400 dark:text-white/90 dark:file:border-gray-800 dark:file:bg-white/[0.03] dark:file:text-gray-400 dark:placeholder:text-gray-400" />
+                                        </div>
+
+                                    </div>
+
+                                    <div class="flex justify-end gap-3 mt-4">
+
+                                        <button type="button"
+                                            class="remove-item hidden px-4 py-2 rounded-lg bg-red-500 text-white text-sm">
+                                            Remove
+                                        </button>
+
+                                        <button type="button"
+                                            class="add-item px-4 py-2 rounded-lg bg-brand-600 text-white text-sm">
+                                            Add More
+                                        </button>
+
                                     </div>
 
                                 </div>
-
-                                <div class="flex justify-end gap-3 mt-4">
-
-                                    <button type="button"
-                                        class="remove-item hidden px-4 py-2 rounded-lg bg-red-500 text-white text-sm">
-                                        Remove
-                                    </button>
-
-                                    <button type="button"
-                                        class="add-item px-4 py-2 rounded-lg bg-brand-600 text-white text-sm">
-                                        Add More
-                                    </button>
-
-                                </div>
-
-                            </div>
+                            @endforeach
 
                         </div>
 
@@ -154,19 +201,24 @@
 
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
 
-                        <x-form.input-text name="organizer" label="Organizer" placeholder="Organizer name" />
+                        <x-form.input-text name="organizer" label="Organizer"
+                            value="{{ old('organizer', $event->organizer ?? '') }}" placeholder="Organizer name" />
 
 
-                        <x-form.input-text name="contact_email" label="Contact Email" placeholder="Contact@gmail.com" />
+                        <x-form.input-text name="contact_email" label="Contact Email"
+                            value="{{ old('contact_email', $event->contact_email ?? '') }}" placeholder="Contact@gmail.com" />
 
-                        <x-form.input-text name="contact_phone" label="Contact Phone" placeholder="Contact Num" />
+                        <x-form.input-text name="contact_phone" label="Contact Phone"
+                            value="{{ old('contact_phone', $event->contact_phone ?? '') }}" placeholder="Contact Num" />
 
-                        <x-form.input-text name="google_map_link" label="Google Map Link" placeholder="Google map link" />
+                        <x-form.input-text name="google_map_link" label="Google Map Link"
+                            value="{{ old('google_map_link', $event->google_map_link ?? '') }}" placeholder="Google map link" />
 
                     </div>
 
                     <div class="mt-5">
-                        <x-form.input-text name="tags" label="Tags" placeholder="Laravel, AI, Event" />
+                        <x-form.input-text name="tags" label="Tags" value="{{ $tagsString }}"
+                            placeholder="Laravel, AI, Event" />
                     </div>
 
                 </div>
@@ -183,32 +235,37 @@
 
                         <div id="faq-wrapper">
 
-                            <div class="dynamic-item border border-gray-200 dark:border-gray-700 rounded-xl p-4 mb-4">
+                            @foreach ($faqs as $index => $faq)
+                                <div class="dynamic-item border border-gray-200 dark:border-gray-700 rounded-xl p-4 mb-4">
 
-                                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
 
-                                    <x-form.input-text name="faqs[0][question]" label="Question"
-                                        placeholder="Question" />
+                                        <x-form.input-text name="faqs[{{ $index }}][question]" label="Question"
+                                            value="{{ old("faqs.$index.question", $faq['question'] ?? '') }}"
+                                            placeholder="Question" />
 
-                                    <x-form.input-text name="faqs[0][answer]" label="Answer" placeholder="Answer" />
+                                        <x-form.input-text name="faqs[{{ $index }}][answer]" label="Answer"
+                                            value="{{ old("faqs.$index.answer", $faq['answer'] ?? '') }}"
+                                            placeholder="Answer" />
+
+                                    </div>
+
+                                    <div class="flex justify-end gap-3 mt-4">
+
+                                        <button type="button"
+                                            class="remove-item hidden px-4 py-2 rounded-lg bg-red-500 text-white text-sm">
+                                            Remove
+                                        </button>
+
+                                        <button type="button"
+                                            class="add-item px-4 py-2 rounded-lg bg-brand-600 text-white text-sm">
+                                            Add More
+                                        </button>
+
+                                    </div>
 
                                 </div>
-
-                                <div class="flex justify-end gap-3 mt-4">
-
-                                    <button type="button"
-                                        class="remove-item hidden px-4 py-2 rounded-lg bg-red-500 text-white text-sm">
-                                        Remove
-                                    </button>
-
-                                    <button type="button"
-                                        class="add-item px-4 py-2 rounded-lg bg-brand-600 text-white text-sm">
-                                        Add More
-                                    </button>
-
-                                </div>
-
-                            </div>
+                            @endforeach
 
                         </div>
 
@@ -224,11 +281,12 @@
 
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
                             <div>
-                                <x-form.select-input name="type" label="Status" value="" :options="[
+                                <x-form.select-input name="status" label="Status"
+                                    value="{{ old('status', $event->status ?? '') }}" :options="[
                                     'upcoming' => 'Upcoming',
                                     'ongoing' => 'Ongoing',
                                     'completed' => 'Completed',
-                                    'cancelled' => 'cancelled',
+                                    'cancelled' => 'Cancelled',
                                 ]" />
                             </div>
                             <div>
@@ -238,6 +296,7 @@
 
                                 <label class="inline-flex items-center gap-3">
                                     <input type="checkbox" name="is_featured" value="1"
+                                        @checked(old('is_featured', $event->is_featured ?? false))
                                         class="h-5 w-5 rounded border-gray-300 text-brand-600 focus:ring-brand-500">
 
                                     <span class="text-sm text-gray-600 dark:text-gray-400">
@@ -250,7 +309,7 @@
 
                     <div class="">
 
-                        @include('backend.pages.seo.seo-form')
+                        @include('backend.pages.seo.seo-form', ['seo' => $seo ?? null])
 
                     </div>
 
@@ -382,7 +441,7 @@
                             class="w-full rounded-lg border border-gray-300 px-4 py-2 dark:bg-gray-900 dark:border-gray-700 dark:text-white">
 
                         <input type="file"
-                            name="provider_logo[]"
+                            name="providers[${index}][logo]"
                             class="w-full rounded-lg border border-gray-300 px-4 py-2 dark:bg-gray-900 dark:border-gray-700 dark:text-white">
 
                     </div>

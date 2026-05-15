@@ -64,10 +64,6 @@
                  <label for="og_image" class="mb-2 block text-sm font-medium text-gray-700 dark:text-gray-400">Open
                      Graph
                      Image</label>
-                 @if ($ogImageUrl)
-                     <img src="{{ $ogImageUrl }}" class="w-full h-40 object-cover rounded-lg mb-3 border border-gray-200 dark:border-gray-800"
-                         alt="Open Graph Image">
-                 @endif
                  <x-form.dropzone name="og_image" label="Open Graph Image" value=""
                      placeholder="Upload Open Graph image..." />
              </div>
@@ -82,11 +78,6 @@
                  <label for="twitter_image"
                      class="mb-2 block text-sm font-medium text-gray-700 dark:text-gray-400">Twitter
                      Image</label>
-                 @if ($twitterImageUrl)
-                     <img src="{{ $twitterImageUrl }}"
-                         class="w-full h-40 object-cover rounded-lg mb-3 border border-gray-200 dark:border-gray-800"
-                         alt="Twitter Image">
-                 @endif
                  <x-form.dropzone name="twitter_image" label="Twitter Image" value=""
                      placeholder="Upload Twitter image..." />
              </div>

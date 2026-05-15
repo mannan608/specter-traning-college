@@ -130,7 +130,7 @@ class EventController extends Controller
         $event->load('seoMeta');
 
         return view(
-            'backend.pages.events.create',
+            'backend.pages.events.edit',
             [
                 'event' => $event,
                 'seo' => $event->seoMeta,
