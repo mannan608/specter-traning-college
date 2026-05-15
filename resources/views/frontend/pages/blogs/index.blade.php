@@ -18,7 +18,7 @@
                             ? asset('storage/' . $blog->featured_image)
                             : asset('images/default-blog.jpg');
                     @endphp
-                    <a href="{{ route('blogs.show', $blog->slug) }}">
+                    <a href="{{ route('blog-details', $blog->slug) }}">
                         <div class="bg-white border rounded-lg shadow-sm overflow-hidden">
                             <img class="w-full h-56 object-cover" src="{{ $image }}" alt="{{ $blog->title }}" />
 

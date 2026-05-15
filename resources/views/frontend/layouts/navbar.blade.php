@@ -77,7 +77,7 @@
                     Contact
                 </a>
 
-                 <a href="{{ route('blogs.index') }}"
+                 <a href="{{ route('blogs') }}"
                     class="relative font-normal transition-all duration-300
         {{ request()->routeIs('contact') ? 'text-brand-600 font-normal after:w-full' : 'text-slate-700 hover:text-brand-600 after:w-0 hover:after:w-full' }}
         after:absolute after:left-0 after:bottom-[-6px]

@@ -37,10 +37,10 @@ Route::get('/generate-sitemap', [SitemapController::class, 'generate']);
 
 
 Route::get('/blogs', [BlogController::class, 'index'])
-    ->name('blogs.index');
+    ->name('blogs');
 
 Route::get('/blogs/{slug}', [BlogController::class, 'show'])
-    ->name('blogs.show');
+    ->name('blog-details');
 
 Route::get('/events', [EventController::class, 'index'])
     ->name('events');
