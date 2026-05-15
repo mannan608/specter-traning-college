@@ -43,7 +43,7 @@ Route::get('/blogs/{slug}', [BlogController::class, 'show'])
     ->name('blogs.show');
 
 Route::get('/events', [EventController::class, 'index'])
-    ->name('events.index');
+    ->name('events');
 
 Route::get('/events/{slug}', [EventController::class, 'show'])
-    ->name('events.show');
+    ->name('event-details');
