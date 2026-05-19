@@ -15,7 +15,7 @@
                 @forelse ($events as $event)
                     @php
                         $image = $event->banner
-                            ? asset('storage/' . $event->banner)
+                            ? asset($event->banner)
                             : asset('images/default-event.jpg');
                     @endphp
                     <a href="{{ route('event-details', $event->slug) }}">

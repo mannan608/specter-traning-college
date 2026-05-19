@@ -52,68 +52,75 @@ class BlogController extends Controller
     /**
      * Store Blog
      */
-    public function store(BlogStoreRequest $request)
-    {
-        $data = $request->validated();
-        $blogData = [];
+public function store(BlogStoreRequest $request)
+{
+    $data = $request->validated();
+    $blogData = [];
 
-        DB::beginTransaction();
+    DB::beginTransaction();
 
-        try {
-            $blogData = Arr::only($data, [
-                'title',
-                'short_description',
-                'content',
-                'category_id',
-                'status',
-            ]);
+    try {
 
-            $blogData['slug'] = $this->generateUniqueSlug($request->title);
-            $blogData['author_id'] = auth()->id();
-            $blogData['is_featured'] = $request->boolean('is_featured');
+        $blogData = Arr::only($data, [
+            'title',
+            'short_description',
+            'content',
+            'category_id',
+            'status',
+        ]);
 
-            if ($request->status === 'published') {
-                $blogData['published_at'] = now();
-            }
+        $blogData['slug'] = $this->generateUniqueSlug($request->title);
+        $blogData['author_id'] = auth()->id();
+        $blogData['is_featured'] = $request->boolean('is_featured');
 
-            if ($request->hasFile('featured_image')) {
-                $blogData['featured_image'] = $request
-                    ->file('featured_image')
-                    ->store('blogs', 'public');
-            }
-
-            $blog = $this->blogRepository->create($blogData);
-
-            $seoData = Arr::only($data, [
-                'meta_title',
-                'meta_description',
-                'meta_keywords',
-            ]);
-            $seoData['path'] = $this->uniqueSeoPathForSlug($blog->slug, 'blogs');
-
-            $blog->seoMeta()->create($seoData);
-
-            DB::commit();
-
-            return redirect()
-                ->route('admin.blogs.index')
-                ->with('success', 'Blog created successfully.');
-        } catch (\Exception $e) {
-
-            DB::rollBack();
-
-            if (
-                !empty($blogData['featured_image'] ?? null) &&
-                Storage::disk('public')->exists($blogData['featured_image'])
-            ) {
-                Storage::disk('public')->delete($blogData['featured_image']);
-            }
-
-            return back()
-                ->withInput()
-                ->with('error', $e->getMessage());
+        if ($request->status === 'published') {
+            $blogData['published_at'] = now();
         }
+
+        if ($request->hasFile('featured_image')) {
+
+            $file = $request->file('featured_image');
+
+            $destinationPath = public_path('uploads/blogs');
+
+            if (!file_exists($destinationPath)) {
+                mkdir($destinationPath, 0775, true);
+            }
+
+            $fileName = time() . '_' . uniqid() . '.' . $file->getClientOriginalExtension();
+
+            $file->move($destinationPath, $fileName);
+
+            $blogData['featured_image'] = 'uploads/blogs/' . $fileName;
+        }
+
+        $blog = $this->blogRepository->create($blogData);
+
+        $seoData = Arr::only($data, [
+            'meta_title',
+            'meta_description',
+            'meta_keywords',
+        ]);
+
+        $seoData['path'] = $this->uniqueSeoPathForSlug($blog->slug, 'blogs');
+
+        $blog->seoMeta()->create($seoData);
+
+        DB::commit();
+
+        return redirect()
+            ->route('admin.blogs.index')
+            ->with('success', 'Blog created successfully.');
+
+    } catch (\Exception $e) {
+
+        DB::rollBack();
+
+        return back()
+            ->withInput()
+            ->with('error', $e->getMessage());
     }
+}
 
     /**
      * Edit Page
@@ -134,114 +141,144 @@ class BlogController extends Controller
     /**
      * Update Blog
      */
-    public function update(
-        BlogUpdateRequest $request,
-        Blog $blog
-    ) {
-        $data = [];
-        $blogData = [];
+  public function update(
+    BlogUpdateRequest $request,
+    Blog $blog
+) {
+    $data = [];
+    $blogData = [];
 
-        try {
+    DB::beginTransaction();
 
-            $data = $request->validated();
+    try {
 
-            $slug = $blog->slug;
-            if ($blog->title !== $request->title) {
-                $slug = $this->generateUniqueSlug($request->title, $blog->id);
-            }
+        $data = $request->validated();
 
-            $blogData = Arr::only($data, [
-                'title',
-                'short_description',
-                'content',
-                'category_id',
-                'status',
-            ]);
-            $blogData['slug'] = $slug;
-            $blogData['is_featured'] = $request->boolean('is_featured');
+        /*
+        |--------------------------------------------------------------------------
+        | SLUG
+        |--------------------------------------------------------------------------
+        */
+        $slug = $blog->slug;
 
-            if (
-                $request->status === 'published' &&
-                !$blog->published_at
-            ) {
-                $blogData['published_at'] = now();
-            }
-
-            $oldFeaturedImage = $blog->featured_image;
-
-            if (
-                $request->hasFile('featured_image')
-            ) {
-                $blogData['featured_image'] = $request
-                    ->file('featured_image')
-                    ->store('blogs', 'public');
-            }
-
-            $blog->fill($blogData);
-
-            if (!$blog->isDirty()) {
-                return redirect()
-                    ->route('admin.blogs.edit', $blog)
-                    ->with('success', 'No changes to update.');
-            }
-
-            DB::beginTransaction();
-
-            if (
-                $request->hasFile('featured_image') &&
-                $oldFeaturedImage &&
-                Storage::disk('public')->exists($oldFeaturedImage)
-            ) {
-                Storage::disk('public')->delete($oldFeaturedImage);
-            }
-
-            $blog->save();
-
-            $seoData = Arr::only($data, [
-                'meta_title',
-                'meta_description',
-                'meta_keywords',
-            ]);
-
-            $seo = $blog->seoMeta;
-            if (!$seo) {
-                $seo = $blog->seoMeta()->create([
-                    'path' => $this->uniqueSeoPathForSlug($blog->slug, 'blogs'),
-                ]);
-            }
-
-            $seoData['path'] = $this->uniqueSeoPathForSlug($blog->slug, 'blogs', $seo->id);
-            $seo->update($seoData);
-
-            DB::commit();
-
-            return redirect()
-                ->route('admin.blogs.index', $blog)
-                ->with(
-                    'success',
-                    'Blog updated successfully.'
-                );
-        } catch (\Exception $e) {
-
-            if (DB::transactionLevel() > 0) {
-                DB::rollBack();
-            }
-
-            if (
-                !empty($blogData['featured_image'] ?? null) &&
-                Storage::disk('public')->exists($blogData['featured_image'])
-            ) {
-                Storage::disk('public')->delete($blogData['featured_image']);
-            }
-
-            return back()
-                ->withInput()
-                ->with(
-                    'error',
-                    $e->getMessage()
-                );
+        if ($blog->title !== $request->title) {
+            $slug = $this->generateUniqueSlug($request->title, $blog->id);
         }
+
+        $blogData = Arr::only($data, [
+            'title',
+            'short_description',
+            'content',
+            'category_id',
+            'status',
+        ]);
+
+        $blogData['slug'] = $slug;
+        $blogData['is_featured'] = $request->boolean('is_featured');
+
+        if ($request->status === 'published' && !$blog->published_at) {
+            $blogData['published_at'] = now();
+        }
+
+        /*
+        |--------------------------------------------------------------------------
+        | OLD IMAGE
+        |--------------------------------------------------------------------------
+        */
+        $oldFeaturedImage = $blog->featured_image;
+
+        /*
+        |--------------------------------------------------------------------------
+        | NEW IMAGE UPLOAD (PUBLIC FOLDER FIX)
+        |--------------------------------------------------------------------------
+        */
+        if ($request->hasFile('featured_image')) {
+
+            $file = $request->file('featured_image');
+
+            $destinationPath = public_path('uploads/blogs');
+
+            if (!file_exists($destinationPath)) {
+                mkdir($destinationPath, 0775, true);
+            }
+
+            $fileName = time() . '_' . uniqid() . '.' . $file->getClientOriginalExtension();
+
+            $file->move($destinationPath, $fileName);
+
+            $blogData['featured_image'] = 'uploads/blogs/' . $fileName;
+        }
+
+        /*
+        |--------------------------------------------------------------------------
+        | APPLY DATA
+        |--------------------------------------------------------------------------
+        */
+        $blog->fill($blogData);
+
+        if (!$blog->isDirty()) {
+            return redirect()
+                ->route('admin.blogs.edit', $blog)
+                ->with('success', 'No changes to update.');
+        }
+
+        DB::commit(); // commit BEFORE file delete + save
+
+        /*
+        |--------------------------------------------------------------------------
+        | DELETE OLD IMAGE
+        |--------------------------------------------------------------------------
+        */
+        if (
+            $request->hasFile('featured_image') &&
+            $oldFeaturedImage &&
+            file_exists(public_path($oldFeaturedImage))
+        ) {
+            unlink(public_path($oldFeaturedImage));
+        }
+
+        $blog->save();
+
+        /*
+        |--------------------------------------------------------------------------
+        | SEO UPDATE
+        |--------------------------------------------------------------------------
+        */
+        $seoData = Arr::only($data, [
+            'meta_title',
+            'meta_description',
+            'meta_keywords',
+        ]);
+
+        $seo = $blog->seoMeta;
+
+        if (!$seo) {
+            $seo = $blog->seoMeta()->create([
+                'path' => $this->uniqueSeoPathForSlug($blog->slug, 'blogs'),
+            ]);
+        }
+
+        $seoData['path'] = $this->uniqueSeoPathForSlug(
+            $blog->slug,
+            'blogs',
+            $seo->id
+        );
+
+        $seo->update($seoData);
+
+        return redirect()
+            ->route('admin.blogs.index')
+            ->with('success', 'Blog updated successfully.');
+
+    } catch (\Exception $e) {
+
+        DB::rollBack();
+
+        return back()
+            ->withInput()
+            ->with('error', $e->getMessage());
     }
+}
 
     /**
      * Delete Blog

@@ -54,65 +54,111 @@ class EventController extends Controller
     /**
      * Store Event
      */
-    public function store(EventStoreRequest $request)
-    {
-        $data = $request->validated();
-        $eventData = [];
-        $seoData = [];
+  public function store(EventStoreRequest $request)
+{
+    $data = $request->validated();
 
-        DB::beginTransaction();
+    $eventData = [];
+    $seoData = [];
 
-        try {
-            $eventData = $this->eventPayloadFromRequest($request, $data);
-            $eventData['slug'] = $this->generateUniqueSlug($request->title);
+    DB::beginTransaction();
 
-            $event = $this->eventRepository->create($eventData);
+    try {
 
-            $seoData = $this->seoPayloadFromRequest($request, $data);
-            $seoData['path'] = $this->uniqueSeoPathForSlug($event->slug);
-            $event->seoMeta()->create($seoData);
+        /*
+        |--------------------------------------------------------------------------
+        | BUILD EVENT PAYLOAD
+        |--------------------------------------------------------------------------
+        */
+        $eventData = $this->eventPayloadFromRequest($request, $data);
 
-            DB::commit();
+        $eventData['slug'] = $this->generateUniqueSlug($request->title);
 
-            return redirect()
-                ->route('admin.events.index')
-                ->with('success', 'Event created successfully.');
-        } catch (\Exception $e) {
+        /*
+        |--------------------------------------------------------------------------
+        | IMAGE HANDLING FIX (PUBLIC UPLOADS)
+        |--------------------------------------------------------------------------
+        */
 
-            DB::rollBack();
+        // Helper function inside method scope style
+        $uploadFile = function ($file, $folder = 'events') {
 
-            if (
-                !empty($eventData['banner'] ?? null) &&
-                Storage::disk('public')->exists($eventData['banner'])
-            ) {
-                Storage::disk('public')->delete($eventData['banner']);
+            $destinationPath = public_path("uploads/{$folder}");
+
+            if (!file_exists($destinationPath)) {
+                mkdir($destinationPath, 0775, true);
             }
 
-            foreach (($eventData['gallery_images'] ?? []) as $path) {
-                if ($path && Storage::disk('public')->exists($path)) {
-                    Storage::disk('public')->delete($path);
-                }
-            }
+            $fileName = time() . '_' . uniqid() . '.' . $file->getClientOriginalExtension();
 
-            foreach (($eventData['providers'] ?? []) as $provider) {
-                $path = $provider['logo'] ?? null;
-                if ($path && Storage::disk('public')->exists($path)) {
-                    Storage::disk('public')->delete($path);
-                }
-            }
+            $file->move($destinationPath, $fileName);
 
-            foreach (['og_image', 'twitter_image'] as $key) {
-                $path = $seoData[$key] ?? null;
-                if ($path && Storage::disk('public')->exists($path)) {
-                    Storage::disk('public')->delete($path);
-                }
-            }
+            return "uploads/{$folder}/{$fileName}";
+        };
 
-            return back()
-                ->withInput()
-                ->with('error', $e->getMessage());
+        /*
+        |--------------------------------------------------------------------------
+        | BANNER
+        |--------------------------------------------------------------------------
+        */
+        if ($request->hasFile('banner')) {
+            $eventData['banner'] = $uploadFile($request->file('banner'), 'events');
         }
+
+        /*
+        |--------------------------------------------------------------------------
+        | GALLERY IMAGES
+        |--------------------------------------------------------------------------
+        */
+        if ($request->hasFile('gallery_images')) {
+
+            $gallery = [];
+
+            foreach ($request->file('gallery_images') as $file) {
+                $gallery[] = $uploadFile($file, 'events/gallery');
+            }
+
+            $eventData['gallery_images'] = $gallery;
+        }
+
+      
+        if (!empty($eventData['providers'])) {
+
+            foreach ($eventData['providers'] as $key => $provider) {
+
+                if (isset($provider['logo_file']) && $provider['logo_file']) {
+                    $eventData['providers'][$key]['logo'] =
+                        $uploadFile($provider['logo_file'], 'events/providers');
+                }
+            }
+        }
+
+     
+        $event = $this->eventRepository->create($eventData);
+
+     
+        $seoData = $this->seoPayloadFromRequest($request, $data);
+
+        $seoData['path'] = $this->uniqueSeoPathForSlug($event->slug);
+
+      
+        $event->seoMeta()->create($seoData);
+
+        DB::commit();
+
+        return redirect()
+            ->route('admin.events.index')
+            ->with('success', 'Event created successfully.');
+
+    } catch (\Exception $e) {
+
+        DB::rollBack();
+
+        return back()
+            ->withInput()
+            ->with('error', $e->getMessage());
     }
+}
 
     /**
      * Show Event
@@ -141,131 +187,128 @@ class EventController extends Controller
     /**
      * Update Event
      */
-    public function update(EventUpdateRequest $request, Event $event)
-    {
-        $data = $request->validated();
-        $seoData = [];
+  public function update(EventUpdateRequest $request, Event $event)
+{
+    $data = $request->validated();
 
-        $oldBanner = $event->banner;
-        $oldSeoOg = $event->seoMeta?->og_image;
-        $oldSeoTwitter = $event->seoMeta?->twitter_image;
-        $oldGallery = $event->gallery_images ?? [];
-        $oldProviders = $event->providers ?? [];
+    $oldBanner = $event->banner;
+    $oldSeoOg = $event->seoMeta?->og_image;
+    $oldSeoTwitter = $event->seoMeta?->twitter_image;
+    $oldGallery = $event->gallery_images ?? [];
+    $oldProviders = $event->providers ?? [];
 
-        $slug = $event->slug;
-        if ($event->title !== $request->title) {
-            $slug = $this->generateUniqueSlug($request->title, $event->id);
-        }
+    $slug = $event->slug;
 
+    if ($event->title !== $request->title) {
+        $slug = $this->generateUniqueSlug($request->title, $event->id);
+    }
+
+    DB::beginTransaction();
+
+    try {
+        $uploadFile = function ($file, $folder = 'events') {
+
+            $destinationPath = public_path("uploads/{$folder}");
+
+            if (!file_exists($destinationPath)) {
+                mkdir($destinationPath, 0775, true);
+            }
+
+            $fileName = time() . '_' . uniqid() . '.' . $file->getClientOriginalExtension();
+
+            $file->move($destinationPath, $fileName);
+
+            return "uploads/{$folder}/{$fileName}";
+        };
+
+      
         $eventData = $this->eventPayloadFromRequest($request, $data, $event);
         $eventData['slug'] = $slug;
 
-        DB::beginTransaction();
+    
+        if ($request->hasFile('banner')) {
 
-        try {
-            $event->fill($eventData);
-            $event->save();
+            $eventData['banner'] = $uploadFile($request->file('banner'), 'events');
 
-            if (
-                $request->hasFile('banner') &&
-                $oldBanner &&
-                Storage::disk('public')->exists($oldBanner)
-            ) {
-                Storage::disk('public')->delete($oldBanner);
+            if ($oldBanner && file_exists(public_path($oldBanner))) {
+                unlink(public_path($oldBanner));
             }
-
-            $seoData = $this->seoPayloadFromRequest($request, $data, $event->seoMeta);
-
-            $seo = $event->seoMeta;
-            if (!$seo) {
-                $seo = $event->seoMeta()->create([
-                    'path' => $this->uniqueSeoPathForSlug($event->slug),
-                ]);
-            }
-
-            $seoData['path'] = $this->uniqueSeoPathForSlug($event->slug, $seo->id);
-            $seo->update($seoData);
-
-            if (
-                $request->hasFile('og_image') &&
-                $oldSeoOg &&
-                Storage::disk('public')->exists($oldSeoOg)
-            ) {
-                Storage::disk('public')->delete($oldSeoOg);
-            }
-
-            if (
-                $request->hasFile('twitter_image') &&
-                $oldSeoTwitter &&
-                Storage::disk('public')->exists($oldSeoTwitter)
-            ) {
-                Storage::disk('public')->delete($oldSeoTwitter);
-            }
-
-            $newGallery = $event->gallery_images ?? [];
-            $removedGallery = array_diff($oldGallery, $newGallery);
-            foreach ($removedGallery as $path) {
-                if ($path && Storage::disk('public')->exists($path)) {
-                    Storage::disk('public')->delete($path);
-                }
-            }
-
-            $newProviders = $event->providers ?? [];
-            $removedProviderLogos = array_diff(
-                array_filter(array_map(fn ($p) => $p['logo'] ?? null, $oldProviders)),
-                array_filter(array_map(fn ($p) => $p['logo'] ?? null, $newProviders)),
-            );
-
-            foreach ($removedProviderLogos as $path) {
-                if ($path && Storage::disk('public')->exists($path)) {
-                    Storage::disk('public')->delete($path);
-                }
-            }
-
-            DB::commit();
-
-            return redirect()
-                ->route('admin.events.index')
-                ->with('success', 'Event updated successfully.');
-        } catch (\Exception $e) {
-
-            DB::rollBack();
-
-            $newBanner = $eventData['banner'] ?? null;
-            if (
-                $request->hasFile('banner') &&
-                $newBanner &&
-                Storage::disk('public')->exists($newBanner)
-            ) {
-                Storage::disk('public')->delete($newBanner);
-            }
-
-            foreach (($eventData['gallery_images'] ?? []) as $path) {
-                if ($path && Storage::disk('public')->exists($path)) {
-                    Storage::disk('public')->delete($path);
-                }
-            }
-
-            foreach (($eventData['providers'] ?? []) as $provider) {
-                $path = $provider['logo'] ?? null;
-                if ($path && Storage::disk('public')->exists($path)) {
-                    Storage::disk('public')->delete($path);
-                }
-            }
-
-            foreach (['og_image', 'twitter_image'] as $key) {
-                $path = $seoData[$key] ?? null;
-                if ($path && Storage::disk('public')->exists($path)) {
-                    Storage::disk('public')->delete($path);
-                }
-            }
-
-            return back()
-                ->withInput()
-                ->with('error', $e->getMessage());
         }
-    }
 
+       
+        $event->fill($eventData);
+        $event->save();
+
+     
+        $seoData = $this->seoPayloadFromRequest($request, $data, $event->seoMeta);
+
+        $seo = $event->seoMeta;
+
+        if (!$seo) {
+            $seo = $event->seoMeta()->create([
+                'path' => $this->uniqueSeoPathForSlug($event->slug),
+            ]);
+        }
+
+        if ($request->hasFile('og_image')) {
+            if ($oldSeoOg && file_exists(public_path($oldSeoOg))) {
+                unlink(public_path($oldSeoOg));
+            }
+
+            $seoData['og_image'] = $uploadFile($request->file('og_image'), 'events/seo');
+        }
+
+        if ($request->hasFile('twitter_image')) {
+            if ($oldSeoTwitter && file_exists(public_path($oldSeoTwitter))) {
+                unlink(public_path($oldSeoTwitter));
+            }
+
+            $seoData['twitter_image'] = $uploadFile($request->file('twitter_image'), 'events/seo');
+        }
+
+        $seoData['path'] = $this->uniqueSeoPathForSlug($event->slug, $seo->id);
+
+        $seo->update($seoData);
+
+      
+        $newGallery = $event->gallery_images ?? [];
+
+        $removedGallery = array_diff($oldGallery, $newGallery);
+
+        foreach ($removedGallery as $path) {
+            if ($path && file_exists(public_path($path))) {
+                unlink(public_path($path));
+            }
+        }
+
+        $newProviders = $event->providers ?? [];
+
+        $oldLogos = array_filter(array_map(fn($p) => $p['logo'] ?? null, $oldProviders));
+        $newLogos = array_filter(array_map(fn($p) => $p['logo'] ?? null, $newProviders));
+
+        $removedProviderLogos = array_diff($oldLogos, $newLogos);
+
+        foreach ($removedProviderLogos as $path) {
+            if ($path && file_exists(public_path($path))) {
+                unlink(public_path($path));
+            }
+        }
+
+        DB::commit();
+
+        return redirect()
+            ->route('admin.events.index')
+            ->with('success', 'Event updated successfully.');
+
+    } catch (\Exception $e) {
+
+        DB::rollBack();
+
+        return back()
+            ->withInput()
+            ->with('error', $e->getMessage());
+    }
+}
     /**
      * Delete Event
      */

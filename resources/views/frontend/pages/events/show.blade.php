@@ -4,7 +4,7 @@
     use Illuminate\Support\Facades\Storage;
 
     $image = $event->banner
-        ? asset('storage/' . $event->banner)
+        ? asset($event->banner)
         : asset('images/default-event.jpg');
 @endphp
 
