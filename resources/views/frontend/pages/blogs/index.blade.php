@@ -15,7 +15,7 @@
                 @forelse ($blogs as $blog)
                     @php
                         $image = $blog->featured_image
-                            ? asset($blog->featured_image)
+                            ? asset('storage/' . $blog->featured_image)
                             : asset('images/default-blog.jpg');
                     @endphp
                     <a href="{{ route('blog-details', $blog->slug) }}">
