@@ -1,7 +1,7 @@
 <footer class="w-full border-t bg-slate-50 border-slate-200">
 
     <div
-        class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 max-w-7xl mx-auto px-5 sm:px-6 lg:px-8 py-12 sm:py-16">
+        class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 max-w-7xl mx-auto px-5 sm:px-6 lg:px-8 py-12 sm:py-16">
 
         {{-- Column 1 --}}
         <div class="space-y-5 text-center sm:text-left">
@@ -138,22 +138,22 @@
 
 
         {{-- Column 3 --}}
-        {{-- <div class="space-y-5 text-center sm:text-left">
+        <div class="space-y-5 text-center flex flex-col items-center">
 
             <h4 class="font-bold uppercase tracking-widest text-xs text-slate-900">
-                Legal
+                Useful Links
             </h4>
-
+          
             <ul class="space-y-2 text-sm">
 
-                <li><a class="text-slate-500 hover:text-slate-900" href="#">Privacy Policy</a></li>
-                <li><a class="text-slate-500 hover:text-slate-900" href="#">Terms of Service</a></li>
-                <li><a class="text-slate-500 hover:text-slate-900" href="#">Accreditations</a></li>
-                <li><a class="text-slate-500 hover:text-slate-900" href="#">Cookie Policy</a></li>
+                <li><a class="text-slate-500 hover:text-slate-900" href="https://www.usi.gov.au/"> Create USI</a></li>
+                <li><a class="text-slate-500 hover:text-slate-900" href="https://www.checked.com.au/">Create Police Report</a></li>
+                <li><a class="text-slate-500 hover:text-slate-900" href="https://www.service.nsw.gov.au/transaction/apply-for-a-working-with-children-check">Working with Children Check (WWCC)</a></li>
+                <li><a class="text-slate-500 hover:text-slate-900" href="https://www.service.nsw.gov.au/services/ndiswc">NDIS Check</a></li>
 
             </ul>
 
-        </div> --}}
+        </div>
 
 
         {{-- Column 4 --}}
@@ -165,7 +165,16 @@
 
             <ul class="space-y-2 text-sm text-slate-500">
 
-                <li>Legal Name: SPECTER ROSS PTY LTD</li>
+                <li class="mb-3">
+                    <div class="flex flex-wrap justify-center items-center gap-4  transition-all duration-500">
+                <img class="h-10 object-contain"
+                    data-alt="clean geometric logo of a professional education authority in black and white"
+                    src="{{ asset('patner_1.png') }}">
+
+                <img class="h-10 object-contain" data-alt="sleek corporate mark for a global vocational training federation"
+                    src="{{ asset('patner_2.png') }}">
+            </div>
+                </li>
                 <li><strong>RTO No. 45116</strong></li>
                 <li>ABN: 65 610 630 254</li>
 

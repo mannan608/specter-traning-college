@@ -35,12 +35,7 @@
 
                     <button
                         class="bg-brand-600 text-white px-6 sm:px-8 py-3 sm:py-4 rounded font-semibold">
-                        Our Programs
-                    </button>
-
-                    <button
-                        class="border border-white text-white px-6 sm:px-8 py-3 sm:py-4 rounded hover:bg-white hover:text-slate-900 transition-all">
-                        Watch Overview
+                       Qualifications
                     </button>
 
                 </div>
@@ -104,7 +99,7 @@
                     <div class="hidden md:block absolute -bottom-5 -left-5 bg-brand-600 text-white p-6 rounded-xl shadow-lg">
 
                         <div class="text-3xl font-bold">
-                            20+
+                            9+
                         </div>
 
                         <div class="text-sm font-semibold uppercase">

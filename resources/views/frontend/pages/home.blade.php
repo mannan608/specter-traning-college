@@ -115,6 +115,23 @@
             </div>
         </div>
     </section>
+     <section class="bg-brand-500/10 py-10 sm:py-12 lg:py-16">
+        <div class="max-w-7xl mx-auto px-5 md:px-8">
+
+            <!-- Heading -->
+            <div class="text-center md:mb-8 mb-4">
+                <h2 class="font-display font-bold text-lg md:text-2xl lg:text-3xl text-primary mb-3">Check Eligibility
+                </h2>
+                <p class="text-on-surface-variant max-w-xl mx-auto text-sm md:text-base">Check Eligibility For Recognition of Prior Learning - RPL</p>
+            </div>
+
+            <div class="">
+                @include('frontend.pages.partials.eligibility-form')
+
+            </div>
+         
+        </div>
+    </section>
 
     <section class="bg-gray-50 py-10 sm:py-12 lg:py-16">
         <div class="max-w-7xl mx-auto px-5 md:px-8">
@@ -126,98 +143,9 @@
                 <p class="text-on-surface-variant max-w-xl mx-auto text-sm md:text-base">Hear from our students
                     about their journey and success stories.</p>
             </div>
+                @include('frontend.pages.partials.review')
 
-            <!-- Reviews Data -->
-            @php
-                $reviews = [
-                    [
-                        'name' => 'Carly Bishop',
-                        'designation' => 'Individual Support',
-                        'image' => 'teacher__1.jpg',
-                        'rating' => 4,
-                        'text' =>
-                            'I highly recommend them, I was hired before finishing my placement and love working in this industry...',
-                    ],
-                    [
-                        'name' => 'Roslyn Brakes',
-                        'designation' => 'Aged Care',
-                        'image' => 'teacher__2.jpg',
-                        'rating' => 4,
-                        'text' => 'I completed my certificate IV in ageing support and have no complaints...',
-                    ],
-                    [
-                        'name' => 'Jess Heffernan',
-                        'designation' => 'Community Service',
-                        'image' => 'teacher__3.jpg',
-                        'rating' => 4,
-                        'text' => 'Had a great experience with them. great place to study...',
-                    ],
-                    [
-                        'name' => 'Md Abdul Mannan',
-                        'designation' => 'Community Service',
-                        'image' => 'teacher__4.jpg',
-                        'rating' => 4,
-                        'text' => 'Had a great experience with them. great place to study...',
-                    ],
-                ];
-            @endphp
-
-            <!-- Slider -->
-            <div class="relative">
-                <div class="swiper student-stories-swiper">
-                    <div class="swiper-wrapper">
-                        @foreach ($reviews as $review)
-                            <div class="swiper-slide h-auto">
-                                <div
-                                    class="bg-white rounded-md border border-slate-200 shadow-sm 
-                      p-5 sm:p-6 lg:p-7 
-                      flex flex-col h-full">
-
-                                    <!-- Stars -->
-                                    <div class="flex items-center gap-1 mb-4">
-                                        @for ($i = 1; $i <= 5; $i++)
-                                            @if ($i <= $review['rating'])
-                                                <span class="text-brand-600 text-sm sm:text-xl">★</span>
-                                            @else
-                                                <span class="text-brand-600 text-sm sm:text-xl">☆</span>
-                                            @endif
-                                        @endfor
-                                    </div>
-
-                                    <!-- Text -->
-                                    <p
-                                        class="text-gray-600 text-sm sm:text-base leading-relaxed mb-6 flex-grow line-clamp-2">
-                                        {{ $review['text'] }}
-                                    </p>
-
-                                    <!-- Author -->
-                                    <div class="flex items-center justify-between mt-auto">
-
-                                        <div class="flex items-center gap-3">
-                                            <img src="{{ asset('frontend-img/' . $review['image']) }}"
-                                                alt="{{ $review['name'] }}"
-                                                class="w-10 h-10 sm:w-12 sm:h-12 rounded-full object-cover">
-
-                                            <div>
-                                                <h5
-                                                    class="font-semibold text-gray-900 
-                             text-sm sm:text-base">
-                                                    {{ $review['name'] }}
-                                                </h5>
-                                                <span class="text-gray-500 text-xs sm:text-sm">
-                                                    {{ $review['designation'] }}
-                                                </span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        @endforeach
-                    </div>
-                    <!-- Pagination -->
-                    <div class="swiper-pagination"></div>
-                </div>
-            </div>
+          
         </div>
     </section>
 
