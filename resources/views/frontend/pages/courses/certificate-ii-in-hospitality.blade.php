@@ -44,18 +44,18 @@
 
     {{-- Main Section --}}
     <section>
-        <div class="max-w-7xl mx-auto px-8 py-16">
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-12 lg:py-16">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12">
                 <!-- Left Content Area -->
-                <div class="lg:col-span-8 space-y-16">
+                <div class="lg:col-span-8 space-y-10 sm:space-y-14 lg:space-y-16">
                     <!-- Overview Section -->
                     <section id="overview">
-                        <h2 class="font-headline-lg text-headline-lg mb-6 flex items-center gap-3">
+                        <h2 class="font-headline-lg text-headline-lg text-xl sm:text-2xl lg:text-3xl mb-4 sm:mb-6 flex items-center gap-3">
                             <span class="w-8 h-1 bg-brand-500 inline-block"></span>
                             Course Overview
                         </h2>
                         <div class="prose prose-slate max-w-none">
-                            <p class="font-body-lg text-body-lg text-brand-500-variant leading-relaxed">
+                            <p class="font-body-lg text-body-lg text-brand-500-variant text-sm sm:text-base lg:text-lg leading-relaxed">
                                 The Certificate IV in Hospitality is designed for individuals seeking supervisory or
                                 leadership roles in the hospitality industry. This qualification develops operational,
                                 leadership, and customer service skills for hotels, restaurants, cafés, and event venues.
@@ -64,18 +64,18 @@
                     </section>
                     <!-- Curriculum Bento Grid -->
                     <section id="curriculum">
-                        <h2 class="font-headline-lg text-headline-lg mb-8 flex items-center gap-3">
+                        <h2 class="font-headline-lg text-headline-lg text-xl sm:text-2xl lg:text-3xl mb-5 sm:mb-8 flex items-center gap-3">
                             <span class="w-8 h-1 bg-brand-500 inline-block"></span>
                             Course Structure
                         </h2>
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
                             <!-- Core Modules -->
                             <div
-                                class="bg-white border border-slate-200 p-8 rounded shadow-sm hover:shadow-md transition-all">
+                                class="bg-white border border-slate-200 p-5 sm:p-6 lg:p-8 rounded shadow-sm hover:shadow-md transition-all">
                                 <span class="material-symbols-outlined text-brand-500 mb-4"
                                     style="font-size: 32px;">verified</span>
-                                <h3 class="font-headline-md text-headline-md mb-4">Core Modules</h3>
-                                <ul class="space-y-3 font-body-md text-brand-500-variant">
+                                <h3 class="text-base md:text-lg text-headline-md text-lg sm:text-xl mb-3 sm:mb-4">Core Modules</h3>
+                                <ul class="space-y-2 sm:space-y-3 font-body-md text-brand-500-variant text-sm sm:text-base">
                                     <li class="flex items-start gap-2">
                                         <span class="material-symbols-outlined text-xs mt-1">check_circle</span>
                                         Hospitality operations and service standards
@@ -99,11 +99,11 @@
                                 </ul>
                             </div>
                             <!-- Electives -->
-                            <div class="bg-slate-50 border border-slate-200 p-8 rounded">
+                            <div class="bg-slate-50 border border-slate-200 p-5 sm:p-6 lg:p-8 rounded">
                                 <span class="material-symbols-outlined text-slate-500 mb-4"
                                     style="font-size: 32px;">category</span>
-                                <h3 class="font-headline-md text-headline-md mb-4">Electives</h3>
-                                <ul class="space-y-3 font-body-md text-brand-500-variant">
+                                <h3 class="text-base md:text-lg text-headline-md text-lg sm:text-xl mb-3 sm:mb-4">Electives</h3>
+                                <ul class="space-y-2 sm:space-y-3 font-body-md text-brand-500-variant text-sm sm:text-base">
                                     <li class="flex items-start gap-2">
                                         <span class="material-symbols-outlined text-xs mt-1">add_circle_outline</span>
                                         Food and beverage supervision
@@ -129,32 +129,32 @@
                         </div>
                     </section>
                     <!-- Outcomes Section -->
-                    <section class="bg-surface-container p-10 rounded" id="outcomes">
-                        <div class="flex flex-col md:flex-row gap-12">
+                    <section class="bg-surface-container p-0 sm:p-8 lg:p-10 rounded" id="outcomes">
+                        <div class="flex flex-col md:flex-row gap-8 lg:gap-12">
                             <div class="flex-1">
-                                <h2 class="font-headline-lg text-headline-lg mb-6">Career Outcomes</h2>
-                                <p class="font-body-md text-brand-500-variant mb-6">Upon successful completion of this
+                                <h2 class="font-headline-lg text-headline-lg text-xl sm:text-2xl lg:text-3xl mb-4 sm:mb-6">Career Outcomes</h2>
+                                <p class="font-body-md text-brand-500-variant text-sm sm:text-base mb-4 sm:mb-6">Upon successful completion of this
                                     qualification, students are prepared for leadership roles in the global hospitality
                                     sector.</p>
-                                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                                    <div class="flex items-center gap-3 bg-white p-4 rounded border border-slate-200">
+                                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
+                                    <div class="flex items-center gap-3 bg-white p-3 sm:p-4 rounded border border-slate-200">
                                         <span
                                             class="material-symbols-outlined text-brand-500">person_celebrate</span>
                                         <span class="font-label-bold">Hospitality Supervisor</span>
                                     </div>
-                                    <div class="flex items-center gap-3 bg-white p-4 rounded border border-slate-200">
+                                    <div class="flex items-center gap-3 bg-white p-3 sm:p-4 rounded border border-slate-200">
                                         <span class="material-symbols-outlined text-brand-500">restaurant</span>
                                         <span class="font-label-bold">Restaurant Supervisor</span>
                                     </div>
-                                    <div class="flex items-center gap-3 bg-white p-4 rounded border border-slate-200">
+                                    <div class="flex items-center gap-3 bg-white p-3 sm:p-4 rounded border border-slate-200">
                                         <span class="material-symbols-outlined text-brand-500">badge</span>
                                         <span class="font-label-bold">Front Office Supervisor</span>
                                     </div>
-                                    <div class="flex items-center gap-3 bg-white p-4 rounded border border-slate-200">
+                                    <div class="flex items-center gap-3 bg-white p-3 sm:p-4 rounded border border-slate-200">
                                         <span class="material-symbols-outlined text-brand-500">coffee</span>
                                         <span class="font-label-bold">Café Manager</span>
                                     </div>
-                                    <div class="flex items-center gap-3 bg-white p-4 rounded border border-slate-200">
+                                    <div class="flex items-center gap-3 bg-white p-3 sm:p-4 rounded border border-slate-200">
                                         <span class="material-symbols-outlined text-brand-500">groups</span>
                                         <span class="font-label-bold">Team Leader</span>
                                     </div>
@@ -170,101 +170,101 @@
                     </section>
                     <!-- What You Will Develop -->
                     <section id="development">
-                        <h2 class="font-headline-lg text-headline-lg mb-6 flex items-center gap-3">
+                        <h2 class="text-lg sm:text-xl lg:text-3xl mb-4 sm:mb-6 flex items-center gap-3">
                             <span class="w-8 h-1 bg-brand-500 inline-block"></span>
                             What You Will Develop
                         </h2>
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                            <div class="flex items-center gap-4 bg-white p-6 border border-slate-200 rounded">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4">
+                            <div class="flex items-center gap-4 bg-white p-4 sm:p-5 lg:p-6 border border-slate-200 rounded">
                                 <div
                                     class="w-10 h-10 rounded-full bg-brand-500/10 flex items-center justify-center shrink-0">
                                     <span class="material-symbols-outlined text-brand-500">groups_2</span>
                                 </div>
-                                <p class="font-body-md text-brand-500">Lead hospitality teams effectively</p>
+                                <p class="font-body-md text-brand-500 text-sm sm:text-base">Lead hospitality teams effectively</p>
                             </div>
-                            <div class="flex items-center gap-4 bg-white p-6 border border-slate-200 rounded">
+                            <div class="flex items-center gap-4 bg-white p-4 sm:p-5 lg:p-6 border border-slate-200 rounded">
                                 <div
                                     class="w-10 h-10 rounded-full bg-brand-500/10 flex items-center justify-center shrink-0">
                                     <span class="material-symbols-outlined text-brand-500">psychology</span>
                                 </div>
-                                <p class="font-body-md text-brand-500">Manage customer service operations</p>
+                                <p class="font-body-md text-brand-500 text-sm sm:text-base">Manage customer service operations</p>
                             </div>
-                            <div class="flex items-center gap-4 bg-white p-6 border border-slate-200 rounded">
+                            <div class="flex items-center gap-4 bg-white p-4 sm:p-5 lg:p-6 border border-slate-200 rounded">
                                 <div
                                     class="w-10 h-10 rounded-full bg-brand-500/10 flex items-center justify-center shrink-0">
                                     <span class="material-symbols-outlined text-brand-500">psychology</span>
                                 </div>
-                                <p class="font-body-md text-brand-500">Handle workplace challenges professionally</p>
+                                <p class="font-body-md text-brand-500 text-sm sm:text-base">Handle workplace challenges professionally</p>
                             </div>
-                            <div class="flex items-center gap-4 bg-white p-6 border border-slate-200 rounded">
+                            <div class="flex items-center gap-4 bg-white p-4 sm:p-5 lg:p-6 border border-slate-200 rounded">
                                 <div
                                     class="w-10 h-10 rounded-full bg-brand-500/10 flex items-center justify-center shrink-0">
                                     <span class="material-symbols-outlined text-brand-500">assignment</span>
                                 </div>
-                                <p class="font-body-md text-brand-500">Coordinate hospitality activities and staff</p>
+                                <p class="font-body-md text-brand-500 text-sm sm:text-base">Coordinate hospitality activities and staff</p>
                             </div>
-                            <div class="flex items-center gap-4 bg-white p-6 border border-slate-200 rounded">
+                            <div class="flex items-center gap-4 bg-white p-4 sm:p-5 lg:p-6 border border-slate-200 rounded">
                                 <div
                                     class="w-10 h-10 rounded-full bg-brand-500/10 flex items-center justify-center shrink-0">
                                     <span class="material-symbols-outlined text-brand-500">gavel</span>
                                 </div>
-                                <p class="font-body-md text-brand-500">Maintain industry compliance standards</p>
+                                <p class="font-body-md text-brand-500 text-sm sm:text-base">Maintain industry compliance standards</p>
                             </div>
                         </div>
                     </section>
                     <!-- Industries That Value This Qualification -->
                     <section id="industries">
-                        <h2 class="font-headline-lg text-headline-lg mb-6 flex items-center gap-3">
+                        <h2 class="text-lg sm:text-xl lg:text-3xl mb-4 sm:mb-6 flex items-center gap-3">
                             <span class="w-8 h-1 bg-brand-500 inline-block"></span>
                             Industries That Value This Qualification
                         </h2>
-                        <div class="flex flex-wrap gap-3">
+                        <div class="flex flex-wrap gap-2 sm:gap-3">
                             <span
-                                class="bg-brand-500/10 px-6 py-3 rounded-full font-label-bold text-brand-500 flex items-center gap-2">
+                                class="bg-brand-500/10 px-4 sm:px-6 py-2 sm:py-3 rounded-full font-label-bold text-brand-500 flex items-center gap-2 text-sm">
                                 <span class="material-symbols-outlined text-sm">hotel</span> Hotels and Resorts
                             </span>
                             <span
-                                class="bg-brand-500/10 px-6 py-3 rounded-full font-label-bold text-brand-500 flex items-center gap-2">
+                                class="bg-brand-500/10 px-4 sm:px-6 py-2 sm:py-3 rounded-full font-label-bold text-brand-500 flex items-center gap-2 text-sm">
                                 <span class="material-symbols-outlined text-sm">restaurant</span> Restaurants and Cafés
                             </span>
                             <span
-                                class="bg-brand-500/10 px-6 py-3 rounded-full font-label-bold text-brand-500 flex items-center gap-2">
+                                class="bg-brand-500/10 px-4 sm:px-6 py-2 sm:py-3 rounded-full font-label-bold text-brand-500 flex items-center gap-2 text-sm">
                                 <span class="material-symbols-outlined text-sm">event</span> Event Management Companies
                             </span>
                             <span
-                                class="bg-brand-500/10 px-6 py-3 rounded-full font-label-bold text-brand-500 flex items-center gap-2">
+                                class="bg-brand-500/10 px-4 sm:px-6 py-2 sm:py-3 rounded-full font-label-bold text-brand-500 flex items-center gap-2 text-sm">
                                 <span class="material-symbols-outlined text-sm">travel_explore</span> Tourism Industry
                             </span>
                             <span
-                                class="bg-brand-500/10 px-6 py-3 rounded-full font-label-bold text-brand-500 flex items-center gap-2">
+                                class="bg-brand-500/10 px-4 sm:px-6 py-2 sm:py-3 rounded-full font-label-bold text-brand-500 flex items-center gap-2 text-sm">
                                 <span class="material-symbols-outlined text-sm">flatware</span> Catering Services
                             </span>
                         </div>
                     </section>
                     <!-- Study Pathways -->
                     <section id="pathways">
-                        <h2 class="font-headline-lg text-headline-lg mb-6 flex items-center gap-3">
+                        <h2 class="text-lg sm:text-xl lg:text-3xl mb-4 sm:mb-6 flex items-center gap-3">
                             <span class="w-8 h-1 bg-brand-500 inline-block"></span>
                             Study Pathways
                         </h2>
-                        <div class="space-y-4">
+                        <div class="space-y-3 sm:space-y-4">
                             <div
-                                class="bg-white border-l-4 border-brand-500 p-6 shadow-sm rounded-r flex items-center justify-between">
-                                <div class="flex items-center gap-4">
+                                class="bg-white border-l-4 border-brand-500 p-4 sm:p-5 lg:p-6 shadow-sm rounded-r flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 sm:gap-6">
+                                <div class="flex items-center gap-3 sm:gap-4">
                                     <span class="material-symbols-outlined text-brand-500">arrow_forward</span>
-                                    <span class="font-headline-md text-headline-md">Diploma of Hospitality
+                                    <span class="text-base md:text-lg text-headline-md">Diploma of Hospitality
                                         Management</span>
                                 </div>
-                                <span class="text-caption font-caption bg-slate-100 px-3 py-1 rounded">Next Level</span>
+                                <span class="text-caption font-caption bg-slate-100 px-3 py-1 rounded w-fit">Next Level</span>
                             </div>
                             <div
-                                class="bg-white border-l-4 border-brand-500 p-6 shadow-sm rounded-r flex items-center justify-between">
-                                <div class="flex items-center gap-4">
+                                class="bg-white border-l-4 border-brand-500 p-4 sm:p-5 lg:p-6 shadow-sm rounded-r flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 sm:gap-6">
+                                <div class="flex items-center gap-3 sm:gap-4">
                                     <span class="material-symbols-outlined text-brand-500">arrow_forward</span>
-                                    <span class="font-headline-md text-headline-md">Advanced Diploma of Hospitality
+                                    <span class="text-base md:text-lg text-headline-md">Advanced Diploma of Hospitality
                                         Management</span>
                                 </div>
-                                <span class="text-caption font-caption bg-slate-100 px-3 py-1 rounded">Advanced
+                                <span class="text-caption font-caption bg-slate-100 px-3 py-1 rounded w-fit">Advanced
                                     Level</span>
                             </div>
                         </div>
@@ -274,10 +274,10 @@
                 <aside class="lg:col-span-4">
                     <div class="sticky-sidebar sticky space-y-6">
                         <!-- Quick Apply Form -->
-                        <div class="bg-white border border-slate-200 rounded-lg shadow-sm p-8 overflow-hidden relative">
+                        <div class="bg-white border border-slate-200 rounded-lg shadow-sm p-5 sm:p-6 lg:p-8 overflow-hidden relative">
                             <div class="absolute top-0 left-0 w-1 h-full bg-brand-500"></div>
-                            <div class="mb-6">
-                                <h3 class="font-headline-md text-headline-md mb-2">Quick Apply</h3>
+                            <div class="mb-4 sm:mb-6">
+                                <h3 class="text-base md:text-lg text-headline-md text-lg sm:text-xl mb-1.5 sm:mb-2">Quick Apply</h3>
                                 <p class="text-caption font-caption text-brand-500-variant">Start your application in
                                     under 2 minutes.</p>
                             </div>
@@ -287,7 +287,7 @@
                                         class="block text-xs font-label-bold uppercase tracking-wider mb-2 text-brand-500-variant">Full
                                         Name</label>
                                     <input
-                                        class="w-full border border-slate-300 rounded px-4 py-3 focus:border-brand-500 focus:ring-0 transition-colors bg-slate-50"
+                                        class="w-full border border-slate-300 rounded px-4 py-2.5 sm:py-3 focus:border-brand-500 focus:ring-0 transition-colors bg-slate-50"
                                         type="text">
                                 </div>
                                 <div>
@@ -295,7 +295,7 @@
                                         class="block text-xs font-label-bold uppercase tracking-wider mb-2 text-brand-500-variant">Email
                                         Address</label>
                                     <input
-                                        class="w-full border border-slate-300 rounded px-4 py-3 focus:border-brand-500 focus:ring-0 transition-colors bg-slate-50"
+                                        class="w-full border border-slate-300 rounded px-4 py-2.5 sm:py-3 focus:border-brand-500 focus:ring-0 transition-colors bg-slate-50"
                                         type="email">
                                 </div>
                                 <div>
@@ -303,11 +303,11 @@
                                         class="block text-xs font-label-bold uppercase tracking-wider mb-2 text-brand-500-variant">Phone
                                         Number</label>
                                     <input
-                                        class="w-full border border-slate-300 rounded px-4 py-3 focus:border-brand-500 focus:ring-0 transition-colors bg-slate-50"
+                                        class="w-full border border-slate-300 rounded px-4 py-2.5 sm:py-3 focus:border-brand-500 focus:ring-0 transition-colors bg-slate-50"
                                         type="tel">
                                 </div>
                                 <button
-                                    class="w-full bg-brand-500 text-white py-4 rounded font-label-bold uppercase tracking-widest text-sm hover:brightness-110 active:scale-[0.98] transition-all mt-4"
+                                    class="w-full bg-brand-500 text-white py-3.5 sm:py-4 rounded font-label-bold uppercase tracking-widest text-sm hover:brightness-110 active:scale-[0.98] transition-all mt-4"
                                     type="submit">
                                     Apply Now
                                 </button>
@@ -317,17 +317,17 @@
                         <!-- Secondary Actions -->
                         <div class="grid grid-cols-1 gap-4">
                             <button
-                                class="flex items-center justify-center gap-3 w-full border border-primary-container text-primary-container py-3 rounded font-label-bold hover:bg-slate-50 transition-colors">
+                                class="flex items-center justify-center gap-3 w-full border border-primary-container text-primary-container py-3 rounded font-label-bold text-sm hover:bg-slate-50 transition-colors">
                                 <span class="material-symbols-outlined text-sm">download</span>
                                 Download Brochure
                             </button>
                             <button
-                                class="flex items-center justify-center gap-3 w-full bg-slate-100 text-brand-500-variant py-3 rounded font-label-bold hover:bg-slate-200 transition-colors">
+                                class="flex items-center justify-center gap-3 w-full bg-slate-100 text-brand-500-variant py-3 rounded font-label-bold text-sm hover:bg-slate-200 transition-colors">
                                 <span class="material-symbols-outlined text-sm">mail</span>
                                 Enquire via Email
                             </button>
                         </div>
-                        <div class="mt-12 pt-12 border-t border-slate-100 space-y-8">
+                        <div class="mt-8 sm:mt-10 lg:mt-12 pt-8 sm:pt-10 lg:pt-12 border-t border-slate-100 space-y-8">
                             <div class="flex items-center gap-3 mb-6">
                                 <span class="w-8 h-1 bg-brand-500 inline-block"></span>
                                 <h4 class="font-label-bold text-brand-500-variant uppercase tracking-[0.2em] text-xs">
@@ -348,7 +348,7 @@
                                     </div>
                                     <div class="p-5">
                                         <h5
-                                            class="font-headline-md text-base mb-3 group-hover:text-brand-500 transition-colors">
+                                            class="text-base md:text-lg text-base mb-3 group-hover:text-brand-500 transition-colors">
                                             Certificate II in Hospitality</h5>
                                         <div class="flex items-center justify-between">
                                             <span
@@ -374,7 +374,7 @@
                                     </div>
                                     <div class="p-5">
                                         <h5
-                                            class="font-headline-md text-base mb-3 group-hover:text-brand-500 transition-colors">
+                                            class="text-base md:text-lg text-base mb-3 group-hover:text-brand-500 transition-colors">
                                             Certificate III in Hospitality</h5>
                                         <div class="flex items-center justify-between">
                                             <span
