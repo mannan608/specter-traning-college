@@ -79,21 +79,21 @@
 
                  <a href="{{ route('blogs') }}"
                     class="relative font-normal transition-all duration-300
-        {{ request()->routeIs('contact') ? 'text-brand-600 font-normal after:w-full' : 'text-slate-700 hover:text-brand-600 after:w-0 hover:after:w-full' }}
+        {{ request()->routeIs('blogs') ? 'text-brand-600 font-normal after:w-full' : 'text-slate-700 hover:text-brand-600 after:w-0 hover:after:w-full' }}
         after:absolute after:left-0 after:bottom-[-6px]
         after:h-[2px] after:bg-brand-600 after:transition-all after:duration-300">
 
                     Blogs
                 </a>
 
-                 <a href="{{ route('events') }}"
+                 {{-- <a href="{{ route('events') }}"
                     class="relative font-normal transition-all duration-300
         {{ request()->routeIs('contact') ? 'text-brand-600 font-normal after:w-full' : 'text-slate-700 hover:text-brand-600 after:w-0 hover:after:w-full' }}
         after:absolute after:left-0 after:bottom-[-6px]
         after:h-[2px] after:bg-brand-600 after:transition-all after:duration-300">
 
                     Events
-                </a>
+                </a> --}}
 
             </div>
 
@@ -119,6 +119,8 @@
                 class="{{ request()->routeIs('about') ? 'text-brand-600 font-medium' : 'text-slate-700' }}">About</a>
             <a href="{{ route('contact') }}"
                 class="{{ request()->routeIs('contact') ? 'text-brand-600 font-medium' : 'text-slate-700' }}">Contact</a>
+                <a href="{{ route('contact') }}"
+                class="{{ request()->routeIs('blogs') ? 'text-brand-600 font-medium' : 'text-slate-700' }}">Blogs</a>
             <button type="button" data-open-apply-modal class="bg-brand-600 text-white py-3 rounded-lg font-normal">
                 Apply Now
             </button>
