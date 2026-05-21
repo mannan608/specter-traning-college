@@ -15,7 +15,7 @@
             'keyword' => $blog->seoMeta?->meta_keywords,
             'author' => $blog->author?->name ?? 'Admin',
             'image' => $blog->featured_image
-                ? Storage::disk('public')->url($blog->featured_image)
+                ? asset($blog->featured_image)
                 : null,
         ];
     })->values();

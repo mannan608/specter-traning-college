@@ -13,7 +13,7 @@
             'status' => $event->status,
             'is_featured' => (bool) $event->is_featured,
             'views' => (int) ($event->views ?? 0),
-            'banner' => $event->banner ? Storage::disk('public')->url($event->banner) : null,
+            'banner' => $event->banner ? asset($event->banner) : null,
         ];
     })->values();
 @endphp
