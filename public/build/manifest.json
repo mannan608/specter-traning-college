@@ -1,11 +1,11 @@
 {
   "resources/css/app.css": {
-    "file": "assets/app-IH7M3lY3.css",
+    "file": "assets/app-B_rKbtII.css",
     "src": "resources/css/app.css",
     "isEntry": true
   },
   "resources/js/app.js": {
-    "file": "assets/app-o2fLsAWU.js",
+    "file": "assets/app-BN0gLjxM.js",
     "name": "app",
     "src": "resources/js/app.js",
     "isEntry": true,
@@ -24,7 +24,7 @@
     ]
   },
   "resources/js/components/calendar-init.js": {
-    "file": "assets/calendar-init-BXmuQBaC.js",
+    "file": "assets/calendar-init-pRDG5Juq.js",
     "name": "calendar-init",
     "src": "resources/js/components/calendar-init.js",
     "isDynamicEntry": true,
