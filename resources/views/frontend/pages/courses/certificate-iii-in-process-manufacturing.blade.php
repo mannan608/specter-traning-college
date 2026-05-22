@@ -139,11 +139,11 @@
                                 
                                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
                                     <div class="flex items-center gap-3 bg-white p-3 sm:p-4 rounded border border-slate-200">
-                                        <span class="material-symbols-outlined text-brand-500">person_celebrate</span>
+                                        <span class="material-symbols-outlined text-brand-500">badge</span>
                                         <span class="font-label-bold">Production Operator</span>
                                     </div>
                                     <div class="flex items-center gap-3 bg-white p-3 sm:p-4 rounded border border-slate-200">
-                                        <span class="material-symbols-outlined text-brand-500">restaurant</span>
+                                        <span class="material-symbols-outlined text-brand-500">badge</span>
                                         <span class="font-label-bold">Manufacturing Assistant</span>
                                     </div>
                                     <div class="flex items-center gap-3 bg-white p-3 sm:p-4 rounded border border-slate-200">
@@ -151,11 +151,11 @@
                                         <span class="font-label-bold">Process Worker</span>
                                     </div>
                                     <div class="flex items-center gap-3 bg-white p-3 sm:p-4 rounded border border-slate-200">
-                                        <span class="material-symbols-outlined text-brand-500">coffee</span>
+                                        <span class="material-symbols-outlined text-brand-500">badge</span>
                                         <span class="font-label-bold">Plant Operator</span>
                                     </div>
                                     <div class="flex items-center gap-3 bg-white p-3 sm:p-4 rounded border border-slate-200">
-                                        <span class="material-symbols-outlined text-brand-500">groups</span>
+                                        <span class="material-symbols-outlined text-brand-500">badge</span>
                                         <span class="font-label-bold">Warehouse Production Staff</span>
                                     </div>
                                 </div>
@@ -177,28 +177,28 @@
                       <div class="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4">
                         <div class="flex items-center gap-4 bg-white p-4 sm:p-5 lg:p-6 border border-slate-200 rounded">
                             <div class="w-10 h-10 rounded-full bg-brand-500/10 flex items-center justify-center shrink-0">
-                                <span class="material-symbols-outlined text-brand-500">groups_2</span>
+                                <span class="material-symbols-outlined text-brand-500">gavel</span>
                             </div>
                             <p class="font-body-md text-brand-500 text-sm sm:text-base">Operate manufacturing equipment safely</p>
                         </div>
 
                         <div class="flex items-center gap-4 bg-white p-4 sm:p-5 lg:p-6 border border-slate-200 rounded">
                             <div class="w-10 h-10 rounded-full bg-brand-500/10 flex items-center justify-center shrink-0">
-                                <span class="material-symbols-outlined text-brand-500">psychology</span>
+                                <span class="material-symbols-outlined text-brand-500">gavel</span>
                             </div>
                             <p class="font-body-md text-brand-500 text-sm sm:text-base">Monitor production processes</p>
                         </div>
 
                         <div class="flex items-center gap-4 bg-white p-4 sm:p-5 lg:p-6 border border-slate-200 rounded">
                             <div class="w-10 h-10 rounded-full bg-brand-500/10 flex items-center justify-center shrink-0">
-                                <span class="material-symbols-outlined text-brand-500">psychology</span>
+                                <span class="material-symbols-outlined text-brand-500">gavel</span>
                             </div>
                             <p class="font-body-md text-brand-500 text-sm sm:text-base">Maintain quality standards</p>
                         </div>
 
                         <div class="flex items-center gap-4 bg-white p-4 sm:p-5 lg:p-6 border border-slate-200 rounded">
                             <div class="w-10 h-10 rounded-full bg-brand-500/10 flex items-center justify-center shrink-0">
-                                <span class="material-symbols-outlined text-brand-500">assignment</span>
+                                <span class="material-symbols-outlined text-brand-500">gavel</span>
                             </div>
                             <p class="font-body-md text-brand-500 text-sm sm:text-base">Follow workplace safety procedures</p>
                         </div>

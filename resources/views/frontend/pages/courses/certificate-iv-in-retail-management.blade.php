@@ -139,11 +139,11 @@
                                
                               <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
                                 <div class="flex items-center gap-3 bg-white p-3 sm:p-4 rounded border border-slate-200">
-                                    <span class="material-symbols-outlined text-brand-500">person_celebrate</span>
+                                    <span class="material-symbols-outlined text-brand-500">badge</span>
                                     <span class="font-label-bold">Retail Manager</span>
                                 </div>
                                 <div class="flex items-center gap-3 bg-white p-3 sm:p-4 rounded border border-slate-200">
-                                    <span class="material-symbols-outlined text-brand-500">restaurant</span>
+                                    <span class="material-symbols-outlined text-brand-500">badge</span>
                                     <span class="font-label-bold">Store Supervisor</span>
                                 </div>
                                 <div class="flex items-center gap-3 bg-white p-3 sm:p-4 rounded border border-slate-200">
@@ -151,11 +151,11 @@
                                     <span class="font-label-bold">Department Manager</span>
                                 </div>
                                 <div class="flex items-center gap-3 bg-white p-3 sm:p-4 rounded border border-slate-200">
-                                    <span class="material-symbols-outlined text-brand-500">coffee</span>
+                                    <span class="material-symbols-outlined text-brand-500">badge</span>
                                     <span class="font-label-bold">Team Leader</span>
                                 </div>
                                 <div class="flex items-center gap-3 bg-white p-3 sm:p-4 rounded border border-slate-200">
-                                    <span class="material-symbols-outlined text-brand-500">groups</span>
+                                    <span class="material-symbols-outlined text-brand-500">badge</span>
                                     <span class="font-label-bold">Operations Supervisor</span>
                                 </div>
                             </div>
@@ -177,28 +177,28 @@
                        <div class="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4">
                         <div class="flex items-center gap-4 bg-white p-4 sm:p-5 lg:p-6 border border-slate-200 rounded">
                             <div class="w-10 h-10 rounded-full bg-brand-500/10 flex items-center justify-center shrink-0">
-                                <span class="material-symbols-outlined text-brand-500">groups_2</span>
+                                <span class="material-symbols-outlined text-brand-500">gavel</span>
                             </div>
                             <p class="font-body-md text-brand-500 text-sm sm:text-base">Lead retail teams confidently</p>
                         </div>
 
                         <div class="flex items-center gap-4 bg-white p-4 sm:p-5 lg:p-6 border border-slate-200 rounded">
                             <div class="w-10 h-10 rounded-full bg-brand-500/10 flex items-center justify-center shrink-0">
-                                <span class="material-symbols-outlined text-brand-500">psychology</span>
+                                <span class="material-symbols-outlined text-brand-500">gavel</span>
                             </div>
                             <p class="font-body-md text-brand-500 text-sm sm:text-base">Manage store operations effectively</p>
                         </div>
 
                         <div class="flex items-center gap-4 bg-white p-4 sm:p-5 lg:p-6 border border-slate-200 rounded">
                             <div class="w-10 h-10 rounded-full bg-brand-500/10 flex items-center justify-center shrink-0">
-                                <span class="material-symbols-outlined text-brand-500">psychology</span>
+                                <span class="material-symbols-outlined text-brand-500">gavel</span>
                             </div>
                             <p class="font-body-md text-brand-500 text-sm sm:text-base">Improve customer satisfaction</p>
                         </div>
 
                         <div class="flex items-center gap-4 bg-white p-4 sm:p-5 lg:p-6 border border-slate-200 rounded">
                             <div class="w-10 h-10 rounded-full bg-brand-500/10 flex items-center justify-center shrink-0">
-                                <span class="material-symbols-outlined text-brand-500">assignment</span>
+                                <span class="material-symbols-outlined text-brand-500">gavel</span>
                             </div>
                             <p class="font-body-md text-brand-500 text-sm sm:text-base">Monitor business performance</p>
                         </div>
@@ -220,23 +220,23 @@
                       <div class="flex flex-wrap gap-2 sm:gap-3">
                         <span
                             class="bg-brand-500/10 px-4 sm:px-6 py-2 sm:py-3 rounded-full font-label-bold text-brand-500 flex items-center gap-2 text-sm">
-                            <span class="material-symbols-outlined text-sm">hotel</span> Supermarkets
+                             Supermarkets
                         </span>
                         <span
                             class="bg-brand-500/10 px-4 sm:px-6 py-2 sm:py-3 rounded-full font-label-bold text-brand-500 flex items-center gap-2 text-sm">
-                            <span class="material-symbols-outlined text-sm">restaurant</span> Fashion Retail
+                             Fashion Retail
                         </span>
                         <span
                             class="bg-brand-500/10 px-4 sm:px-6 py-2 sm:py-3 rounded-full font-label-bold text-brand-500 flex items-center gap-2 text-sm">
-                            <span class="material-symbols-outlined text-sm">event</span> Electronics Retail
+                             Electronics Retail
                         </span>
                         <span
                             class="bg-brand-500/10 px-4 sm:px-6 py-2 sm:py-3 rounded-full font-label-bold text-brand-500 flex items-center gap-2 text-sm">
-                            <span class="material-symbols-outlined text-sm">travel_explore</span> Department Stores
+                            Department Stores
                         </span>
                         <span
                             class="bg-brand-500/10 px-4 sm:px-6 py-2 sm:py-3 rounded-full font-label-bold text-brand-500 flex items-center gap-2 text-sm">
-                            <span class="material-symbols-outlined text-sm">flatware</span> Wholesale Businesses
+                             Wholesale Businesses
                         </span>
                     </div>
                     </section>

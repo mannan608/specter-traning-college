@@ -140,12 +140,12 @@
                                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
                                     <div
                                         class="flex items-center gap-3 bg-white p-3 sm:p-4 rounded border border-slate-200">
-                                        <span class="material-symbols-outlined text-brand-500">person_celebrate</span>
+                                        <span class="material-symbols-outlined text-brand-500">badge</span>
                                         <span class="font-label-bold">Administrative Assistant</span>
                                     </div>
                                     <div
                                         class="flex items-center gap-3 bg-white p-3 sm:p-4 rounded border border-slate-200">
-                                        <span class="material-symbols-outlined text-brand-500">restaurant</span>
+                                        <span class="material-symbols-outlined text-brand-500">badge</span>
                                         <span class="font-label-bold">Customer Service Officer</span>
                                     </div>
                                     <div
@@ -155,12 +155,12 @@
                                     </div>
                                     <div
                                         class="flex items-center gap-3 bg-white p-3 sm:p-4 rounded border border-slate-200">
-                                        <span class="material-symbols-outlined text-brand-500">coffee</span>
+                                        <span class="material-symbols-outlined text-brand-500">badge</span>
                                         <span class="font-label-bold">Receptionist</span>
                                     </div>
                                     <div
                                         class="flex items-center gap-3 bg-white p-3 sm:p-4 rounded border border-slate-200">
-                                        <span class="material-symbols-outlined text-brand-500">groups</span>
+                                        <span class="material-symbols-outlined text-brand-500">badge</span>
                                         <span class="font-label-bold">Data Entry Operator</span>
                                     </div>
                                 </div>
@@ -183,28 +183,28 @@
                             <div class="flex items-center gap-4 bg-white p-4 sm:p-5 lg:p-6 border border-slate-200 rounded">
                                 <div
                                     class="w-10 h-10 rounded-full bg-brand-500/10 flex items-center justify-center shrink-0">
-                                    <span class="material-symbols-outlined text-brand-500">groups_2</span>
+                                    <span class="material-symbols-outlined text-brand-500">gavel</span>
                                 </div>
                                 <p class="font-body-md text-brand-500 text-sm sm:text-base">Communicate professionally in workplace settings</p>
                             </div>
                             <div class="flex items-center gap-4 bg-white p-4 sm:p-5 lg:p-6 border border-slate-200 rounded">
                                 <div
                                     class="w-10 h-10 rounded-full bg-brand-500/10 flex items-center justify-center shrink-0">
-                                    <span class="material-symbols-outlined text-brand-500">psychology</span>
+                                    <span class="material-symbols-outlined text-brand-500">gavel</span>
                                 </div>
                                 <p class="font-body-md text-brand-500 text-sm sm:text-base">Use business software and office technology</p>
                             </div>
                             <div class="flex items-center gap-4 bg-white p-4 sm:p-5 lg:p-6 border border-slate-200 rounded">
                                 <div
                                     class="w-10 h-10 rounded-full bg-brand-500/10 flex items-center justify-center shrink-0">
-                                    <span class="material-symbols-outlined text-brand-500">psychology</span>
+                                    <span class="material-symbols-outlined text-brand-500">gavel</span>
                                 </div>
                                 <p class="font-body-md text-brand-500 text-sm sm:text-base">Organise daily operational tasks</p>
                             </div>
                             <div class="flex items-center gap-4 bg-white p-4 sm:p-5 lg:p-6 border border-slate-200 rounded">
                                 <div
                                     class="w-10 h-10 rounded-full bg-brand-500/10 flex items-center justify-center shrink-0">
-                                    <span class="material-symbols-outlined text-brand-500">assignment</span>
+                                    <span class="material-symbols-outlined text-brand-500">gavel</span>
                                 </div>
                                 <p class="font-body-md text-brand-500 text-sm sm:text-base">Deliver quality customer service</p>
                             </div>
@@ -227,23 +227,23 @@
                         <div class="flex flex-wrap gap-2 sm:gap-3">
                             <span
                                 class="bg-brand-500/10 px-4 sm:px-6 py-2 sm:py-3 rounded-full font-label-bold text-brand-500 flex items-center gap-2 text-sm">
-                                <span class="material-symbols-outlined text-sm">hotel</span> Corporate Offices
+                                 Corporate Offices
                             </span>
                             <span
                                 class="bg-brand-500/10 px-4 sm:px-6 py-2 sm:py-3 rounded-full font-label-bold text-brand-500 flex items-center gap-2 text-sm">
-                                <span class="material-symbols-outlined text-sm">restaurant</span> Education
+                                 Education
                             </span>
                             <span
                                 class="bg-brand-500/10 px-4 sm:px-6 py-2 sm:py-3 rounded-full font-label-bold text-brand-500 flex items-center gap-2 text-sm">
-                                <span class="material-symbols-outlined text-sm">event</span> Healthcare Administration
+                                 Healthcare Administration
                             </span>
                             <span
                                 class="bg-brand-500/10 px-4 sm:px-6 py-2 sm:py-3 rounded-full font-label-bold text-brand-500 flex items-center gap-2 text-sm">
-                                <span class="material-symbols-outlined text-sm">travel_explore</span> Retail Businesses
+                                Retail Businesses
                             </span>
                             <span
                                 class="bg-brand-500/10 px-4 sm:px-6 py-2 sm:py-3 rounded-full font-label-bold text-brand-500 flex items-center gap-2 text-sm">
-                                <span class="material-symbols-outlined text-sm">flatware</span> Government Organisations
+                                 Government Organisations
                             </span>
                         </div>
                     </section>

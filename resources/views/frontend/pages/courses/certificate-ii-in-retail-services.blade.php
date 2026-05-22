@@ -139,11 +139,11 @@
                                
                                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
                                 <div class="flex items-center gap-3 bg-white p-3 sm:p-4 rounded border border-slate-200">
-                                    <span class="material-symbols-outlined text-brand-500">person_celebrate</span>
+                                    <span class="material-symbols-outlined text-brand-500">badge</span>
                                     <span class="font-label-bold">Retail Assistant</span>
                                 </div>
                                 <div class="flex items-center gap-3 bg-white p-3 sm:p-4 rounded border border-slate-200">
-                                    <span class="material-symbols-outlined text-brand-500">restaurant</span>
+                                    <span class="material-symbols-outlined text-brand-500">badge</span>
                                     <span class="font-label-bold">Cashier</span>
                                 </div>
                                 <div class="flex items-center gap-3 bg-white p-3 sm:p-4 rounded border border-slate-200">
@@ -151,11 +151,11 @@
                                     <span class="font-label-bold">Store Support Worker</span>
                                 </div>
                                 <div class="flex items-center gap-3 bg-white p-3 sm:p-4 rounded border border-slate-200">
-                                    <span class="material-symbols-outlined text-brand-500">coffee</span>
+                                    <span class="material-symbols-outlined text-brand-500">badge</span>
                                     <span class="font-label-bold">Sales Assistant</span>
                                 </div>
                                 <div class="flex items-center gap-3 bg-white p-3 sm:p-4 rounded border border-slate-200">
-                                    <span class="material-symbols-outlined text-brand-500">groups</span>
+                                    <span class="material-symbols-outlined text-brand-500">badge</span>
                                     <span class="font-label-bold">Customer Service Assistant</span>
                                 </div>
                             </div>
@@ -177,28 +177,28 @@
                       <div class="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4">
                         <div class="flex items-center gap-4 bg-white p-4 sm:p-5 lg:p-6 border border-slate-200 rounded">
                             <div class="w-10 h-10 rounded-full bg-brand-500/10 flex items-center justify-center shrink-0">
-                                <span class="material-symbols-outlined text-brand-500">groups_2</span>
+                                <span class="material-symbols-outlined text-brand-500">gavel</span>
                             </div>
                             <p class="font-body-md text-brand-500 text-sm sm:text-base">Provide quality customer assistance</p>
                         </div>
 
                         <div class="flex items-center gap-4 bg-white p-4 sm:p-5 lg:p-6 border border-slate-200 rounded">
                             <div class="w-10 h-10 rounded-full bg-brand-500/10 flex items-center justify-center shrink-0">
-                                <span class="material-symbols-outlined text-brand-500">psychology</span>
+                                <span class="material-symbols-outlined text-brand-500">gavel</span>
                             </div>
                             <p class="font-body-md text-brand-500 text-sm sm:text-base">Support retail operations</p>
                         </div>
 
                         <div class="flex items-center gap-4 bg-white p-4 sm:p-5 lg:p-6 border border-slate-200 rounded">
                             <div class="w-10 h-10 rounded-full bg-brand-500/10 flex items-center justify-center shrink-0">
-                                <span class="material-symbols-outlined text-brand-500">psychology</span>
+                                <span class="material-symbols-outlined text-brand-500">gavel</span>
                             </div>
                             <p class="font-body-md text-brand-500 text-sm sm:text-base">Follow workplace procedures</p>
                         </div>
 
                         <div class="flex items-center gap-4 bg-white p-4 sm:p-5 lg:p-6 border border-slate-200 rounded">
                             <div class="w-10 h-10 rounded-full bg-brand-500/10 flex items-center justify-center shrink-0">
-                                <span class="material-symbols-outlined text-brand-500">assignment</span>
+                                <span class="material-symbols-outlined text-brand-500">gavel</span>
                             </div>
                             <p class="font-body-md text-brand-500 text-sm sm:text-base">Maintain store cleanliness and presentation</p>
                         </div>
@@ -220,23 +220,23 @@
                        <div class="flex flex-wrap gap-2 sm:gap-3">
                             <span
                                 class="bg-brand-500/10 px-4 sm:px-6 py-2 sm:py-3 rounded-full font-label-bold text-brand-500 flex items-center gap-2 text-sm">
-                                <span class="material-symbols-outlined text-sm">hotel</span> Retail Shops
+                                 Retail Shops
                             </span>
                             <span
                                 class="bg-brand-500/10 px-4 sm:px-6 py-2 sm:py-3 rounded-full font-label-bold text-brand-500 flex items-center gap-2 text-sm">
-                                <span class="material-symbols-outlined text-sm">restaurant</span> Supermarkets
+                                 Supermarkets
                             </span>
                             <span
                                 class="bg-brand-500/10 px-4 sm:px-6 py-2 sm:py-3 rounded-full font-label-bold text-brand-500 flex items-center gap-2 text-sm">
-                                <span class="material-symbols-outlined text-sm">event</span> Convenience Stores
+                                 Convenience Stores
                             </span>
                             <span
                                 class="bg-brand-500/10 px-4 sm:px-6 py-2 sm:py-3 rounded-full font-label-bold text-brand-500 flex items-center gap-2 text-sm">
-                                <span class="material-symbols-outlined text-sm">travel_explore</span> Fashion Outlets
+                                Fashion Outlets
                             </span>
                             <span
                                 class="bg-brand-500/10 px-4 sm:px-6 py-2 sm:py-3 rounded-full font-label-bold text-brand-500 flex items-center gap-2 text-sm">
-                                <span class="material-symbols-outlined text-sm">flatware</span> Department Stores
+                                 Department Stores
                             </span>
                         </div>
                     </section>
