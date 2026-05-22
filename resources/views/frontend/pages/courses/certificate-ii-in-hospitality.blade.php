@@ -1,9 +1,7 @@
 @extends('frontend.layouts.app')
 
-<
-
 @section('content')
-    {{-- Hero Section --}}
+       {{-- Hero Section --}}
     <section class="-mt-4">
         <div class="relative overflow-hidden">
 
@@ -300,24 +298,7 @@
                                 <h3 class="text-base md:text-lg font-bold  mb-1.5 sm:mb-2">Quick Apply</h3>
                                 <p class="text-base md:text-lg text-brand-500"> {{ $course['title'] }}</p>
                             </div>
-                          <iframe
-                            src="https://api.leadconnectorhq.com/widget/form/YDsSmrKxXhpJ171svwqR"
-                            style="width:100%;height:100%;border:none;border-radius:8px"
-                            id="inline-YDsSmrKxXhpJ171svwqR" 
-                            data-layout="{'id':'INLINE'}"
-                            data-trigger-type="alwaysShow"
-                            data-trigger-value=""
-                            data-activation-type="alwaysActivated"
-                            data-activation-value=""
-                            data-deactivation-type="neverDeactivate"
-                            data-deactivation-value=""
-                            data-form-name="Quick Apply: Certificate II in Hospitality"
-                            data-height="465"
-                            data-layout-iframe-id="inline-YDsSmrKxXhpJ171svwqR"
-                            data-form-id="YDsSmrKxXhpJ171svwqR"
-                            title="Quick Apply: Certificate II in Hospitality"
-                                >
-                        </iframe>
+                         <x-course-apply-form :slug="$course['slug']" />
                             <!-- Enrollment Deadline -->
                         </div>
                         <!-- Secondary Actions -->
@@ -401,21 +382,8 @@
     </section>
 
     
-    <section class="bg-brand-500/10 py-10 sm:py-12 lg:py-16">
-        <div class="max-w-7xl mx-auto px-5 md:px-8">
-            <!-- Heading -->
-            <div class="text-center md:mb-8 mb-4">
-                <h2 class="font-display font-bold text-lg md:text-2xl lg:text-3xl text-primary mb-3">Check Eligibility
-                </h2>
-                <p class="text-on-surface-variant max-w-xl mx-auto text-sm md:text-base">Check Eligibility For Recognition of Prior Learning - RPL</p>
-            </div>
+       @include('frontend.pages.partials.eligibility-form')
 
-            <div class="">
-                @include('frontend.pages.partials.eligibility-form')
-
-            </div>         
-        </div>
-    </section>
 
     <section class="bg-gray-50 py-10 sm:py-12 lg:py-16">
         <div class="max-w-7xl mx-auto px-5 md:px-8">
@@ -426,12 +394,8 @@
                 <p class="text-on-surface-variant max-w-xl mx-auto text-sm md:text-base">Hear from our students
                     about their journey and success stories.</p>
             </div>
-                @include('frontend.pages.partials.review')
-          
+            @include('frontend.pages.partials.review')
+
         </div>
     </section>
-
 @endsection
-
-
-<script src="https://link.msgsndr.com/js/form_embed.js"></script>

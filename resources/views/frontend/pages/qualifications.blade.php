@@ -123,6 +123,8 @@
             </div>
         </div>
     </section>
+    @include('frontend.pages.partials.eligibility-form')
+
     <section class="bg-gray-50 py-10 sm:py-12 lg:py-16">
         <div class="max-w-7xl mx-auto px-5 md:px-8">
             <!-- Heading -->

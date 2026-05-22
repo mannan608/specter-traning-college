@@ -40,13 +40,6 @@
             </p>
 
             <div class="pt-4 border-t border-slate-100 flex items-center justify-between gap-6">
-                {{-- <a href="{{ route('qualifications.details', [
-                    'slug' => $course['slug'],
-                    'formId' => $formId,
-                ]) }}"
-                    class="flex justify-center items-center w-1/2 bg-white border border-[#02A8FF] text-[#02A8FF] hover:bg-[#02A8FF] hover:text-white rounded py-1.5 font-medium text-sm transition-transform">
-                    View Details
-                </a> --}}
 
               <a href="{{ route('qualifications.details', $course['slug']) }}" class="flex justify-center items-center w-1/2 bg-white border border-[#02A8FF] text-[#02A8FF] hover:bg-[#02A8FF] hover:text-white rounded py-1.5 font-medium text-sm transition-transform"> View Details </a>
 
