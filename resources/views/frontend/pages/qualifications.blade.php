@@ -123,6 +123,18 @@
             </div>
         </div>
     </section>
+    <section class="bg-gray-50 py-10 sm:py-12 lg:py-16">
+        <div class="max-w-7xl mx-auto px-5 md:px-8">
+            <!-- Heading -->
+            <div class="text-center md:mb-8 mb-4">
+                <h2 class="font-display font-bold text-lg md:text-2xl lg:text-3xl text-primary mb-3">Our Student Stories
+                </h2>
+                <p class="text-brand-500-variant max-w-xl mx-auto text-sm md:text-base">Hear from our students
+                    about their journey and success stories.</p>
+            </div>
+             @include('frontend.pages.partials.review')
+        </div>
+    </section>
 @endsection
 
 @push('scripts')

@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
-use App\Services\CourseService;
+use App\Services\CourseService; 
 
 class CourseController extends Controller
 {
@@ -17,31 +17,58 @@ class CourseController extends Controller
         $this->courseService = $courseService;
     }
 
-    public function courseDetails($slug, $formId)
+    public function courseDetails($slug)
     {
-        // Fetch all courses
+        // Fetch all courses using the global service
         $courses = $this->courseService->getCourses();
 
-        // Find course by slug
+        // Find the specific course by slug
         $course = $courses->firstWhere('slug', $slug);
 
-        // If not found
+        // If course doesn't exist in JSON, 404
         if (!$course) {
             abort(404);
         }
 
-        // View path
+        // Define the specific view path
         $view = 'frontend.pages.courses.' . $slug;
 
-        // Check view exists
+        // Ensure the Blade file actually exists before rendering
         if (!view()->exists($view)) {
             abort(404, 'Course page template not found');
         }
 
         return view($view, [
             'course' => $course,
-            'title' => $course['title'],
-            'formId' => $formId, // IMPORTANT
+            'title' => $course['title']
         ]);
     }
+
+    //     public function courseDetails($slug, $formId)
+    // {
+    //     // Fetch all courses
+    //     $courses = $this->courseService->getCourses();
+
+    //     // Find course by slug
+    //     $course = $courses->firstWhere('slug', $slug);
+
+    //     // If not found
+    //     if (!$course) {
+    //         abort(404);
+    //     }
+
+    //     // View path
+    //     $view = 'frontend.pages.courses.' . $slug;
+
+    //     // Check view exists
+    //     if (!view()->exists($view)) {
+    //         abort(404, 'Course page template not found');
+    //     }
+
+    //     return view($view, [
+    //         'course' => $course,
+    //         'title' => $course['title'],
+    //         'formId' => $formId, // IMPORTANT
+    //     ]);
+    // }
 }
