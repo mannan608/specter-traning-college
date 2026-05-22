@@ -1,7 +1,7 @@
 @extends('frontend.layouts.app')
 
 @section('content')
-       {{-- Hero Section --}}
+    {{-- Hero Section --}}
     <section class="-mt-4">
         <div class="relative overflow-hidden">
 
@@ -58,7 +58,8 @@
                         <div class="prose prose-slate max-w-none">
                             <p
                                 class="font-body-lg text-body-lg text-brand-500-variant text-sm sm:text-base lg:text-lg leading-relaxed">
-                               The Certificate III in Retail provides practical retail knowledge and customer service skills required for retail sales and operations roles.
+                                The Certificate III in Retail provides practical retail knowledge and customer service
+                                skills required for retail sales and operations roles.
                             </p>
                         </div>
                     </section>
@@ -75,37 +76,39 @@
                                 class="bg-white border border-slate-200 p-5 sm:p-6 lg:p-8 rounded shadow-sm hover:shadow-md transition-all">
                                 <span class="material-symbols-outlined text-brand-500 mb-4"
                                     style="font-size: 32px;">verified</span>
-                                <h3 class="text-base md:text-lg text-headline-md text-lg sm:text-xl mb-3 sm:mb-4">Core Modules – (What it is for)</h3>
-                              <ul class="space-y-2 sm:space-y-3 font-body-md text-brand-500-variant text-sm sm:text-base">
-                                <li class="flex items-start gap-2">
-                                    <span class="material-symbols-outlined text-xs mt-1">check_circle</span>
-                                    Customer service skills
-                                </li>
-                                <li class="flex items-start gap-2">
-                                    <span class="material-symbols-outlined text-xs mt-1">check_circle</span>
-                                    Retail sales operations
-                                </li>
-                                <li class="flex items-start gap-2">
-                                    <span class="material-symbols-outlined text-xs mt-1">check_circle</span>
-                                    Product knowledge and merchandising
-                                </li>
-                                <li class="flex items-start gap-2">
-                                    <span class="material-symbols-outlined text-xs mt-1">check_circle</span>
-                                    Teamwork and communication
-                                </li>
-                                <li class="flex items-start gap-2">
-                                    <span class="material-symbols-outlined text-xs mt-1">check_circle</span>
-                                    Point-of-sale systems
-                                </li>
-                            </ul>
+                                <h3 class="text-base md:text-lg text-headline-md sm:text-xl mb-3 sm:mb-4">Core Modules –
+                                    (What it is for)</h3>
+                                <ul class="space-y-2 sm:space-y-3 font-body-md text-brand-500-variant text-sm sm:text-base">
+                                    <li class="flex items-start gap-2">
+                                        <span class="material-symbols-outlined text-xs mt-1">check_circle</span>
+                                        Customer service skills
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <span class="material-symbols-outlined text-xs mt-1">check_circle</span>
+                                        Retail sales operations
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <span class="material-symbols-outlined text-xs mt-1">check_circle</span>
+                                        Product knowledge and merchandising
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <span class="material-symbols-outlined text-xs mt-1">check_circle</span>
+                                        Teamwork and communication
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <span class="material-symbols-outlined text-xs mt-1">check_circle</span>
+                                        Point-of-sale systems
+                                    </li>
+                                </ul>
                             </div>
                             <!-- Electives -->
                             <div class="bg-slate-50 border border-slate-200 p-5 sm:p-6 lg:p-8 rounded">
                                 <span class="material-symbols-outlined text-slate-500 mb-4"
                                     style="font-size: 32px;">category</span>
-                                <h3 class="text-base md:text-lg text-headline-md text-lg sm:text-xl mb-3 sm:mb-4">Elective Modules – (What it is for)
+                                <h3 class="text-base md:text-lg text-headline-md mb-3 sm:mb-4">Elective Modules – (What it
+                                    is for)
                                 </h3>
-                               <ul class="space-y-2 sm:space-y-3 font-body-md text-brand-500-variant text-sm sm:text-base">
+                                <ul class="space-y-2 sm:space-y-3 font-body-md text-brand-500-variant text-sm sm:text-base">
                                     <li class="flex items-start gap-2">
                                         <span class="material-symbols-outlined text-xs mt-1">add_circle_outline</span>
                                         Inventory handling
@@ -136,29 +139,34 @@
                             <div class="flex-1">
                                 <h2 class="font-headline-lg text-headline-lg text-xl sm:text-2xl lg:text-3xl mb-4 sm:mb-6">
                                     Career Outcomes</h2>
-                             
-                               <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
-                                <div class="flex items-center gap-3 bg-white p-3 sm:p-4 rounded border border-slate-200">
-                                    <span class="material-symbols-outlined text-brand-500">person_celebrate</span>
-                                    <span class="font-label-bold">Retail Sales Assistant</span>
+
+                                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
+                                    <div
+                                        class="flex items-center gap-3 bg-white p-3 sm:p-4 rounded border border-slate-200">
+                                        <span class="material-symbols-outlined text-brand-500">person_celebrate</span>
+                                        <span class="font-label-bold">Retail Sales Assistant</span>
+                                    </div>
+                                    <div
+                                        class="flex items-center gap-3 bg-white p-3 sm:p-4 rounded border border-slate-200">
+                                        <span class="material-symbols-outlined text-brand-500">restaurant</span>
+                                        <span class="font-label-bold">Customer Service Representative</span>
+                                    </div>
+                                    <div
+                                        class="flex items-center gap-3 bg-white p-3 sm:p-4 rounded border border-slate-200">
+                                        <span class="material-symbols-outlined text-brand-500">badge</span>
+                                        <span class="font-label-bold">Cashier</span>
+                                    </div>
+                                    <div
+                                        class="flex items-center gap-3 bg-white p-3 sm:p-4 rounded border border-slate-200">
+                                        <span class="material-symbols-outlined text-brand-500">coffee</span>
+                                        <span class="font-label-bold">Retail Team Member</span>
+                                    </div>
+                                    <div
+                                        class="flex items-center gap-3 bg-white p-3 sm:p-4 rounded border border-slate-200">
+                                        <span class="material-symbols-outlined text-brand-500">groups</span>
+                                        <span class="font-label-bold">Store Assistant</span>
+                                    </div>
                                 </div>
-                                <div class="flex items-center gap-3 bg-white p-3 sm:p-4 rounded border border-slate-200">
-                                    <span class="material-symbols-outlined text-brand-500">restaurant</span>
-                                    <span class="font-label-bold">Customer Service Representative</span>
-                                </div>
-                                <div class="flex items-center gap-3 bg-white p-3 sm:p-4 rounded border border-slate-200">
-                                    <span class="material-symbols-outlined text-brand-500">badge</span>
-                                    <span class="font-label-bold">Cashier</span>
-                                </div>
-                                <div class="flex items-center gap-3 bg-white p-3 sm:p-4 rounded border border-slate-200">
-                                    <span class="material-symbols-outlined text-brand-500">coffee</span>
-                                    <span class="font-label-bold">Retail Team Member</span>
-                                </div>
-                                <div class="flex items-center gap-3 bg-white p-3 sm:p-4 rounded border border-slate-200">
-                                    <span class="material-symbols-outlined text-brand-500">groups</span>
-                                    <span class="font-label-bold">Store Assistant</span>
-                                </div>
-                            </div>
                             </div>
                             <div class="md:w-1/3">
                                 <img alt="Hospitality professional in action"
@@ -174,40 +182,50 @@
                             <span class="w-8 h-1 bg-brand-500 inline-block"></span>
                             What You Will Develop
                         </h2>
-                     <div class="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4">
                             <div class="flex items-center gap-4 bg-white p-4 sm:p-5 lg:p-6 border border-slate-200 rounded">
-                                <div class="w-10 h-10 rounded-full bg-brand-500/10 flex items-center justify-center shrink-0">
+                                <div
+                                    class="w-10 h-10 rounded-full bg-brand-500/10 flex items-center justify-center shrink-0">
                                     <span class="material-symbols-outlined text-brand-500">groups_2</span>
                                 </div>
-                                <p class="font-body-md text-brand-500 text-sm sm:text-base">Assist customers professionally</p>
+                                <p class="font-body-md text-brand-500 text-sm sm:text-base">Assist customers professionally
+                                </p>
                             </div>
 
                             <div class="flex items-center gap-4 bg-white p-4 sm:p-5 lg:p-6 border border-slate-200 rounded">
-                                <div class="w-10 h-10 rounded-full bg-brand-500/10 flex items-center justify-center shrink-0">
+                                <div
+                                    class="w-10 h-10 rounded-full bg-brand-500/10 flex items-center justify-center shrink-0">
                                     <span class="material-symbols-outlined text-brand-500">psychology</span>
                                 </div>
-                                <p class="font-body-md text-brand-500 text-sm sm:text-base">Operate retail systems confidently</p>
+                                <p class="font-body-md text-brand-500 text-sm sm:text-base">Operate retail systems
+                                    confidently</p>
                             </div>
 
                             <div class="flex items-center gap-4 bg-white p-4 sm:p-5 lg:p-6 border border-slate-200 rounded">
-                                <div class="w-10 h-10 rounded-full bg-brand-500/10 flex items-center justify-center shrink-0">
+                                <div
+                                    class="w-10 h-10 rounded-full bg-brand-500/10 flex items-center justify-center shrink-0">
                                     <span class="material-symbols-outlined text-brand-500">psychology</span>
                                 </div>
-                                <p class="font-body-md text-brand-500 text-sm sm:text-base">Support daily retail operations</p>
+                                <p class="font-body-md text-brand-500 text-sm sm:text-base">Support daily retail operations
+                                </p>
                             </div>
 
                             <div class="flex items-center gap-4 bg-white p-4 sm:p-5 lg:p-6 border border-slate-200 rounded">
-                                <div class="w-10 h-10 rounded-full bg-brand-500/10 flex items-center justify-center shrink-0">
+                                <div
+                                    class="w-10 h-10 rounded-full bg-brand-500/10 flex items-center justify-center shrink-0">
                                     <span class="material-symbols-outlined text-brand-500">assignment</span>
                                 </div>
                                 <p class="font-body-md text-brand-500 text-sm sm:text-base">Maintain store presentation</p>
                             </div>
 
-                            <div class="flex items-center gap-4 bg-white p-4 sm:p-5 lg:p-6 border border-slate-200 rounded">
-                                <div class="w-10 h-10 rounded-full bg-brand-500/10 flex items-center justify-center shrink-0">
+                            <div
+                                class="flex items-center gap-4 bg-white p-4 sm:p-5 lg:p-6 border border-slate-200 rounded">
+                                <div
+                                    class="w-10 h-10 rounded-full bg-brand-500/10 flex items-center justify-center shrink-0">
                                     <span class="material-symbols-outlined text-brand-500">gavel</span>
                                 </div>
-                                <p class="font-body-md text-brand-500 text-sm sm:text-base">Work effectively within retail teams</p>
+                                <p class="font-body-md text-brand-500 text-sm sm:text-base">Work effectively within retail
+                                    teams</p>
                             </div>
                         </div>
                     </section>
@@ -217,7 +235,7 @@
                             <span class="w-8 h-1 bg-brand-500 inline-block"></span>
                             Industries That Value This Qualification
                         </h2>
-                      <div class="flex flex-wrap gap-2 sm:gap-3">
+                        <div class="flex flex-wrap gap-2 sm:gap-3">
                             <span
                                 class="bg-brand-500/10 px-4 sm:px-6 py-2 sm:py-3 rounded-full font-label-bold text-brand-500 flex items-center gap-2 text-sm">
                                 <span class="material-symbols-outlined text-sm">hotel</span> Retail Stores
@@ -238,7 +256,7 @@
                                 class="bg-brand-500/10 px-4 sm:px-6 py-2 sm:py-3 rounded-full font-label-bold text-brand-500 flex items-center gap-2 text-sm">
                                 <span class="material-symbols-outlined text-sm">flatware</span> Shopping Centres
                             </span>
-                        </div>  
+                        </div>
                     </section>
                     <!-- Study Pathways -->
                     <section id="pathways">
@@ -251,12 +269,13 @@
                                 class="bg-white border-l-4 border-brand-500 p-4 sm:p-5 lg:p-6 shadow-sm rounded-r flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 sm:gap-6">
                                 <div class="flex items-center gap-3 sm:gap-4">
                                     <span class="material-symbols-outlined text-brand-500">arrow_forward</span>
-                                    <span class="text-base md:text-lg text-headline-md">Certificate IV in Retail Management</span>
+                                    <span class="text-base md:text-lg text-headline-md">Certificate IV in Retail
+                                        Management</span>
                                 </div>
                                 <span class="text-caption font-caption bg-slate-100 px-3 py-1 rounded w-fit">Next
                                     Level</span>
                             </div>
-                           
+
                         </div>
                     </section>
                 </div>
@@ -264,13 +283,12 @@
                 <aside class="lg:col-span-4">
                     <div class="sticky-sidebar sticky space-y-6">
                         <!-- Quick Apply Form -->
-                        <div
-                            class="bg-white border border-slate-200 px-2 rounded-lg shadow-sm  overflow-hidden relative">
+                        <div class="bg-white border border-slate-200 px-2 rounded-lg shadow-sm  overflow-hidden relative">
                             <div class="px-4 py-5">
                                 <h3 class="text-base md:text-lg font-bold  mb-1.5 sm:mb-2">Quick Apply</h3>
                                 <p class="text-base md:text-lg text-brand-500"> {{ $course['title'] }}</p>
                             </div>
-                         <x-course-apply-form :slug="$course['slug']" />
+                            <x-course-apply-form :slug="$course['slug']" />
                             <!-- Enrollment Deadline -->
                         </div>
                         <!-- Secondary Actions -->
@@ -292,59 +310,10 @@
                                 <h4 class="font-label-bold text-brand-500-variant uppercase tracking-[0.2em] text-xs">
                                     Related Courses</h4>
                             </div>
-                            <div class="grid grid-cols-1 gap-6">
-                                <!-- Card 1 -->
-                                <a class="group block bg-white border border-slate-100 rounded-xl overflow-hidden hover:shadow-xl hover:border-brand-500/30 transition-all duration-300"
-                                    href="#">
-                                    <div class="relative h-32 bg-slate-100 overflow-hidden">
-                                        <img alt="Hospitality foundations"
-                                            class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500 opacity-90"
-                                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuC7DRrvrvyU6gG3zu1OoJa0eKcBclew-hkiW7KRzYWA9k11jhh5ZyY2eDs55VfW3un8abNaMpHKhtxkIhfIEprKBHJSD5rPdWzDeIIJawl6w6h6oaOZix9sHWrg3p5q_MOnGJ8LJhjQOj2EOy8H3WdOkXDkkgcCudyr1rPLrYSEOdpIyvrzLDs4FGECXeHcCdCFcB-VGsSKyzwtrMJbhYpRy-KmX6_NotI7hAvGJq2_zqGJHbBnxdJXqkR5m9rsyBGwDDv_L2KNFA">
-                                        <div class="absolute top-3 left-3">
-                                            <span
-                                                class="bg-white/90 backdrop-blur px-2 py-1 rounded text-[10px] font-bold uppercase tracking-wider text-brand-500 shadow-sm">Foundational</span>
-                                        </div>
-                                    </div>
-                                    <div class="p-5">
-                                        <h5
-                                            class="text-base md:text-lg text-base mb-3 group-hover:text-brand-500 transition-colors">
-                                            Certificate II in Hospitality</h5>
-                                        <div class="flex items-center justify-between">
-                                            <span
-                                                class="text-xs font-semibold text-brand-500 uppercase tracking-wider flex items-center gap-1">
-                                                View Course
-                                            </span>
-                                            <span
-                                                class="material-symbols-outlined text-brand-500 group-hover:translate-x-1 transition-transform">arrow_forward</span>
-                                        </div>
-                                    </div>
-                                </a>
-                                <!-- Card 2 -->
-                                <a class="group block bg-white border border-slate-100 rounded-xl overflow-hidden hover:shadow-xl hover:border-brand-500/30 transition-all duration-300"
-                                    href="#">
-                                    <div class="relative h-32 bg-slate-100 overflow-hidden">
-                                        <img alt="Advanced hospitality skills"
-                                            class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500 opacity-90"
-                                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuAbBIEMlEEqMe0sC6KvqTxAyaFamqAN-mswEaNfIEQl3K30Gu_ThLpKe5HtIxY2I5w0Xm0eTBjyc1whn72mktjoT9AEbIVLyQUi2Ciubqv0hgS9Rny6Xaw1iKJ4h0EoTslKXMaYzi2HS5891hSLG_a0rVUH2FDXEIM0wtPKaYNFbammzks12W3GtTOoyRg52fol-jzsnZUuT5wLpbWmZUQep3Zql0zZHwmzez2sVjGZI1j9OFuBGlIUNY09cgX_ChNZeuCRRkxcAQ">
-                                        <div class="absolute top-3 left-3">
-                                            <span
-                                                class="bg-white/90 backdrop-blur px-2 py-1 rounded text-[10px] font-bold uppercase tracking-wider text-brand-500 shadow-sm">Intermediate</span>
-                                        </div>
-                                    </div>
-                                    <div class="p-5">
-                                        <h5
-                                            class="text-base md:text-lg  mb-3 group-hover:text-brand-500 transition-colors">
-                                            Certificate III in Hospitality</h5>
-                                        <div class="flex items-center justify-between">
-                                            <span
-                                                class="text-xs font-semibold text-brand-500 uppercase tracking-wider flex items-center gap-1">
-                                                View Course
-                                            </span>
-                                            <span
-                                                class="material-symbols-outlined text-brand-500 group-hover:translate-x-1 transition-transform">arrow_forward</span>
-                                        </div>
-                                    </div>
-                                </a>
+                            <div class="grid grid-cols-1 gap-6">                             
+                                @include('frontend.pages.partials.qualification-cards', [
+                                    'courses' => $courses,
+                                ])
                             </div>
                         </div>
                     </div>
@@ -353,8 +322,8 @@
         </div>
     </section>
 
-    
-        @include('frontend.pages.partials.eligibility-form')
+
+    @include('frontend.pages.partials.eligibility-form')
 
 
     <section class="bg-gray-50 py-10 sm:py-12 lg:py-16">

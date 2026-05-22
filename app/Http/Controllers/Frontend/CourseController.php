@@ -17,58 +17,44 @@ class CourseController extends Controller
         $this->courseService = $courseService;
     }
 
-    public function courseDetails($slug)
-    {
-        // Fetch all courses using the global service
-        $courses = $this->courseService->getCourses();
+   public function courseDetails($slug)
+{
+    // Fetch all courses
+    $courses = collect($this->courseService->getCourses());
 
-        // Find the specific course by slug
-        $course = $courses->firstWhere('slug', $slug);
+    // Find current course
+    $course = $courses->firstWhere('slug', $slug);
 
-        // If course doesn't exist in JSON, 404
-        if (!$course) {
-            abort(404);
-        }
-
-        // Define the specific view path
-        $view = 'frontend.pages.courses.' . $slug;
-
-        // Ensure the Blade file actually exists before rendering
-        if (!view()->exists($view)) {
-            abort(404, 'Course page template not found');
-        }
-
-        return view($view, [
-            'course' => $course,
-            'title' => $course['title']
-        ]);
+    // 404 if not found
+    if (!$course) {
+        abort(404);
     }
 
-    //     public function courseDetails($slug, $formId)
-    // {
-    //     // Fetch all courses
-    //     $courses = $this->courseService->getCourses();
+    // Related industry courses
+    $relatedCourses = $courses->filter(function ($item) use ($course) {
 
-    //     // Find course by slug
-    //     $course = $courses->firstWhere('slug', $slug);
+        // same industry
+        $sameIndustry = $item['industry'] === $course['industry'];
 
-    //     // If not found
-    //     if (!$course) {
-    //         abort(404);
-    //     }
+        // exclude current course
+        $notCurrentCourse = $item['slug'] !== $course['slug'];
 
-    //     // View path
-    //     $view = 'frontend.pages.courses.' . $slug;
+        return $sameIndustry && $notCurrentCourse;
+    })->values();
 
-    //     // Check view exists
-    //     if (!view()->exists($view)) {
-    //         abort(404, 'Course page template not found');
-    //     }
+    // View path
+    $view = 'frontend.pages.courses.' . $slug;
 
-    //     return view($view, [
-    //         'course' => $course,
-    //         'title' => $course['title'],
-    //         'formId' => $formId, // IMPORTANT
-    //     ]);
-    // }
+    // Check blade exists
+    if (!view()->exists($view)) {
+        abort(404, 'Course page template not found');
+    }
+
+    return view($view, [
+        'course' => $course,
+        'courses' => $relatedCourses,
+        'title' => $course['title']
+    ]);
 }
+
+    }

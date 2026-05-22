@@ -12,7 +12,7 @@
       "funding": null,
       "features": ["Career Ready Skills"],
       "image": "business.webp",
-      "description": "Develop practical business, communication, and administrative skills for entry-level office and workplace roles."
+      "description": "The Certificate III in Business provides learners with practical workplace skills and foundational business knowledge required in modern office environments. This qualification prepares students for administrative, customer service, and operational support roles across various industries."
     },
     {
       "id": 2,
@@ -26,7 +26,7 @@
       "funding": null,
       "features": ["Leadership Focus"],
       "image": "business.webp",
-      "description": "Build advanced business, leadership, and organisational skills to prepare for supervisory and administrative positions."
+      "description": "The Certificate IV in Business develops advanced business administration and operational skills for individuals seeking supervisory or specialised business roles."
     },
     {
       "id": 3,
@@ -40,7 +40,7 @@
       "funding": null,
       "features": ["Industry Training"],
       "image": "manufacturing.webp",
-      "description": "Gain hands-on skills in production processes, safety procedures, and manufacturing operations for industrial workplaces."
+      "description": "The Certificate III in Process Manufacturing provides technical and operational skills for individuals working in manufacturing and production industries."
     },
     {
       "id": 4,
@@ -54,7 +54,7 @@
       "funding": null,
       "features": ["Customer Service Training"],
       "image": "retail.webp",
-      "description": "Learn foundational retail and customer service skills to work confidently in retail and sales environments."
+      "description": "This qualification provides entry-level retail skills for individuals seeking employment in customer service and retail support roles."
     },
     {
       "id": 5,
@@ -68,7 +68,7 @@
       "funding": null,
       "features": ["Traineeship Available"],
       "image": "retail.webp",
-      "description": "Develop customer engagement, sales, merchandising, and retail operations skills for modern retail workplaces."
+      "description": "The Certificate III in Retail provides practical retail knowledge and customer service skills required for retail sales and operations roles."
     },
     {
       "id": 6,
@@ -82,7 +82,7 @@
       "funding": null,
       "features": ["Management Skills"],
       "image": "retail.webp",
-      "description": "Prepare for leadership roles in retail by developing team management, operational, and customer service skills."
+      "description": "This qualification prepares learners for leadership and management roles within retail businesses by developing operational, customer service, and team management skills."
     },
     {
       "id": 7,
@@ -96,7 +96,7 @@
       "funding": null,
       "features": ["Entry-Level Hospitality Skills"],
       "image": "hospitality.webp",
-      "description": "Learn essential hospitality and customer service skills for entry-level roles in cafes, restaurants, and hotels."
+      "description": "The Certificate II in Hospitality provides entry-level skills and knowledge for individuals looking to start a career in the hospitality industry.."
     },
     {
       "id": 8,
@@ -110,7 +110,7 @@
       "funding": "Government Funded",
       "features": ["Practical Training"],
       "image": "hospitality.webp",
-      "description": "Develop practical hospitality skills including food service, customer engagement, and daily hospitality operations."
+      "description": "This qualification provides the practical skills and knowledge required to work effectively in hospitality environments such as restaurants, hotels, cafés, and catering businesses."
     },
     {
       "id": 9,
@@ -124,7 +124,7 @@
       "funding": null,
       "features": ["Supervisory Training"],
       "image": "hospitality.webp",
-      "description": "Build supervisory and operational hospitality skills to manage teams and deliver quality guest experiences."
+      "description": "The Certificate IV in Hospitality is designed for individuals seeking supervisory or leadership roles in the hospitality industry. This qualification develops operational, leadership, and customer service skills for hotels, restaurants, cafés, and event venues."
     }
   ]
 }

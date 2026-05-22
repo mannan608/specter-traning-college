@@ -303,59 +303,10 @@
                                 <h4 class="font-label-bold text-brand-500-variant uppercase tracking-[0.2em] text-xs">
                                     Related Courses</h4>
                             </div>
-                            <div class="grid grid-cols-1 gap-6">
-                                <!-- Card 1 -->
-                                <a class="group block bg-white border border-slate-100 rounded-xl overflow-hidden hover:shadow-xl hover:border-brand-500/30 transition-all duration-300"
-                                    href="#">
-                                    <div class="relative h-32 bg-slate-100 overflow-hidden">
-                                        <img alt="Hospitality foundations"
-                                            class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500 opacity-90"
-                                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuC7DRrvrvyU6gG3zu1OoJa0eKcBclew-hkiW7KRzYWA9k11jhh5ZyY2eDs55VfW3un8abNaMpHKhtxkIhfIEprKBHJSD5rPdWzDeIIJawl6w6h6oaOZix9sHWrg3p5q_MOnGJ8LJhjQOj2EOy8H3WdOkXDkkgcCudyr1rPLrYSEOdpIyvrzLDs4FGECXeHcCdCFcB-VGsSKyzwtrMJbhYpRy-KmX6_NotI7hAvGJq2_zqGJHbBnxdJXqkR5m9rsyBGwDDv_L2KNFA">
-                                        <div class="absolute top-3 left-3">
-                                            <span
-                                                class="bg-white/90 backdrop-blur px-2 py-1 rounded text-[10px] font-bold uppercase tracking-wider text-brand-500 shadow-sm">Foundational</span>
-                                        </div>
-                                    </div>
-                                    <div class="p-5">
-                                        <h5
-                                            class="text-base md:text-lg text-base mb-3 group-hover:text-brand-500 transition-colors">
-                                            Certificate II in Hospitality</h5>
-                                        <div class="flex items-center justify-between">
-                                            <span
-                                                class="text-xs font-semibold text-brand-500 uppercase tracking-wider flex items-center gap-1">
-                                                View Course
-                                            </span>
-                                            <span
-                                                class="material-symbols-outlined text-brand-500 group-hover:translate-x-1 transition-transform">arrow_forward</span>
-                                        </div>
-                                    </div>
-                                </a>
-                                <!-- Card 2 -->
-                                <a class="group block bg-white border border-slate-100 rounded-xl overflow-hidden hover:shadow-xl hover:border-brand-500/30 transition-all duration-300"
-                                    href="#">
-                                    <div class="relative h-32 bg-slate-100 overflow-hidden">
-                                        <img alt="Advanced hospitality skills"
-                                            class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500 opacity-90"
-                                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuAbBIEMlEEqMe0sC6KvqTxAyaFamqAN-mswEaNfIEQl3K30Gu_ThLpKe5HtIxY2I5w0Xm0eTBjyc1whn72mktjoT9AEbIVLyQUi2Ciubqv0hgS9Rny6Xaw1iKJ4h0EoTslKXMaYzi2HS5891hSLG_a0rVUH2FDXEIM0wtPKaYNFbammzks12W3GtTOoyRg52fol-jzsnZUuT5wLpbWmZUQep3Zql0zZHwmzez2sVjGZI1j9OFuBGlIUNY09cgX_ChNZeuCRRkxcAQ">
-                                        <div class="absolute top-3 left-3">
-                                            <span
-                                                class="bg-white/90 backdrop-blur px-2 py-1 rounded text-[10px] font-bold uppercase tracking-wider text-brand-500 shadow-sm">Intermediate</span>
-                                        </div>
-                                    </div>
-                                    <div class="p-5">
-                                        <h5
-                                            class="text-base md:text-lg  mb-3 group-hover:text-brand-500 transition-colors">
-                                            Certificate III in Hospitality</h5>
-                                        <div class="flex items-center justify-between">
-                                            <span
-                                                class="text-xs font-semibold text-brand-500 uppercase tracking-wider flex items-center gap-1">
-                                                View Course
-                                            </span>
-                                            <span
-                                                class="material-symbols-outlined text-brand-500 group-hover:translate-x-1 transition-transform">arrow_forward</span>
-                                        </div>
-                                    </div>
-                                </a>
+                             <div class="grid grid-cols-1 gap-6">                             
+                                @include('frontend.pages.partials.qualification-cards', [
+                                    'courses' => $courses,
+                                ])
                             </div>
                         </div>
                     </div>
