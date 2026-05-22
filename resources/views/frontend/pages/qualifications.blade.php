@@ -19,7 +19,7 @@
         </div>
     </section>
 
-    <section>
+    <section class="mb-6 md:mb-10">
         <div class="max-w-7xl mx-auto px-5 md:px-8">
             <div class="border border-gray-200 p-6 bg-white rounded-md">
                 <form id="qualification-filter-form" method="GET" action="{{ route('qualifications') }}">

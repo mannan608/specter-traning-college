@@ -8,7 +8,10 @@
                 <p class="text-on-surface-variant max-w-xl mx-auto text-sm md:text-base">Check Eligibility For Recognition of Prior Learning - RPL</p>
             </div>
 
-            <div class="">
+            <div class="flex gap-10 items-center">
+                <div class="">
+                    <img src="{{ asset('frontend-img/eligibility.jpg') }}" alt="">
+                </div>
                <iframe src="https://api.leadconnectorhq.com/widget/survey/fiJUZlVsbbtUgA4nzMP1" style="border:none;width:100%;" scrolling="no" id="fiJUZlVsbbtUgA4nzMP1" title="survey"></iframe>
             </div>         
         </div>
