@@ -1,5 +1,7 @@
 @extends('frontend.layouts.app')
 
+<
+
 @section('content')
     {{-- Hero Section --}}
     <section class="-mt-4">
@@ -50,12 +52,14 @@
                 <div class="lg:col-span-8 space-y-10 sm:space-y-14 lg:space-y-16">
                     <!-- Overview Section -->
                     <section id="overview">
-                        <h2 class="font-headline-lg text-headline-lg text-xl sm:text-2xl lg:text-3xl mb-4 sm:mb-6 flex items-center gap-3">
+                        <h2
+                            class="font-headline-lg text-headline-lg text-xl sm:text-2xl lg:text-3xl mb-4 sm:mb-6 flex items-center gap-3">
                             <span class="w-8 h-1 bg-brand-500 inline-block"></span>
                             Course Overview
                         </h2>
                         <div class="prose prose-slate max-w-none">
-                            <p class="font-body-lg text-body-lg text-brand-500-variant text-sm sm:text-base lg:text-lg leading-relaxed">
+                            <p
+                                class="font-body-lg text-body-lg text-brand-500-variant text-sm sm:text-base lg:text-lg leading-relaxed">
                                 The Certificate IV in Hospitality is designed for individuals seeking supervisory or
                                 leadership roles in the hospitality industry. This qualification develops operational,
                                 leadership, and customer service skills for hotels, restaurants, cafés, and event venues.
@@ -64,7 +68,8 @@
                     </section>
                     <!-- Curriculum Bento Grid -->
                     <section id="curriculum">
-                        <h2 class="font-headline-lg text-headline-lg text-xl sm:text-2xl lg:text-3xl mb-5 sm:mb-8 flex items-center gap-3">
+                        <h2
+                            class="font-headline-lg text-headline-lg text-xl sm:text-2xl lg:text-3xl mb-5 sm:mb-8 flex items-center gap-3">
                             <span class="w-8 h-1 bg-brand-500 inline-block"></span>
                             Course Structure
                         </h2>
@@ -74,7 +79,8 @@
                                 class="bg-white border border-slate-200 p-5 sm:p-6 lg:p-8 rounded shadow-sm hover:shadow-md transition-all">
                                 <span class="material-symbols-outlined text-brand-500 mb-4"
                                     style="font-size: 32px;">verified</span>
-                                <h3 class="text-base md:text-lg text-headline-md text-lg sm:text-xl mb-3 sm:mb-4">Core Modules</h3>
+                                <h3 class="text-base md:text-lg text-headline-md text-lg sm:text-xl mb-3 sm:mb-4">Core
+                                    Modules</h3>
                                 <ul class="space-y-2 sm:space-y-3 font-body-md text-brand-500-variant text-sm sm:text-base">
                                     <li class="flex items-start gap-2">
                                         <span class="material-symbols-outlined text-xs mt-1">check_circle</span>
@@ -102,7 +108,8 @@
                             <div class="bg-slate-50 border border-slate-200 p-5 sm:p-6 lg:p-8 rounded">
                                 <span class="material-symbols-outlined text-slate-500 mb-4"
                                     style="font-size: 32px;">category</span>
-                                <h3 class="text-base md:text-lg text-headline-md text-lg sm:text-xl mb-3 sm:mb-4">Electives</h3>
+                                <h3 class="text-base md:text-lg text-headline-md text-lg sm:text-xl mb-3 sm:mb-4">Electives
+                                </h3>
                                 <ul class="space-y-2 sm:space-y-3 font-body-md text-brand-500-variant text-sm sm:text-base">
                                     <li class="flex items-start gap-2">
                                         <span class="material-symbols-outlined text-xs mt-1">add_circle_outline</span>
@@ -132,29 +139,35 @@
                     <section class="bg-surface-container p-0 sm:p-8 lg:p-10 rounded" id="outcomes">
                         <div class="flex flex-col md:flex-row gap-8 lg:gap-12">
                             <div class="flex-1">
-                                <h2 class="font-headline-lg text-headline-lg text-xl sm:text-2xl lg:text-3xl mb-4 sm:mb-6">Career Outcomes</h2>
-                                <p class="font-body-md text-brand-500-variant text-sm sm:text-base mb-4 sm:mb-6">Upon successful completion of this
+                                <h2 class="font-headline-lg text-headline-lg text-xl sm:text-2xl lg:text-3xl mb-4 sm:mb-6">
+                                    Career Outcomes</h2>
+                                <p class="font-body-md text-brand-500-variant text-sm sm:text-base mb-4 sm:mb-6">Upon
+                                    successful completion of this
                                     qualification, students are prepared for leadership roles in the global hospitality
                                     sector.</p>
                                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
-                                    <div class="flex items-center gap-3 bg-white p-3 sm:p-4 rounded border border-slate-200">
-                                        <span
-                                            class="material-symbols-outlined text-brand-500">person_celebrate</span>
+                                    <div
+                                        class="flex items-center gap-3 bg-white p-3 sm:p-4 rounded border border-slate-200">
+                                        <span class="material-symbols-outlined text-brand-500">person_celebrate</span>
                                         <span class="font-label-bold">Hospitality Supervisor</span>
                                     </div>
-                                    <div class="flex items-center gap-3 bg-white p-3 sm:p-4 rounded border border-slate-200">
+                                    <div
+                                        class="flex items-center gap-3 bg-white p-3 sm:p-4 rounded border border-slate-200">
                                         <span class="material-symbols-outlined text-brand-500">restaurant</span>
                                         <span class="font-label-bold">Restaurant Supervisor</span>
                                     </div>
-                                    <div class="flex items-center gap-3 bg-white p-3 sm:p-4 rounded border border-slate-200">
+                                    <div
+                                        class="flex items-center gap-3 bg-white p-3 sm:p-4 rounded border border-slate-200">
                                         <span class="material-symbols-outlined text-brand-500">badge</span>
                                         <span class="font-label-bold">Front Office Supervisor</span>
                                     </div>
-                                    <div class="flex items-center gap-3 bg-white p-3 sm:p-4 rounded border border-slate-200">
+                                    <div
+                                        class="flex items-center gap-3 bg-white p-3 sm:p-4 rounded border border-slate-200">
                                         <span class="material-symbols-outlined text-brand-500">coffee</span>
                                         <span class="font-label-bold">Café Manager</span>
                                     </div>
-                                    <div class="flex items-center gap-3 bg-white p-3 sm:p-4 rounded border border-slate-200">
+                                    <div
+                                        class="flex items-center gap-3 bg-white p-3 sm:p-4 rounded border border-slate-200">
                                         <span class="material-symbols-outlined text-brand-500">groups</span>
                                         <span class="font-label-bold">Team Leader</span>
                                     </div>
@@ -180,35 +193,41 @@
                                     class="w-10 h-10 rounded-full bg-brand-500/10 flex items-center justify-center shrink-0">
                                     <span class="material-symbols-outlined text-brand-500">groups_2</span>
                                 </div>
-                                <p class="font-body-md text-brand-500 text-sm sm:text-base">Lead hospitality teams effectively</p>
+                                <p class="font-body-md text-brand-500 text-sm sm:text-base">Lead hospitality teams
+                                    effectively</p>
                             </div>
                             <div class="flex items-center gap-4 bg-white p-4 sm:p-5 lg:p-6 border border-slate-200 rounded">
                                 <div
                                     class="w-10 h-10 rounded-full bg-brand-500/10 flex items-center justify-center shrink-0">
                                     <span class="material-symbols-outlined text-brand-500">psychology</span>
                                 </div>
-                                <p class="font-body-md text-brand-500 text-sm sm:text-base">Manage customer service operations</p>
+                                <p class="font-body-md text-brand-500 text-sm sm:text-base">Manage customer service
+                                    operations</p>
                             </div>
                             <div class="flex items-center gap-4 bg-white p-4 sm:p-5 lg:p-6 border border-slate-200 rounded">
                                 <div
                                     class="w-10 h-10 rounded-full bg-brand-500/10 flex items-center justify-center shrink-0">
                                     <span class="material-symbols-outlined text-brand-500">psychology</span>
                                 </div>
-                                <p class="font-body-md text-brand-500 text-sm sm:text-base">Handle workplace challenges professionally</p>
+                                <p class="font-body-md text-brand-500 text-sm sm:text-base">Handle workplace challenges
+                                    professionally</p>
                             </div>
                             <div class="flex items-center gap-4 bg-white p-4 sm:p-5 lg:p-6 border border-slate-200 rounded">
                                 <div
                                     class="w-10 h-10 rounded-full bg-brand-500/10 flex items-center justify-center shrink-0">
                                     <span class="material-symbols-outlined text-brand-500">assignment</span>
                                 </div>
-                                <p class="font-body-md text-brand-500 text-sm sm:text-base">Coordinate hospitality activities and staff</p>
+                                <p class="font-body-md text-brand-500 text-sm sm:text-base">Coordinate hospitality
+                                    activities and staff</p>
                             </div>
-                            <div class="flex items-center gap-4 bg-white p-4 sm:p-5 lg:p-6 border border-slate-200 rounded">
+                            <div
+                                class="flex items-center gap-4 bg-white p-4 sm:p-5 lg:p-6 border border-slate-200 rounded">
                                 <div
                                     class="w-10 h-10 rounded-full bg-brand-500/10 flex items-center justify-center shrink-0">
                                     <span class="material-symbols-outlined text-brand-500">gavel</span>
                                 </div>
-                                <p class="font-body-md text-brand-500 text-sm sm:text-base">Maintain industry compliance standards</p>
+                                <p class="font-body-md text-brand-500 text-sm sm:text-base">Maintain industry compliance
+                                    standards</p>
                             </div>
                         </div>
                     </section>
@@ -255,7 +274,8 @@
                                     <span class="text-base md:text-lg text-headline-md">Diploma of Hospitality
                                         Management</span>
                                 </div>
-                                <span class="text-caption font-caption bg-slate-100 px-3 py-1 rounded w-fit">Next Level</span>
+                                <span class="text-caption font-caption bg-slate-100 px-3 py-1 rounded w-fit">Next
+                                    Level</span>
                             </div>
                             <div
                                 class="bg-white border-l-4 border-brand-500 p-4 sm:p-5 lg:p-6 shadow-sm rounded-r flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 sm:gap-6">
@@ -274,44 +294,18 @@
                 <aside class="lg:col-span-4">
                     <div class="sticky-sidebar sticky space-y-6">
                         <!-- Quick Apply Form -->
-                        <div class="bg-white border border-slate-200 rounded-lg shadow-sm p-5 sm:p-6 lg:p-8 overflow-hidden relative">
-                            <div class="absolute top-0 left-0 w-1 h-full bg-brand-500"></div>
-                            <div class="mb-4 sm:mb-6">
-                                <h3 class="text-base md:text-lg text-headline-md text-lg sm:text-xl mb-1.5 sm:mb-2">Quick Apply</h3>
-                                <p class="text-caption font-caption text-brand-500-variant">Start your application in
-                                    under 2 minutes.</p>
+                        <div
+                            class="bg-white border border-slate-200 px-2 rounded-lg shadow-sm  overflow-hidden relative">
+                            <div class="px-4 py-5">
+                                <h3 class="text-base md:text-lg font-bold  mb-1.5 sm:mb-2">Quick Apply</h3>
+                                <p class="text-base md:text-lg text-brand-500"> {{ $course['title'] }}</p>
                             </div>
-                            <form class="space-y-4">
-                                <div>
-                                    <label
-                                        class="block text-xs font-label-bold uppercase tracking-wider mb-2 text-brand-500-variant">Full
-                                        Name</label>
-                                    <input
-                                        class="w-full border border-slate-300 rounded px-4 py-2.5 sm:py-3 focus:border-brand-500 focus:ring-0 transition-colors bg-slate-50"
-                                        type="text">
-                                </div>
-                                <div>
-                                    <label
-                                        class="block text-xs font-label-bold uppercase tracking-wider mb-2 text-brand-500-variant">Email
-                                        Address</label>
-                                    <input
-                                        class="w-full border border-slate-300 rounded px-4 py-2.5 sm:py-3 focus:border-brand-500 focus:ring-0 transition-colors bg-slate-50"
-                                        type="email">
-                                </div>
-                                <div>
-                                    <label
-                                        class="block text-xs font-label-bold uppercase tracking-wider mb-2 text-brand-500-variant">Phone
-                                        Number</label>
-                                    <input
-                                        class="w-full border border-slate-300 rounded px-4 py-2.5 sm:py-3 focus:border-brand-500 focus:ring-0 transition-colors bg-slate-50"
-                                        type="tel">
-                                </div>
-                                <button
-                                    class="w-full bg-brand-500 text-white py-3.5 sm:py-4 rounded font-label-bold uppercase tracking-widest text-sm hover:brightness-110 active:scale-[0.98] transition-all mt-4"
-                                    type="submit">
-                                    Apply Now
-                                </button>
-                            </form>
+                           <iframe src="https://api.leadconnectorhq.com/widget/form/{{ $formId }}"
+                                    style="width:100%;height:600px;border:none;border-radius:8px"
+                                    id="inline-{{ $formId }}" data-layout="{'id':'INLINE'}"
+                                    data-trigger-type="alwaysShow" data-activation-type="alwaysActivated"
+                                    data-deactivation-type="neverDeactivate" data-form-id="{{ $formId }}" title="{{ $course['title'] }}">
+                                </iframe>
                             <!-- Enrollment Deadline -->
                         </div>
                         <!-- Secondary Actions -->
@@ -393,10 +387,24 @@
             </div>
         </div>
     </section>
+    <section class="bg-brand-500/10 py-10 sm:py-12 lg:py-16">
+        <div class="max-w-7xl mx-auto px-5 md:px-8">
+            <!-- Heading -->
+            <div class="text-center md:mb-8 mb-4">
+                <h2 class="font-display font-bold text-lg md:text-2xl lg:text-3xl text-primary mb-3">Check Eligibility
+                </h2>
+                <p class="text-on-surface-variant max-w-xl mx-auto text-sm md:text-base">Check Eligibility For Recognition of Prior Learning - RPL</p>
+            </div>
+
+            <div class="">
+                @include('frontend.pages.partials.eligibility-form')
+
+            </div>         
+        </div>
+    </section>
 
     <section class="bg-gray-50 py-10 sm:py-12 lg:py-16">
         <div class="max-w-7xl mx-auto px-5 md:px-8">
-
             <!-- Heading -->
             <div class="text-center md:mb-8 mb-4">
                 <h2 class="font-display font-bold text-lg md:text-2xl lg:text-3xl text-primary mb-3">Our Student Stories
@@ -404,7 +412,7 @@
                 <p class="text-brand-500-variant max-w-xl mx-auto text-sm md:text-base">Hear from our students
                     about their journey and success stories.</p>
             </div>
-            @include('frontend.pages.partials.review')
+             @include('frontend.pages.partials.review')
         </div>
     </section>
 @endsection

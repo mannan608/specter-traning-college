@@ -14,8 +14,9 @@ Route::get('/contact', [FrontendController::class, 'contactPage'])->name('contac
 
 
 
-Route::get('/qualifications/{slug}', [CourseController::class, 'courseDetails'])
+Route::get('/qualifications/{slug}/{formId}', [CourseController::class, 'courseDetails'])
     ->name('qualifications.details');
+
     // legal page
 Route::get('/legal/privacy-policy', [FrontendController::class, 'privacyPolicy'])->name('privacy-policy');
 Route::get('/legal/terms-of-service', [FrontendController::class, 'termsOfService'])->name('terms-of-service');

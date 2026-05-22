@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
-use App\Services\CourseService; 
+use App\Services\CourseService;
 
 class CourseController extends Controller
 {
@@ -17,30 +17,31 @@ class CourseController extends Controller
         $this->courseService = $courseService;
     }
 
-    public function courseDetails($slug)
+    public function courseDetails($slug, $formId)
     {
-        // Fetch all courses using the global service
+        // Fetch all courses
         $courses = $this->courseService->getCourses();
 
-        // Find the specific course by slug
+        // Find course by slug
         $course = $courses->firstWhere('slug', $slug);
 
-        // If course doesn't exist in JSON, 404
+        // If not found
         if (!$course) {
             abort(404);
         }
 
-        // Define the specific view path
+        // View path
         $view = 'frontend.pages.courses.' . $slug;
 
-        // Ensure the Blade file actually exists before rendering
+        // Check view exists
         if (!view()->exists($view)) {
             abort(404, 'Course page template not found');
         }
 
         return view($view, [
             'course' => $course,
-            'title' => $course['title']
+            'title' => $course['title'],
+            'formId' => $formId, // IMPORTANT
         ]);
     }
 }
