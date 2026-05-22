@@ -101,9 +101,9 @@
                             </div>
                             <!-- Electives -->
                             <div class="bg-slate-50 border border-slate-200 p-5 sm:p-6 lg:p-8 rounded">
-                                <span class="material-symbols-outlined text-slate-500 mb-4"
+                                <span class="material-symbols-outlined text-brand-500 mb-4"
                                     style="font-size: 32px;">category</span>
-                                <h3 class="text-base md:text-lg text-headline-md text-lg sm:text-xl mb-3 sm:mb-4">Elective Modules – (What it is for)
+                                <h3 class="text-base md:text-lg text-headline-md  sm:text-xl mb-3 sm:mb-4">Elective Modules – (What it is for)
                                 </h3>
                                 <ul class="space-y-2 sm:space-y-3 font-body-md text-brand-500-variant text-sm sm:text-base">
                                     <li class="flex items-start gap-2">
