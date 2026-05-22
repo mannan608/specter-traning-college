@@ -58,9 +58,7 @@
                         <div class="prose prose-slate max-w-none">
                             <p
                                 class="font-body-lg text-body-lg text-brand-500-variant text-sm sm:text-base lg:text-lg leading-relaxed">
-                                The Certificate IV in Hospitality is designed for individuals seeking supervisory or
-                                leadership roles in the hospitality industry. This qualification develops operational,
-                                leadership, and customer service skills for hotels, restaurants, cafés, and event venues.
+                                The Certificate II in Hospitality provides entry-level skills and knowledge for individuals looking to start a career in the hospitality industry.
                             </p>
                         </div>
                     </section>
@@ -77,59 +75,58 @@
                                 class="bg-white border border-slate-200 p-5 sm:p-6 lg:p-8 rounded shadow-sm hover:shadow-md transition-all">
                                 <span class="material-symbols-outlined text-brand-500 mb-4"
                                     style="font-size: 32px;">verified</span>
-                                <h3 class="text-base md:text-lg text-headline-md text-lg sm:text-xl mb-3 sm:mb-4">Core
-                                    Modules</h3>
+                                <h3 class="text-base md:text-lg text-headline-md text-lg sm:text-xl mb-3 sm:mb-4">Core Modules – (What it is for)</h3>
                                 <ul class="space-y-2 sm:space-y-3 font-body-md text-brand-500-variant text-sm sm:text-base">
-                                    <li class="flex items-start gap-2">
-                                        <span class="material-symbols-outlined text-xs mt-1">check_circle</span>
-                                        Hospitality operations and service standards
-                                    </li>
-                                    <li class="flex items-start gap-2">
-                                        <span class="material-symbols-outlined text-xs mt-1">check_circle</span>
-                                        Leadership and team supervision
-                                    </li>
-                                    <li class="flex items-start gap-2">
-                                        <span class="material-symbols-outlined text-xs mt-1">check_circle</span>
-                                        Workplace safety and compliance
-                                    </li>
-                                    <li class="flex items-start gap-2">
-                                        <span class="material-symbols-outlined text-xs mt-1">check_circle</span>
-                                        Customer experience management
-                                    </li>
-                                    <li class="flex items-start gap-2">
-                                        <span class="material-symbols-outlined text-xs mt-1">check_circle</span>
-                                        Operational planning and problem-solving
-                                    </li>
-                                </ul>
+                                <li class="flex items-start gap-2">
+                                    <span class="material-symbols-outlined text-xs mt-1">check_circle</span>
+                                    Basic hospitality service skills
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <span class="material-symbols-outlined text-xs mt-1">check_circle</span>
+                                    Workplace communication
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <span class="material-symbols-outlined text-xs mt-1">check_circle</span>
+                                    Hygiene and food safety
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <span class="material-symbols-outlined text-xs mt-1">check_circle</span>
+                                    Customer interaction
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <span class="material-symbols-outlined text-xs mt-1">check_circle</span>
+                                    Teamwork fundamentals
+                                </li>
+                            </ul>
                             </div>
                             <!-- Electives -->
                             <div class="bg-slate-50 border border-slate-200 p-5 sm:p-6 lg:p-8 rounded">
                                 <span class="material-symbols-outlined text-slate-500 mb-4"
                                     style="font-size: 32px;">category</span>
-                                <h3 class="text-base md:text-lg text-headline-md text-lg sm:text-xl mb-3 sm:mb-4">Electives
+                                <h3 class="text-base md:text-lg text-headline-md text-lg sm:text-xl mb-3 sm:mb-4">Elective Modules – (What it is for)
                                 </h3>
                                 <ul class="space-y-2 sm:space-y-3 font-body-md text-brand-500-variant text-sm sm:text-base">
-                                    <li class="flex items-start gap-2">
-                                        <span class="material-symbols-outlined text-xs mt-1">add_circle_outline</span>
-                                        Food and beverage supervision
-                                    </li>
-                                    <li class="flex items-start gap-2">
-                                        <span class="material-symbols-outlined text-xs mt-1">add_circle_outline</span>
-                                        Event coordination
-                                    </li>
-                                    <li class="flex items-start gap-2">
-                                        <span class="material-symbols-outlined text-xs mt-1">add_circle_outline</span>
-                                        Rostering and staff scheduling
-                                    </li>
-                                    <li class="flex items-start gap-2">
-                                        <span class="material-symbols-outlined text-xs mt-1">add_circle_outline</span>
-                                        Financial management basics
-                                    </li>
-                                    <li class="flex items-start gap-2">
-                                        <span class="material-symbols-outlined text-xs mt-1">add_circle_outline</span>
-                                        Conflict resolution and communication
-                                    </li>
-                                </ul>
+                                <li class="flex items-start gap-2">
+                                    <span class="material-symbols-outlined text-xs mt-1">add_circle_outline</span>
+                                    Basic food preparation
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <span class="material-symbols-outlined text-xs mt-1">add_circle_outline</span>
+                                    Café service
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <span class="material-symbols-outlined text-xs mt-1">add_circle_outline</span>
+                                    Housekeeping support
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <span class="material-symbols-outlined text-xs mt-1">add_circle_outline</span>
+                                    Barista introduction
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <span class="material-symbols-outlined text-xs mt-1">add_circle_outline</span>
+                                    Hospitality equipment handling
+                                </li>
+                            </ul>
                             </div>
                         </div>
                     </section>
@@ -139,35 +136,27 @@
                             <div class="flex-1">
                                 <h2 class="font-headline-lg text-headline-lg text-xl sm:text-2xl lg:text-3xl mb-4 sm:mb-6">
                                     Career Outcomes</h2>
-                                <p class="font-body-md text-brand-500-variant text-sm sm:text-base mb-4 sm:mb-6">Upon
-                                    successful completion of this
-                                    qualification, students are prepared for leadership roles in the global hospitality
-                                    sector.</p>
+                               
                                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
-                                    <div
-                                        class="flex items-center gap-3 bg-white p-3 sm:p-4 rounded border border-slate-200">
+                                    <div class="flex items-center gap-3 bg-white p-3 sm:p-4 rounded border border-slate-200">
                                         <span class="material-symbols-outlined text-brand-500">person_celebrate</span>
-                                        <span class="font-label-bold">Hospitality Supervisor</span>
+                                        <span class="font-label-bold">Hospitality Assistant</span>
                                     </div>
-                                    <div
-                                        class="flex items-center gap-3 bg-white p-3 sm:p-4 rounded border border-slate-200">
+                                    <div class="flex items-center gap-3 bg-white p-3 sm:p-4 rounded border border-slate-200">
                                         <span class="material-symbols-outlined text-brand-500">restaurant</span>
-                                        <span class="font-label-bold">Restaurant Supervisor</span>
+                                        <span class="font-label-bold">Café Worker</span>
                                     </div>
-                                    <div
-                                        class="flex items-center gap-3 bg-white p-3 sm:p-4 rounded border border-slate-200">
+                                    <div class="flex items-center gap-3 bg-white p-3 sm:p-4 rounded border border-slate-200">
                                         <span class="material-symbols-outlined text-brand-500">badge</span>
-                                        <span class="font-label-bold">Front Office Supervisor</span>
+                                        <span class="font-label-bold">Kitchen Hand</span>
                                     </div>
-                                    <div
-                                        class="flex items-center gap-3 bg-white p-3 sm:p-4 rounded border border-slate-200">
+                                    <div class="flex items-center gap-3 bg-white p-3 sm:p-4 rounded border border-slate-200">
                                         <span class="material-symbols-outlined text-brand-500">coffee</span>
-                                        <span class="font-label-bold">Café Manager</span>
+                                        <span class="font-label-bold">Housekeeping Assistant</span>
                                     </div>
-                                    <div
-                                        class="flex items-center gap-3 bg-white p-3 sm:p-4 rounded border border-slate-200">
+                                    <div class="flex items-center gap-3 bg-white p-3 sm:p-4 rounded border border-slate-200">
                                         <span class="material-symbols-outlined text-brand-500">groups</span>
-                                        <span class="font-label-bold">Team Leader</span>
+                                        <span class="font-label-bold">Food Service Attendant</span>
                                     </div>
                                 </div>
                             </div>
@@ -185,47 +174,40 @@
                             <span class="w-8 h-1 bg-brand-500 inline-block"></span>
                             What You Will Develop
                         </h2>
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4">
+                       <div class="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4">
                             <div class="flex items-center gap-4 bg-white p-4 sm:p-5 lg:p-6 border border-slate-200 rounded">
-                                <div
-                                    class="w-10 h-10 rounded-full bg-brand-500/10 flex items-center justify-center shrink-0">
+                                <div class="w-10 h-10 rounded-full bg-brand-500/10 flex items-center justify-center shrink-0">
                                     <span class="material-symbols-outlined text-brand-500">groups_2</span>
                                 </div>
-                                <p class="font-body-md text-brand-500 text-sm sm:text-base">Lead hospitality teams
-                                    effectively</p>
+                                <p class="font-body-md text-brand-500 text-sm sm:text-base">Provide customer service support</p>
                             </div>
+
                             <div class="flex items-center gap-4 bg-white p-4 sm:p-5 lg:p-6 border border-slate-200 rounded">
-                                <div
-                                    class="w-10 h-10 rounded-full bg-brand-500/10 flex items-center justify-center shrink-0">
+                                <div class="w-10 h-10 rounded-full bg-brand-500/10 flex items-center justify-center shrink-0">
                                     <span class="material-symbols-outlined text-brand-500">psychology</span>
                                 </div>
-                                <p class="font-body-md text-brand-500 text-sm sm:text-base">Manage customer service
-                                    operations</p>
+                                <p class="font-body-md text-brand-500 text-sm sm:text-base">Work safely in hospitality environments</p>
                             </div>
+
                             <div class="flex items-center gap-4 bg-white p-4 sm:p-5 lg:p-6 border border-slate-200 rounded">
-                                <div
-                                    class="w-10 h-10 rounded-full bg-brand-500/10 flex items-center justify-center shrink-0">
+                                <div class="w-10 h-10 rounded-full bg-brand-500/10 flex items-center justify-center shrink-0">
                                     <span class="material-symbols-outlined text-brand-500">psychology</span>
                                 </div>
-                                <p class="font-body-md text-brand-500 text-sm sm:text-base">Handle workplace challenges
-                                    professionally</p>
+                                <p class="font-body-md text-brand-500 text-sm sm:text-base">Follow workplace procedures</p>
                             </div>
+
                             <div class="flex items-center gap-4 bg-white p-4 sm:p-5 lg:p-6 border border-slate-200 rounded">
-                                <div
-                                    class="w-10 h-10 rounded-full bg-brand-500/10 flex items-center justify-center shrink-0">
+                                <div class="w-10 h-10 rounded-full bg-brand-500/10 flex items-center justify-center shrink-0">
                                     <span class="material-symbols-outlined text-brand-500">assignment</span>
                                 </div>
-                                <p class="font-body-md text-brand-500 text-sm sm:text-base">Coordinate hospitality
-                                    activities and staff</p>
+                                <p class="font-body-md text-brand-500 text-sm sm:text-base">Support hospitality team operations</p>
                             </div>
-                            <div
-                                class="flex items-center gap-4 bg-white p-4 sm:p-5 lg:p-6 border border-slate-200 rounded">
-                                <div
-                                    class="w-10 h-10 rounded-full bg-brand-500/10 flex items-center justify-center shrink-0">
+
+                            <div class="flex items-center gap-4 bg-white p-4 sm:p-5 lg:p-6 border border-slate-200 rounded">
+                                <div class="w-10 h-10 rounded-full bg-brand-500/10 flex items-center justify-center shrink-0">
                                     <span class="material-symbols-outlined text-brand-500">gavel</span>
                                 </div>
-                                <p class="font-body-md text-brand-500 text-sm sm:text-base">Maintain industry compliance
-                                    standards</p>
+                                <p class="font-body-md text-brand-500 text-sm sm:text-base">Maintain hygiene standards</p>
                             </div>
                         </div>
                     </section>
@@ -238,23 +220,23 @@
                         <div class="flex flex-wrap gap-2 sm:gap-3">
                             <span
                                 class="bg-brand-500/10 px-4 sm:px-6 py-2 sm:py-3 rounded-full font-label-bold text-brand-500 flex items-center gap-2 text-sm">
-                                <span class="material-symbols-outlined text-sm">hotel</span> Hotels and Resorts
+                                <span class="material-symbols-outlined text-sm">hotel</span> Cafés
                             </span>
                             <span
                                 class="bg-brand-500/10 px-4 sm:px-6 py-2 sm:py-3 rounded-full font-label-bold text-brand-500 flex items-center gap-2 text-sm">
-                                <span class="material-symbols-outlined text-sm">restaurant</span> Restaurants and Cafés
+                                <span class="material-symbols-outlined text-sm">restaurant</span> Restaurants
                             </span>
                             <span
                                 class="bg-brand-500/10 px-4 sm:px-6 py-2 sm:py-3 rounded-full font-label-bold text-brand-500 flex items-center gap-2 text-sm">
-                                <span class="material-symbols-outlined text-sm">event</span> Event Management Companies
+                                <span class="material-symbols-outlined text-sm">event</span> Hotels
                             </span>
                             <span
                                 class="bg-brand-500/10 px-4 sm:px-6 py-2 sm:py-3 rounded-full font-label-bold text-brand-500 flex items-center gap-2 text-sm">
-                                <span class="material-symbols-outlined text-sm">travel_explore</span> Tourism Industry
+                                <span class="material-symbols-outlined text-sm">travel_explore</span> Fast Food Chains
                             </span>
                             <span
                                 class="bg-brand-500/10 px-4 sm:px-6 py-2 sm:py-3 rounded-full font-label-bold text-brand-500 flex items-center gap-2 text-sm">
-                                <span class="material-symbols-outlined text-sm">flatware</span> Catering Services
+                                <span class="material-symbols-outlined text-sm">flatware</span> Event Venues
                             </span>
                         </div>
                     </section>
@@ -269,22 +251,12 @@
                                 class="bg-white border-l-4 border-brand-500 p-4 sm:p-5 lg:p-6 shadow-sm rounded-r flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 sm:gap-6">
                                 <div class="flex items-center gap-3 sm:gap-4">
                                     <span class="material-symbols-outlined text-brand-500">arrow_forward</span>
-                                    <span class="text-base md:text-lg text-headline-md">Diploma of Hospitality
-                                        Management</span>
+                                    <span class="text-base md:text-lg text-headline-md">Certificate III in Hospitality</span>
                                 </div>
                                 <span class="text-caption font-caption bg-slate-100 px-3 py-1 rounded w-fit">Next
                                     Level</span>
                             </div>
-                            <div
-                                class="bg-white border-l-4 border-brand-500 p-4 sm:p-5 lg:p-6 shadow-sm rounded-r flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 sm:gap-6">
-                                <div class="flex items-center gap-3 sm:gap-4">
-                                    <span class="material-symbols-outlined text-brand-500">arrow_forward</span>
-                                    <span class="text-base md:text-lg text-headline-md">Advanced Diploma of Hospitality
-                                        Management</span>
-                                </div>
-                                <span class="text-caption font-caption bg-slate-100 px-3 py-1 rounded w-fit">Advanced
-                                    Level</span>
-                            </div>
+                            
                         </div>
                     </section>
                 </div>
