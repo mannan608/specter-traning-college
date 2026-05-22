@@ -126,7 +126,7 @@
                         <div class="p-5">
                             @if (!empty($blog?->featured_image))
                                 <img src="{{ \Illuminate\Support\Facades\Storage::disk('public')->url($blog->featured_image) }}"
-                                    class="mb-4 w-full rounded-xl border border-gray-200 object-cover">
+                                    class="mb-4 w-full rounded-xl border border-gray-200 object-cover" alt="feature image">
                             @endif
 
                             <x-form.dropzone name="featured_image" label="Featured Image" value=""

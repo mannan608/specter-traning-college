@@ -8,7 +8,7 @@
 
             <div class="flex sm:justify-start items-center justify-center">
                <a href="/">
-                    <img src="{{asset('logo.webp')}}" alt="" class="w-24 h-auto">
+                    <img src="{{asset('logo.webp')}}" alt="logo" class="w-24 h-auto">
                 </a>
             </div>
 
@@ -169,10 +169,10 @@
                     <div class="flex flex-wrap justify-center items-center gap-4  transition-all duration-500">
                 <img class="h-10 object-contain"
                     data-alt="clean geometric logo of a professional education authority in black and white"
-                    src="{{ asset('patner_1.png') }}">
+                    src="{{ asset('patner_1.png') }}" alt="patner">
 
                 <img class="h-10 object-contain" data-alt="sleek corporate mark for a global vocational training federation"
-                    src="{{ asset('patner_2.png') }}">
+                    src="{{ asset('patner_2.png') }}" alt="patner">
             </div>
                 </li>
                 <li><strong>RTO No. 45116</strong></li>

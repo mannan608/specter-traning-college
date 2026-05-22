@@ -88,10 +88,10 @@
             <div class="flex flex-wrap justify-center items-center gap-12  transition-all duration-500">
                 <img class="h-16 object-contain"
                     data-alt="clean geometric logo of a professional education authority in black and white"
-                    src="{{ asset('patner_1.png') }}">
+                    src="{{ asset('patner_1.png') }}" alt="patner image">
 
                 <img class="h-16 object-contain" data-alt="sleek corporate mark for a global vocational training federation"
-                    src="{{ asset('patner_2.png') }}">
+                    src="{{ asset('patner_2.png') }}" alt="patner image">
             </div>
         </div>
     </section>

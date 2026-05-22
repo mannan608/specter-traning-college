@@ -106,7 +106,7 @@
                                 
                                 <td class="px-5 py-4">
                                     <template x-if="row.image">
-                                        <img :src="row.image" class="w-10 h-10 rounded border border-gray-200 object-cover" loading="lazy">
+                                        <img :src="row.image" class="w-10 h-10 rounded border border-gray-200 object-cover" alt="blog img" loading="lazy">
                                     </template>
                                     <template x-if="!row.image">
                                         <span class="text-xs text-gray-400 italic">None</span>

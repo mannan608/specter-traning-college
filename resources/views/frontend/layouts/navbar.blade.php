@@ -27,7 +27,7 @@
             <!-- Logo -->
             <div class="w-20">
                 <a href="/">
-                    <img src="{{asset('logo.webp')}}" alt="" class="w-auto h-auto">
+                    <img src="{{asset('logo.webp')}}" alt="logo" class="w-auto h-auto">
                 </a>
             </div>
 
