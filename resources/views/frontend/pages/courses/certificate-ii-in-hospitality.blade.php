@@ -75,7 +75,7 @@
                                 class="bg-white border border-slate-200 p-5 sm:p-6 lg:p-8 rounded shadow-sm hover:shadow-md transition-all">
                                 <span class="material-symbols-outlined text-brand-500 mb-4"
                                     style="font-size: 32px;">verified</span>
-                                <h3 class="text-base md:text-lg text-headline-md text-lg sm:text-xl mb-3 sm:mb-4">Core Modules – (What it is for)</h3>
+                                <h3 class="text-base md:text-lg text-headline-md sm:text-xl mb-3 sm:mb-4">Core Modules – (What it is for)</h3>
                                 <ul class="space-y-2 sm:space-y-3 font-body-md text-brand-500-variant text-sm sm:text-base">
                                 <li class="flex items-start gap-2">
                                     <span class="material-symbols-outlined text-xs mt-1">check_circle</span>
