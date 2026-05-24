@@ -33,10 +33,10 @@
 
                 <div class="flex flex-col sm:flex-row gap-4">
 
-                    <button
+                    <a href="https://spectertrainingcollege.com/qualifications"
                         class="bg-brand-600 text-white px-6 sm:px-8 py-3 sm:py-4 rounded font-semibold">
                        Qualifications
-                    </button>
+                </a>
 
                 </div>
 

@@ -297,7 +297,7 @@
                                 <span class="material-symbols-outlined text-sm">download</span>
                                 Download Brochure
                             </button>
-                            <button
+                            <button onclick="window.location.href='mailto:info@spectertrainingcollege.com'"
                                 class="flex items-center justify-center gap-3 w-full bg-slate-100 text-brand-500-variant py-3 rounded font-label-bold text-sm hover:bg-slate-200 transition-colors">
                                 <span class="material-symbols-outlined text-sm">mail</span>
                                 Enquire via Email

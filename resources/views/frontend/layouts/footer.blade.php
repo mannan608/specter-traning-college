@@ -24,7 +24,7 @@
                     info@spectertrainingcollege.com
                 </li>
 
-                <li class="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-2">
+                <li class="flex flex-col sm:flex-row sm:items-baseline gap-1 sm:gap-2">
                     <span class="font-semibold text-slate-700">Address:</span>
                     PO Box 683, MOOREBANK, NSW, 1875
                 </li>
