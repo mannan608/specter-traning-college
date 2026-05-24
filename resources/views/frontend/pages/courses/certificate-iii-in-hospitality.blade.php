@@ -283,16 +283,17 @@
                         </div>
                         <!-- Secondary Actions -->
                         <div class="grid grid-cols-1 gap-4">
-                            <button
+                            <a href="{{ route('download.brochure') }}"
                                 class="flex items-center justify-center gap-3 w-full border border-primary-container text-primary-container py-3 rounded font-label-bold text-sm hover:bg-slate-50 transition-colors">
                                 <span class="material-symbols-outlined text-sm">download</span>
                                 Download Brochure
-                            </button>
-                            <button onclick="window.location.href='mailto:info@spectertrainingcollege.com'"
+                        </a>
+                            <a href="mailto:enquiry@spectertrainingcollege.com"
                                 class="flex items-center justify-center gap-3 w-full bg-slate-100 text-brand-500-variant py-3 rounded font-label-bold text-sm hover:bg-slate-200 transition-colors">
+
                                 <span class="material-symbols-outlined text-sm">mail</span>
                                 Enquire via Email
-                            </button>
+                            </a>
                         </div>
                         <div class="mt-8 sm:mt-10 lg:mt-12 pt-8 sm:pt-10 lg:pt-12 border-t border-slate-100 space-y-8">
                             <div class="flex items-center gap-3 mb-6">
