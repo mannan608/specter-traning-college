@@ -164,10 +164,9 @@
                                 </div>
                             </div>
                             <div class="md:w-1/3">
-                                <img alt="Hospitality professional in action"
-                                    class="rounded-lg shadow-lg w-full h-full object-cover"
-                                    data-alt="professional male manager in a crisp suit standing in a modern luxury hotel lobby, blurred background, warm interior lighting"
-                                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuAbBIEMlEEqMe0sC6KvqTxAyaFamqAN-mswEaNfIEQl3K30Gu_ThLpKe5HtIxY2I5w0Xm0eTBjyc1whn72mktjoT9AEbIVLyQUi2Ciubqv0hgS9Rny6Xaw1iKJ4h0EoTslKXMaYzi2HS5891hSLG_a0rVUH2FDXEIM0wtPKaYNFbammzks12W3GtTOoyRg52fol-jzsnZUuT5wLpbWmZUQep3Zql0zZHwmzez2sVjGZI1j9OFuBGlIUNY09cgX_ChNZeuCRRkxcAQ">
+                                <img src="{{ asset('frontend-img/' . $course['image']) }}"
+                                    alt="{{ $course['title'] ?? 'Course Image' }}"
+                                    class="rounded-lg shadow-lg w-full h-full object-cover">
                             </div>
                         </div>
                     </section>

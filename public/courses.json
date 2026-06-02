@@ -11,7 +11,7 @@
       "delivery": ["Online", "Campus"],
       "funding": null,
       "features": ["Career Ready Skills"],
-      "image": "business.webp",
+      "image": "certificate-iii-in-business.webp",
       "description": "The Certificate III in Business provides learners with practical workplace skills and foundational business knowledge required in modern office environments. This qualification prepares students for administrative, customer service, and operational support roles across various industries."
     },
     {
@@ -25,7 +25,7 @@
       "delivery": ["Online", "Campus"],
       "funding": null,
       "features": ["Leadership Focus"],
-      "image": "business.webp",
+      "image": "certificate-iv-in-business.webp",
       "description": "The Certificate IV in Business develops advanced business administration and operational skills for individuals seeking supervisory or specialised business roles."
     },
     {
@@ -39,7 +39,7 @@
       "delivery": ["Workplace", "Campus"],
       "funding": null,
       "features": ["Industry Training"],
-      "image": "manufacturing.webp",
+      "image": "certificate-iii-in-process-manufacturing.webp",
       "description": "The Certificate III in Process Manufacturing provides technical and operational skills for individuals working in manufacturing and production industries."
     },
     {
@@ -53,7 +53,7 @@
       "delivery": ["Workplace"],
       "funding": null,
       "features": ["Customer Service Training"],
-      "image": "retail.webp",
+      "image": "certificate-ii-in-retail-services.webp",
       "description": "This qualification provides entry-level retail skills for individuals seeking employment in customer service and retail support roles."
     },
     {

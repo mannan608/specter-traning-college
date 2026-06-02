@@ -169,10 +169,9 @@
                                 </div>
                             </div>
                             <div class="md:w-1/3">
-                                <img alt="Hospitality professional in action"
-                                    class="rounded-lg shadow-lg w-full h-full object-cover"
-                                    data-alt="professional male manager in a crisp suit standing in a modern luxury hotel lobby, blurred background, warm interior lighting"
-                                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuAbBIEMlEEqMe0sC6KvqTxAyaFamqAN-mswEaNfIEQl3K30Gu_ThLpKe5HtIxY2I5w0Xm0eTBjyc1whn72mktjoT9AEbIVLyQUi2Ciubqv0hgS9Rny6Xaw1iKJ4h0EoTslKXMaYzi2HS5891hSLG_a0rVUH2FDXEIM0wtPKaYNFbammzks12W3GtTOoyRg52fol-jzsnZUuT5wLpbWmZUQep3Zql0zZHwmzez2sVjGZI1j9OFuBGlIUNY09cgX_ChNZeuCRRkxcAQ">
+                                <img src="{{ asset('frontend-img/' . $course['image']) }}"
+                                    alt="{{ $course['title'] ?? 'Course Image' }}"
+                                    class="rounded-lg shadow-lg w-full h-full object-cover">
                             </div>
                         </div>
                     </section>
@@ -218,8 +217,7 @@
                                     operations</p>
                             </div>
 
-                            <div
-                                class="flex items-center gap-4 bg-white p-4 sm:p-5 lg:p-6 border border-slate-200 rounded">
+                            <div class="flex items-center gap-4 bg-white p-4 sm:p-5 lg:p-6 border border-slate-200 rounded">
                                 <div
                                     class="w-10 h-10 rounded-full bg-brand-500/10 flex items-center justify-center shrink-0">
                                     <span class="material-symbols-outlined text-brand-500">gavel</span>
@@ -292,11 +290,11 @@
                         </div>
                         <!-- Secondary Actions -->
                         <div class="grid grid-cols-1 gap-4">
-                             <a href="{{ route('download.brochure') }}"
+                            <a href="{{ route('download.brochure') }}"
                                 class="flex items-center justify-center gap-3 w-full border border-primary-container text-primary-container py-3 rounded font-label-bold text-sm hover:bg-slate-50 transition-colors">
                                 <span class="material-symbols-outlined text-sm">download</span>
                                 Download Brochure
-                        </a>
+                            </a>
                             <a href="mailto:enquiry@spectertrainingcollege.com"
                                 class="flex items-center justify-center gap-3 w-full bg-slate-100 text-brand-500-variant py-3 rounded font-label-bold text-sm hover:bg-slate-200 transition-colors">
 
