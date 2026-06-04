@@ -67,7 +67,7 @@
       "delivery": ["Workplace"],
       "funding": null,
       "features": ["Traineeship Available"],
-      "image": "retail.webp",
+      "image": "certificate-iii-in-retail-services.webp",
       "description": "The Certificate III in Retail provides practical retail knowledge and customer service skills required for retail sales and operations roles."
     },
     {
@@ -81,7 +81,7 @@
       "delivery": ["Online", "Workplace"],
       "funding": null,
       "features": ["Management Skills"],
-      "image": "retail.webp",
+      "image": "certificate-iv-in-retail-services.webp",
       "description": "This qualification prepares learners for leadership and management roles within retail businesses by developing operational, customer service, and team management skills."
     },
     {
@@ -95,7 +95,7 @@
       "delivery": ["Campus", "Workplace"],
       "funding": null,
       "features": ["Entry-Level Hospitality Skills"],
-      "image": "hospitality.webp",
+      "image": "certificate-ii-in-hospitality.webp",
       "description": "The Certificate II in Hospitality provides entry-level skills and knowledge for individuals looking to start a career in the hospitality industry.."
     },
     {
@@ -109,7 +109,7 @@
       "delivery": ["Campus", "Workplace"],
       "funding": "Government Funded",
       "features": ["Practical Training"],
-      "image": "hospitality.webp",
+      "image": "certificate-iii-in-hospitality.webp",
       "description": "This qualification provides the practical skills and knowledge required to work effectively in hospitality environments such as restaurants, hotels, cafés, and catering businesses."
     },
     {
@@ -123,7 +123,7 @@
       "delivery": ["Campus", "Online"],
       "funding": null,
       "features": ["Supervisory Training"],
-      "image": "hospitality.webp",
+      "image": "certificate-iv-in-hospitality.webp",
       "description": "The Certificate IV in Hospitality is designed for individuals seeking supervisory or leadership roles in the hospitality industry. This qualification develops operational, leadership, and customer service skills for hotels, restaurants, cafés, and event venues."
     }
   ]
