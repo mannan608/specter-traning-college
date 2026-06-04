@@ -10,7 +10,7 @@
 
             <div class="flex flex-col md:flex-row gap-2 md:gap-10 items-center">
                 <div class="w-full h-auto rounded">
-                    <img src="{{ asset('frontend-img/eligibility.jpg') }}" class="rounded" alt="check eligibility">
+                    <img src="{{ asset('frontend-img/legacy-of-quality.webp') }}" class="rounded" alt="check eligibility">
                 </div>
                <iframe src="https://api.leadconnectorhq.com/widget/survey/fiJUZlVsbbtUgA4nzMP1" style="border:none;width:100%;" scrolling="no" id="fiJUZlVsbbtUgA4nzMP1" title="survey"></iframe>
             </div>         
