@@ -73,8 +73,7 @@
                 </div>
                 <div class="space-y-6">
                     <h2 class="font-headline-md text-headline-md text-slate-900">Apply for Admission</h2>
-                    <p class="text-slate-500 font-body-md">Fill out the form below and an education consultant will contact
-                        you within 24 hours.</p>
+                    <p class="text-slate-500 font-body-md">Fill out the form below and enrollment team will contact you within 24 hours.</p>
                     @include('frontend.pages.partials.admission-form')
 
                 </div>
@@ -106,7 +105,7 @@
                 </div>
                 <a class="text-brand-600 font-semibold text-sm sm:text-base flex items-center gap-2 group border-b border-brand-600/0 hover:border-brand-600 transition-all"
                     href="/qualifications">
-                    View All Qualifications
+                    All Courses
                     <span aria-hidden="true" class="text-base">→</span>
                 </a>
             </div>
