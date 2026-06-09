@@ -13,7 +13,9 @@
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
 </head>
 <body class="min-h-screen flex flex-col">
-    
+       {{-- preloader --}}
+    <x-preloader/>    
+    {{-- preloader end --}}
     @include('frontend.layouts.navbar')
 
     <main class="flex-grow">
