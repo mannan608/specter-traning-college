@@ -14,7 +14,7 @@ class FrontendController extends Controller
     public function landingPage()
     {
         // Get only the first 3 courses for the landing page
-        $courses = $this->getCourses()->take(3);
+        $courses = $this->getCourses();
 
         
         return view('frontend.pages.home', [

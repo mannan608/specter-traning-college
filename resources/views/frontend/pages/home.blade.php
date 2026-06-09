@@ -103,12 +103,8 @@
                     <p class="text-sm sm:text-base  text-slate-600">Our programs are designed by industry experts to
                         provide practical, immediate value to your professional career.</p>
                 </div>
-                <a class="text-brand-600 font-semibold text-sm sm:text-base flex items-center gap-2 group border-b border-brand-600/0 hover:border-brand-600 transition-all"
-                    href="/qualifications">
-                    All Courses
-                    <span aria-hidden="true" class="text-base">→</span>
-                </a>
             </div>
+            
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 md:gap-6 gap-4  mt-6 md:mt-8">
                 @include('frontend.pages.partials.qualification-cards', ['courses' => $courses])
             </div>

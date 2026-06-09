@@ -10,7 +10,7 @@
         'certificate-iii-in-hospitality' => 'aluvYpKUihTVz99YEmOO',
         'certificate-iv-in-hospitality' => 'WJLXLqpYrV01wzI4Z6hO',
     ];
-@endphp
+   @endphp
 
 
 @forelse($courses as $course)
