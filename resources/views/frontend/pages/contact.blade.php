@@ -47,7 +47,7 @@
     </div>
     <h3 class="text-gray-900 font-semibold text-base mb-2 relative z-10">Address</h3>
     <p class="text-gray-500 text-sm leading-7 relative z-10">
-      PO Box 683<br>MOOREBANK, NSW, 1875
+      33 Gemas St<br>HOLSWORTHY NSW 2173
     </p>
   </div>
 
@@ -126,11 +126,12 @@
         <!-- Map -->
         <div class="rounded-2xl overflow-hidden shadow-md border">
 
-           <iframe
+           {{-- <iframe
     class="w-full h-[300px] sm:h-[400px] lg:h-[500px]"
     src="https://maps.google.com/maps?q=PO%20Box%20683,%20MOOREBANK,%20NSW,%201875&t=&z=13&ie=UTF8&iwloc=&output=embed"
     loading="lazy">
-</iframe>
+</iframe> --}}
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3309.4813980170065!2d150.94708967658318!3d-33.954464223502484!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6b12957cbf878e11%3A0xc4b67a92a224dd2e!2s33%20Gemas%20St%2C%20Holsworthy%20NSW%202173%2C%20Australia!5e0!3m2!1sen!2sbd!4v1783597951985!5m2!1sen!2sbd" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
 
         </div>
 
