@@ -290,12 +290,12 @@
                         </div>
                         <!-- Secondary Actions -->
                         <div class="grid grid-cols-1 gap-4">
-                            <a href="{{ route('download.brochure') }}"
+                            {{-- <a href="{{ route('download.brochure') }}"
                                 class="flex items-center justify-center gap-3 w-full border border-primary-container text-primary-container py-3 rounded font-label-bold text-sm hover:bg-slate-50 transition-colors">
                                 <span class="material-symbols-outlined text-sm">download</span>
                                 Download Brochure
-                            </a>
-                            <a href="mailto:enquiry@spectertrainingcollege.com"
+                            </a> --}}
+                            <a href="mailto:info@spectertraining.edu.au"
                                 class="flex items-center justify-center gap-3 w-full bg-slate-100 text-brand-500-variant py-3 rounded font-label-bold text-sm hover:bg-slate-200 transition-colors">
 
                                 <span class="material-symbols-outlined text-sm">mail</span>

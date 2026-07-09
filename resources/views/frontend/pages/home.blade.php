@@ -139,10 +139,10 @@
                     Apply for Enrollment
                 </button>
 
-                <a href="{{ route('download.brochure') }}"
+                {{-- <a href="{{ route('download.brochure') }}"
                     class="bg-transparent text-white border border-slate-600 px-10 py-4 font-label-bold text-lg hover:bg-white/5 rounded-full transition-colors flex items-center justify-center gap-2">
                     Download Brochure
-                </a>
+                </a> --}}
             </div>
         </div>
     </section>

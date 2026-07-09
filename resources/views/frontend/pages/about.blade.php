@@ -224,7 +224,7 @@
                     </p>
 
 
-                    <div class=" p-6 rounded-xl border bg-gray-100">
+                    {{-- <div class=" p-6 rounded-xl border bg-gray-100">
 
                         <h4 class="font-semibold mb-2">
                             Want to know more?
@@ -242,7 +242,7 @@
 
                         </a>
 
-                    </div>
+                    </div> --}}
 
                 </div>
 
