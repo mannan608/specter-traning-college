@@ -63,7 +63,7 @@
     </div>
     <h3 class="text-gray-900 font-semibold text-base mb-2 relative z-10">Phone</h3>
     <a href="tel:0421661998" class="text-gray-500 text-sm hover:text-emerald-600 transition-colors duration-200 relative z-10 inline-block">
-      0421 661 998
+      0424 469 199
     </a>
   </div>
 

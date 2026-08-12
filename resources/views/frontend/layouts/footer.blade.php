@@ -16,7 +16,7 @@
 
                 <li class="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-2">
                     <span class="font-semibold text-slate-700">Call:</span>
-                    0421 661 998
+                    0424 469 199
                 </li>
 
                 <li class="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-2">
