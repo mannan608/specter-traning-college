@@ -257,19 +257,19 @@
                         <div class="space-y-3 sm:space-y-4">
 
                             @foreach ([
-            [
-                'title' => 'Diploma of Community Services',
-                'level' => 'Next Level',
-            ],
-            [
-                'title' => 'Diploma of Nursing',
-                'level' => 'Further Study Pathway',
-            ],
-            [
-                'title' => 'Advanced Diploma of Community Sector Management',
-                'level' => 'Advanced Level',
-            ],
-        ] as $pathway)
+                                [
+                                    'title' => 'Diploma of Community Services',
+                                    'level' => 'Next Level',
+                                ],
+                                [
+                                    'title' => 'Diploma of Nursing',
+                                    'level' => 'Further Study Pathway',
+                                ],
+                                [
+                                    'title' => 'Advanced Diploma of Community Sector Management',
+                                    'level' => 'Advanced Level',
+                                ],
+                            ] as $pathway)
                                 <div
                                     class="bg-white border-l-4 border-brand-500 p-4 sm:p-5 lg:p-6 shadow-sm rounded-r flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 sm:gap-6">
 
