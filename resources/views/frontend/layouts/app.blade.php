@@ -27,5 +27,6 @@
     @include('frontend.layouts.footer')
 
     @stack('scripts')
+    <script src="https://widgets.leadconnectorhq.com/loader.js" data-resources-url="https://widgets.leadconnectorhq.com/chat-widget/loader.js" data-widget-id="6afe749f4d224b0264237550"></script>
 </body>
 </html>
