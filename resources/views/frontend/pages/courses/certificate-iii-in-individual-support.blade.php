@@ -59,13 +59,6 @@
 
         <div class="prose prose-slate max-w-none">
 
-            <div class="mb-4">
-                <span class="inline-flex items-center gap-2 bg-brand-500/10 text-brand-500 px-4 py-2 rounded-full text-xs sm:text-sm font-semibold">
-                    <span class="material-symbols-outlined text-base">verified</span>
-                    CHC33021 Nationally Recognised
-                </span>
-            </div>
-
             <p class="font-body-lg text-brand-500-variant text-sm sm:text-base lg:text-lg leading-relaxed">
                 The Certificate III in Individual Support provides learners with the essential knowledge and practical skills required to support individuals in aged care, disability care and community support environments. This qualification prepares students to assist people with their daily living activities, promote independence, maintain personal wellbeing and deliver person-centred care.
             </p>
