@@ -9,6 +9,10 @@
         'certificate-ii-in-hospitality' => 'YDsSmrKxXhpJ171svwqR',
         'certificate-iii-in-hospitality' => 'aluvYpKUihTVz99YEmOO',
         'certificate-iv-in-hospitality' => 'WJLXLqpYrV01wzI4Z6hO',
+        'certificate-iii-in-individual-support' => 'v5Y5TFX7nj4IQj5qAhA2',
+        'certificate-iv-in-ageing-support' => 'fhorwlG4obddc5vH2ELa',
+        'certificate-iv-in-disability-support' => 'wtGQSGjzdUcfU2Hqm2d5',
+        'diploma-of-community-services' => 'CjqB1bxCSIBAmYk3Qx97',
     ];
    @endphp
 

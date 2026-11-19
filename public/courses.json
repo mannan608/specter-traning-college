@@ -125,6 +125,83 @@
       "features": ["Supervisory Training"],
       "image": "certificate-iv-in-hospitality.webp",
       "description": "The Certificate IV in Hospitality is designed for individuals seeking supervisory or leadership roles in the hospitality industry. This qualification develops operational, leadership, and customer service skills for hotels, restaurants, cafés, and event venues."
-    }
-  ]
+    },
+
+  {
+    "id": 10,
+    "code": "CHC33021",
+    "title": "Certificate III in Individual Support",
+    "slug": "certificate-iii-in-individual-support",
+    "industry": "Community Services",
+    "level": "Certificate III",
+    "duration": "12 Months",
+    "delivery": ["Campus", "Online"],
+    "funding": null,
+    "features": [
+      "Ageing Support",
+      "Disability Support",
+      "Person-Centred Care",
+      "Practical Work Placement"
+    ],
+    "image": "certificate-iii-in-individual.png",
+    "description": "The Certificate III in Individual Support prepares students for careers supporting older people and people with disabilities. Develop practical skills in personal care, individualised support, safe work practices and promoting independence, dignity and wellbeing in residential, home and community care settings."
+  },
+  {
+    "id": 11,
+    "code": "CHC43015",
+    "title": "Certificate IV in Ageing Support",
+    "slug": "certificate-iv-in-ageing-support",
+    "industry": "Community Services",
+    "level": "Certificate IV",
+    "duration": "12 Months",
+    "delivery": ["Campus", "Online"],
+    "funding": null,
+    "features": [
+      "Specialised Aged Care",
+      "Individualised Care Planning",
+      "Residential Care Support",
+      "Leadership Skills"
+    ],
+    "image": "certificate-iv-in-ageing-support.png",
+    "description": "The Certificate IV in Ageing Support develops specialised skills for working with older people across residential, home and community-based care environments. Students learn to coordinate individualised support, promote healthy ageing, maintain quality care standards and support the independence, safety and wellbeing of older people."
+  },
+  {
+    "id": 12,
+    "code": "CHC43121",
+    "title": "Certificate IV in Disability Support",
+    "slug": "certificate-iv-in-disability-support",
+    "industry": "Community Services",
+    "level": "Certificate IV",
+    "duration": "12 Months",
+    "delivery": ["Campus", "Online"],
+    "funding": null,
+    "features": [
+      "Person-Centred Support",
+      "Complex Needs Support",
+      "Community Participation",
+      "Team Coordination"
+    ],
+    "image": "certificate-iv-in-disability-support.png",
+    "description": "The Certificate IV in Disability Support prepares students to support people with disabilities in community settings and their own homes. Develop skills in person-centred care, supporting independence, implementing individualised plans, responding to complex needs and promoting social inclusion and wellbeing."
+  },
+  {
+    "id": 13,
+    "code": "CHC52025",
+    "title": "Diploma of Community Services",
+    "slug": "diploma-of-community-services",
+    "industry": "Community Services",
+    "level": "Diploma",
+    "duration": "18 Months",
+    "delivery": ["Campus", "Online"],
+    "funding": null,
+    "features": [
+      "Case Management",
+      "Community Program Coordination",
+      "Leadership and Supervision",
+      "100 Hours Work Placement"
+    ],
+    "image": "diploma-of-community-services.png",
+    "description": "The Diploma of Community Services prepares students for advanced roles in community service organisations, government-funded programs and not-for-profit sectors. Develop specialised skills in case management, person-centred service delivery, community development, program coordination and team leadership, with opportunities to specialise in areas such as child, youth and family welfare, social housing and family violence support."
+  }
+]
 }
